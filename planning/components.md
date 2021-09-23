@@ -13,6 +13,8 @@
 - BattleTheme
 - AddGoalButton
 - Calendar
+- Login
+- Register
 
 ### User
 - State:
@@ -75,5 +77,10 @@
 
 ### Calendar
 - State:
+- Props:
+- Used by:
+
+## Login
+- State: email, password
 - Props:
 - Used by:
