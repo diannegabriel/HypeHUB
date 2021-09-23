@@ -31,7 +31,7 @@ h3 {
   width: 600px;
   height: 100px;
   margin: 20px 20px 10px 20px;
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -44,7 +44,7 @@ h3 {
   height: 100px;
   left: 45%;
   margin: 20px 20px 10px 20px;
-  position: fixed;
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -185,6 +185,11 @@ h3 {
   border: 7px solid transparent;
 }
 
+.master-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
 #main-container {
   /* background-color: gray; */
   padding: 30px;
@@ -245,7 +250,7 @@ h3 {
 .burger input[type="checkbox"]{
   width: 42px;
   height: 42px;
-  position: absolute;
+  position: fixed;
   top: 15px;
   right: 14px;
   display: block;
@@ -257,7 +262,7 @@ h3 {
 .burgerlines{
   width: 40px;
   height: 32px;
-  position: absolute;
+  position: fixed;
   top: 25px;
   right: 20px;
   z-index: 3;
@@ -286,7 +291,8 @@ h3 {
   background: #fff;
   /* margin-left: 8px; */
   right: 0;
-  margin-top: -9px;
+  top: 0;
+  /* margin-top: -9px; */
   color: #232323;
   padding-bottom: 1rem;
   max-width: 400px;
@@ -295,7 +301,7 @@ h3 {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
   z-index: 2;
-  position: absolute;
+  position: fixed;
 }
 
 .burger input[type="checkbox"]:checked ~ .menu-items{
