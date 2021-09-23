@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/diannegabriel/HypeHUB#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-sass": "^6.0.1"
   }
 }
