@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/diannegabriel/HypeHUB/issues"
   },
-  "homepage": "https://github.com/diannegabriel/HypeHUB#readme"
+  "homepage": "https://github.com/diannegabriel/HypeHUB#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
