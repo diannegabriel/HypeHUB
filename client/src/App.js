@@ -28,6 +28,56 @@ function App() {
             <i className="far fa-calendar-alt fa-3x"></i>
           </article>
         </section>
+
+        <section class="burger">
+          <input type="checkbox" />
+          <div class="burgerlines">
+            <span class="lines line1"></span>
+            <span class="lines line2"></span>
+            <span class="lines line3"></span>
+          </div>
+          <div class="skills menu-items">
+            <div class="skills-bar">
+              <div class="bar">
+                <div class="info">
+                  <span>Strength</span>
+                </div>
+                <div class="progress-line"><span class="strength"></span></div>
+                <div class="bar">
+                  <div class="info">
+                    <span>Vitality</span>
+                  </div>
+                  <div class="progress-line"><span class="vitality"></span></div>
+                  <div class="bar">
+                    <div class="info">
+                      <span>Knowledge</span>
+                    </div>
+                    <div class="progress-line"><span class="knowledge"></span></div>
+                    <div class="bar">
+                      <div class="info">
+                        <span>Social</span>
+                      </div>
+                      <div class="progress-line"><span class="social"></span></div>
+                      <div class="bar">
+                        <div class="info">
+                          <span>Willpower</span>
+                        </div>
+                        <div class="progress-line"><span class="willpower"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="total-goals">
+              28/35 Success Missions!
+            </div>
+            <div class="login-streak">
+              <img class="star-drop" src="https://emoji.gg/assets/emoji/1807-acnh-starfragment.png" />
+              You've logged in 5 days in a row!
+            </div>
+          </div>
+        </section>
       </header>
       
       <main id="main-container">
