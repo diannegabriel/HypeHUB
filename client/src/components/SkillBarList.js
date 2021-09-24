@@ -9,30 +9,30 @@ export default function SkillBarList() {
           <span>Strength</span>
         </div>
         <div className="progress-line"><span className="strength"></span></div>
-        <div className="bar">
+      </div>
+      <div className="bar">
           <div className="info">
             <span>Vitality</span>
           </div>
           <div className="progress-line"><span className="vitality"></span></div>
-          <div className="bar">
-            <div className="info">
-              <span>Knowledge</span>
-            </div>
-            <div className="progress-line"><span className="knowledge"></span></div>
-            <div className="bar">
-              <div className="info">
-                <span>Social</span>
-              </div>
-              <div className="progress-line"><span className="social"></span></div>
-              <div className="bar">
-                <div className="info">
-                  <span>Willpower</span>
-                </div>
-                <div className="progress-line"><span className="willpower"></span></div>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div className="bar">
+        <div className="info">
+          <span>Knowledge</span>
         </div>
+        <div className="progress-line"><span className="knowledge"></span></div>
+      </div>
+      <div className="bar">
+        <div className="info">
+          <span>Social</span>
+        </div>
+        <div className="progress-line"><span className="social"></span></div>
+      </div>
+      <div className="bar">
+        <div className="info">
+          <span>Willpower</span>
+        </div>
+        <div className="progress-line"><span className="willpower"></span></div>
       </div>
     </div>
   );
