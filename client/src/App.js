@@ -1,4 +1,5 @@
 import './App.scss';
+import BattleTheme from './components/BattleTheme';
 // import Login from './components/Login';
 import Header from './components/Header';
 
@@ -7,7 +8,6 @@ function App() {
     // <Login />
     <>
       <Header />
-      
       <main id="main-container">
         <section className="goals-box">
           <article className="daily goals">
@@ -85,9 +85,7 @@ function App() {
         </section>
       </main>
 
-      <footer id="battle-theme">
-        Battle Theme!
-      </footer>
+      <BattleTheme />
     </>
   );
 }
