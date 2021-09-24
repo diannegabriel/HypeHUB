@@ -1,0 +1,164 @@
+.skills-bar {
+  margin-top: 10px;
+  padding: 2px 0px 5px 25px;
+  /* border: 1px solid #bbb; */
+  border-radius: 10px;
+  background-color: rgba(156, 156, 156, 0.4);;
+  width: 90%;
+}
+
+.skills-bar .bar {
+  margin: 15px 0;
+}
+
+.skills-bar .bar .info span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.skills-bar .bar .info {
+  margin-bottom: 8px;
+  color: #07374a;
+}
+
+.skills-bar .bar .progress-line {
+  position: relative;
+  height: 10px;
+  width: 90%;
+  background: #f8f7f7;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress-line span {
+  position: absolute;
+  background: #74188b;
+  height: 100%;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.progress-line .strength {
+  width: 80%;
+}
+.progress-line .vitality {
+  width: 70%;
+}
+.progress-line .knowledge {
+  width: 82%;
+}
+.progress-line .social {
+  width: 62%;
+}
+.progress-line .willpower {
+  width: 90%;
+}
+
+.bar .progress-line span::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  right: 0;
+  top: -14px;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-style: #f0f0f0;
+  border-top-color: #07374a;
+}
+
+.bar .progress-line span::after {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  color: #f0f0f0;
+  font-size: 12px;
+  font-weight: 700;
+  background: #07374a;
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+
+.skills-bar .bar .progress-line {
+  position: relative;
+  height: 10px;
+  width: 90%;
+  background: #f8f7f7;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress-line span {
+  position: absolute;
+  background: #74188b;
+  height: 100%;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.progress-line .strength {
+  width: 80%;
+}
+.progress-line .vitality {
+  width: 70%;
+}
+.progress-line .knowledge {
+  width: 82%;
+}
+.progress-line .social {
+  width: 62%;
+}
+.progress-line .willpower {
+  width: 90%;
+}
+
+.bar .progress-line span::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  right: 0;
+  top: -14px;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-style: #f0f0f0;
+  border-top-color: #07374a;
+}
+
+.bar .progress-line span::after {
+  position: absolute;
+  right: 0;
+  top: -28px;
+  color: #f0f0f0;
+  font-size: 12px;
+  font-weight: 700;
+  background: #07374a;
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+
+.progress-line .strength::after {
+  content: "80%";
+}
+.progress-line .vitality::after {
+  content: "70%";
+}
+.progress-line .knowledge::after {
+  content: "82%";
+}
+.progress-line .social::after {
+  content: "62%";
+}
+.progress-line .willpower::after {
+  content: "90%";
+}
