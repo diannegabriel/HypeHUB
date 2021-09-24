@@ -1,0 +1,167 @@
+#user-container {
+  background-color: antiquewhite;
+  height: 150px;
+}
+
+.master-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#user-bar {
+  background-color: rgb(160, 160, 160);
+  width: 600px;
+  height: 100px;
+  margin: 20px 20px 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatar {
+  position: relative;
+  width: 80px; 
+  height: 46.19px;
+  margin: 0px 15px 0px 20px;
+  background-image: url(https://mingklebooks.files.wordpress.com/2020/04/tobi-with-cookie.jpg);
+  background-size: auto 92.3760px;
+  background-position: center;
+}
+
+.hexTop,
+.hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 56.57px;
+  height: 56.57px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 11.72px;
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 80.0000px;
+  height: 46.188021535170066px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+
+.hexTop {
+  top: -28.2843px;
+}
+
+.hexTop:after {
+  background-position: center top;
+}
+
+.hexBottom {
+  bottom: -28.2843px;
+}
+
+.hexBottom:after {
+  background-position: center bottom;
+}
+
+.avatar:after {
+  content: "";
+  position: absolute;
+  top: 0.0000px;
+  left: 0;
+  width: 80.0000px;
+  height: 46.1880px;
+  z-index: 2;
+  background: inherit;
+}
+
+.user {
+  /* border: 2px solid #bbb; */
+  display: flex;
+  flex-basis: 85%;
+  flex-direction: column;
+  height: 90%;
+  justify-content: space-evenly;
+}
+.user-info {
+  /* border: 2px solid #bbb; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.username {
+  font-family: 'Tourney', cursive;
+  font-size: 1.5em;
+  font-weight: 900;
+  margin: 0px;
+}
+.user-level {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  margin: 0px 20px 0px 0px;
+}
+
+.exp-bar .bar .user-progress-line {
+  position: relative;
+  height: 20px;
+  width: 90%;
+  background: #f0f0f0;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .user-progress-line span {
+  position: absolute;
+  background: #2a9d8f;
+  height: 100%;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.user-progress-line .user-exp{
+  width: 80%;
+}
+
+.bar .user-progress-line span::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  right: 0;
+  top: -14px;
+  width: 0;
+  border: 7px solid transparent;
+}
+
+#nav-bar {
+  background-color: rgb(160, 160, 160);
+  width: 200px;
+  height: 100px;
+  left: 45%;
+  margin: 20px 20px 10px 20px;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
