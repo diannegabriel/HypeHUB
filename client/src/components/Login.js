@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
 import "./Login.scss";
-import SlideDown from "./SlideDown"
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -36,38 +35,40 @@ export default function Login() {
 				{/* <i class="icon-navi fas fa-angle-double-down"></i> */}
         <Button
         onClick={() => setOpen(!open)}
-        // aria-controls="example-collapse-text"
+        aria-controls="example-collapse-text"
         aria-expanded={open}
         className="slide-down-arrow"
       >
         <i class="icon-navi fas fa-angle-double-down"></i>
       </Button>
       <div className="Login">
-      <Collapse in={open}>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group size="lg" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              autoFocus
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group size="lg" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
-            Login
-          </Button>
-        </Form>
-      </Collapse>
-    </div>
+        <Collapse in={open}>
+          <Form onSubmit={handleSubmit}>
+            <h3>Login</h3>
+            <Form.Group size="lg" controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                autoFocus
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group size="lg" controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button block size="lg" type="submit" disabled={!validateForm()}>
+              Login
+            </Button>
+            <p>New user?</p>
+          </Form>
+        </Collapse>
+        </div>
 			</div>
 		</div>
     
