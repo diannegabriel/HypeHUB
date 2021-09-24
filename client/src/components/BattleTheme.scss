@@ -1,0 +1,15 @@
+#battle-theme {
+  bottom: 0px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  left: 50%;
+  height: 50px;
+  transform: translate(-50%, 0);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px;
+  background-color: #264653;
+  color: #fff; 
+}

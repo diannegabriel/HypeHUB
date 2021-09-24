@@ -1,0 +1,92 @@
+.burger input[type="checkbox"]{
+  width: 42px;
+  height: 42px;
+  position: fixed;
+  top: 15px;
+  right: 14px;
+  display: block;
+  z-index: 4;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.burgerlines{
+  width: 40px;
+  height: 32px;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burgerlines .lines{
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 10px;
+}
+
+.burger{
+  position: relative;
+}
+
+.menu-items{
+  padding-top: 65px;
+  transform: translate(110%);
+  transition: transform 0.5s ease-in-out;
+  padding-left: 28px;
+  background: #fff;
+  right: 0;
+  top: 0;
+  color: #232323;
+  padding-bottom: 1rem;
+  max-width: 400px;
+  width: 90%;
+  height: 115vh;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  z-index: 2;
+  position: fixed;
+}
+
+.burger input[type="checkbox"]:checked ~ .menu-items{
+  display: block;
+  transform: translate(0%);
+  background: #fff;
+}
+
+.burger input[type="checkbox"]:checked ~ .burgerlines .lines{
+  background: #232323;
+}
+
+.burgerlines .line1{
+ transform-origin: 0% 0%;
+ transition: transform 0.3s ease-in-out;    
+}
+
+.burgerlines .line3{ 
+ transform-origin: 0% 100%;
+ transition: transform 0.3s ease-in-out;  
+}
+
+.burger input[type="checkbox"]:checked ~ .burgerlines .line1{
+  transform: rotate(45deg);
+}
+
+.burger input[type="checkbox"]:checked ~ .burgerlines .line2{
+  display: none;
+}
+
+.burger input[type="checkbox"]:checked ~ .burgerlines .line3{
+  transform: rotate(-45deg);
+}
+
+.skills {
+  background: #fff;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
