@@ -28,6 +28,7 @@ async function dbCreateGoal(
       goalType,
       goalDescription,
       goalAttribute,
+      status: "incomplete"
     });
     console.log(`\nNew record created`);
   } catch (err) {
@@ -38,11 +39,11 @@ async function dbCreateGoal(
 }
 
 module.export = dbCreateGoal;
-//TEST
+// TEST
 // dbCreateGoal(
 //   "614de5c4646237d2b991f65c",
-//   "Get ripped",
-//   "daily",
-//   "I'd like to work on my general fitness",
-//   ["Strength", "Willpower"]
+//   "Get Vsmrt",
+//   "quest",
+//   "Read 50 books/year ",
+//   ["Knowledge", "Vitality"]
 // );
