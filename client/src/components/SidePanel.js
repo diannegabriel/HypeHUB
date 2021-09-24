@@ -1,5 +1,6 @@
 import React from "react";
 import './SidePanel.scss'
+import SkillBarList from "./SkillBarList";
 
 export default function SidePanel() {
   return (
@@ -11,38 +12,7 @@ export default function SidePanel() {
         <span className="lines line3"></span>
       </div>
       <div className="skills menu-items">
-        <div className="skills-bar">
-          <div className="bar">
-            <div className="info">
-              <span>Strength</span>
-            </div>
-            <div className="progress-line"><span className="strength"></span></div>
-            <div className="bar">
-              <div className="info">
-                <span>Vitality</span>
-              </div>
-              <div className="progress-line"><span className="vitality"></span></div>
-              <div className="bar">
-                <div className="info">
-                  <span>Knowledge</span>
-                </div>
-                <div className="progress-line"><span className="knowledge"></span></div>
-                <div className="bar">
-                  <div className="info">
-                    <span>Social</span>
-                  </div>
-                  <div className="progress-line"><span className="social"></span></div>
-                  <div className="bar">
-                    <div className="info">
-                      <span>Willpower</span>
-                    </div>
-                    <div className="progress-line"><span className="willpower"></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SkillBarList />
         <div className="total-goals">
           28/35 Success Missions!
         </div>

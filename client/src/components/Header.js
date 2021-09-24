@@ -1,7 +1,8 @@
 import React from "react";
 import './Header.scss'
-import User from './User'
 import Nav from './Nav'
+import SidePanel from './SidePanel'
+import User from './User'
 
 export default function Header() {
   return (
