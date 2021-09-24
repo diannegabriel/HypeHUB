@@ -1,7 +1,9 @@
 import './App.scss';
+// import Login from './components/Login';
 
 function App() {
   return (
+    // <Login />
     <>
       <header id="user-container">
         <section className="master-header">
@@ -29,51 +31,51 @@ function App() {
           </article>
         </section>
 
-        <section class="burger">
+        <section className="burger">
           <input type="checkbox" />
-          <div class="burgerlines">
-            <span class="lines line1"></span>
-            <span class="lines line2"></span>
-            <span class="lines line3"></span>
+          <div className="burgerlines">
+            <span className="lines line1"></span>
+            <span className="lines line2"></span>
+            <span className="lines line3"></span>
           </div>
-          <div class="skills menu-items">
-            <div class="skills-bar">
-              <div class="bar">
-                <div class="info">
+          <div className="skills menu-items">
+            <div className="skills-bar">
+              <div className="bar">
+                <div className="info">
                   <span>Strength</span>
                 </div>
-                <div class="progress-line"><span class="strength"></span></div>
-                <div class="bar">
-                  <div class="info">
+                <div className="progress-line"><span className="strength"></span></div>
+                <div className="bar">
+                  <div className="info">
                     <span>Vitality</span>
                   </div>
-                  <div class="progress-line"><span class="vitality"></span></div>
-                  <div class="bar">
-                    <div class="info">
+                  <div className="progress-line"><span className="vitality"></span></div>
+                  <div className="bar">
+                    <div className="info">
                       <span>Knowledge</span>
                     </div>
-                    <div class="progress-line"><span class="knowledge"></span></div>
-                    <div class="bar">
-                      <div class="info">
+                    <div className="progress-line"><span className="knowledge"></span></div>
+                    <div className="bar">
+                      <div className="info">
                         <span>Social</span>
                       </div>
-                      <div class="progress-line"><span class="social"></span></div>
-                      <div class="bar">
-                        <div class="info">
+                      <div className="progress-line"><span className="social"></span></div>
+                      <div className="bar">
+                        <div className="info">
                           <span>Willpower</span>
                         </div>
-                        <div class="progress-line"><span class="willpower"></span></div>
+                        <div className="progress-line"><span className="willpower"></span></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="total-goals">
+            <div className="total-goals">
               28/35 Success Missions!
             </div>
-            <div class="login-streak">
-              <img class="star-drop" src="https://emoji.gg/assets/emoji/1807-acnh-starfragment.png" />
+            <div className="login-streak">
+              <img className="star-drop" src="https://emoji.gg/assets/emoji/1807-acnh-starfragment.png" alt=""/>
               You've logged in 5 days in a row!
             </div>
           </div>
