@@ -38,4 +38,4 @@ async function dbReadUser(email, password) {
 
 module.export = dbReadUser;
 //TEST
-dbReadUser("billy@jo.com", "password");
+// dbReadUser("billy@jo.com", "password");
