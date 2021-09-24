@@ -9,11 +9,10 @@ import Login from './components/Login';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
     <Router>
       <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/dashboard" component={App} />
       </Switch>
     </Router>
   </React.StrictMode>,
