@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
+import Form from "react-bootstrap/Form";
 import "./Login.scss";
+import SlideDown from "./SlideDown"
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = useState(false);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -16,29 +19,58 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()} onClick="/">
-          Login
-        </Button>
-      </Form>
+    <>
+    <div class="demo">
+			<div class="logo">
+				<p class="hype">
+					Hype
+				</p>
+				<p class="hub">
+					HUB
+				</p>
+			</div>
+			<div class="body-text">
+				<p class="text">
+					Start your mission?
+				</p>
+				{/* <i class="icon-navi fas fa-angle-double-down"></i> */}
+        <Button
+        onClick={() => setOpen(!open)}
+        // aria-controls="example-collapse-text"
+        aria-expanded={open}
+        className="slide-down-arrow"
+      >
+        <i class="icon-navi fas fa-angle-double-down"></i>
+      </Button>
+      <div className="Login">
+      <Collapse in={open}>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              autoFocus
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button block size="lg" type="submit" disabled={!validateForm()}>
+            Login
+          </Button>
+        </Form>
+      </Collapse>
     </div>
+			</div>
+		</div>
+    
+    </>
   );
 }
