@@ -1,19 +1,21 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 const { MongoClient } = require("mongodb");
 
-//Helper
 async function returnData(client, email, password) {
+  //Return all matches for email
   const data = await client.db("hypeHub").collection("users").find({ email });
-  //fix this so it returns id
-  console.log(`DATA: ${JSON.stringify(data)}`);
+  //Confirm password matches
+  await data.forEach((el) => {
+    if (el.password === password) console.log(`\n ID STRING: \n ${el._id}`);
+    return el._id;
+  });
 }
 
 async function dbReadUser(email, password) {
-  // const dbKey = DB_KEY
-  // const dbPass = DB_PASS
+  const dbKey = process.env.DB_KEY;
+  const dbPass = process.env.DB_PASS;
 
-  // const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-  const uri = `mongodb+srv://dbUser:bestteamever@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -22,8 +24,8 @@ async function dbReadUser(email, password) {
 
   try {
     await client.connect();
-
-    await returnData(client, email, password);
+    //Check password and return id if there is a match
+    return await returnData(client, email, password);
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
@@ -32,5 +34,5 @@ async function dbReadUser(email, password) {
 }
 
 module.export = dbReadUser;
-
-dbReadUser("billy@jo.com", "password");
+//TEST
+// dbReadUser("billy@jo.com", "password");
