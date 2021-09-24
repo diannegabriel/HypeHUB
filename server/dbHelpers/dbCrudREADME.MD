@@ -8,8 +8,10 @@ new user ex:
 
 dbCreateUser("users", "billy bob", "password", "billy@bob.com")
 
+Note: All attributes default to null on creation.
+
 OUTPUT: 
-console log -> "New users record has been created" OR errors from mongo
+console log -> "New record created" OR errors from mongo
 
 ## dbReadUser
 
@@ -21,7 +23,7 @@ dbReadUser( "billy@bob.com", "password")
 
 OUTPUT: 
 
-{ id: "614cf433a82f6df297901979" }
+"614cf433a82f6df297901979"
 
 
 
