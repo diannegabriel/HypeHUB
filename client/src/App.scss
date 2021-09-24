@@ -52,22 +52,6 @@ h3 {
   border-radius: 5px;
 }
 
-#battle-theme {
-  bottom: 0px;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  left: 50%;
-  height: 50px;
-  transform: translate(-50%, 0);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 5px;
-  background-color: #264653;
-  color: #fff; 
-}
-
 .total-goals {
   margin-top: 20px;
   /* padding: 2px 0px 5px 0px; */
@@ -85,7 +69,6 @@ h3 {
   transform: scaleX(0);
   transform-origin: left;
   animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-
 }
 
 .login-streak {
