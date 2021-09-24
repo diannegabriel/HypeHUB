@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { dbReadUser } from "../dbHelpers/users/dbReadUser";
 import "./Login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(null);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -13,6 +15,7 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setUserId(dbReadUser(email, password));
   }
 
   return (
@@ -35,7 +38,13 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button
+          
+          size="lg"
+          type="submit"
+          disabled={!validateForm()}
+          onClick={handleSubmit}
+        >
           Login
         </Button>
       </Form>
