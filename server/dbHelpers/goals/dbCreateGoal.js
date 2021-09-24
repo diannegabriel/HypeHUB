@@ -1,7 +1,13 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
-async function dbCreateUser(name, password, email) {
+async function dbCreateGoal(
+  userId,
+  goalName,
+  goalType,
+  goalDescription,
+  goalAttribute
+) {
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -14,19 +20,14 @@ async function dbCreateUser(name, password, email) {
 
   try {
     await client.connect();
-    const collection = client.db("hypeHub").collection("users");
+    const collection = client.db("hypeHub").collection("goals");
+    //Create the goal w/ passed in values.
     await collection.insertOne({
-      name,
-      password,
-      email,
-      attributes: {
-        xp: null,
-        Strength: null,
-        Vitality: null,
-        Knowledge: null,
-        Social: null,
-        Willpower: null,
-      },
+      userId,
+      goalName,
+      goalType,
+      goalDescription,
+      goalAttribute,
     });
     console.log(`\nNew record created`);
   } catch (err) {
@@ -36,6 +37,12 @@ async function dbCreateUser(name, password, email) {
   }
 }
 
-module.export = dbCreateUser;
+module.export = dbCreateGoal;
 //TEST
-// dbCreateUser("users", "billy jo", "password", "billy@jo.com");
+// dbCreateGoal(
+//   "614de5c4646237d2b991f65c",
+//   "Get ripped",
+//   "daily",
+//   "I'd like to work on my general fitness",
+//   ["Strength", "Willpower"]
+// );

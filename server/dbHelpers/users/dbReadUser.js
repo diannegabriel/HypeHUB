@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
 async function returnData(client, email, password) {
@@ -6,8 +6,11 @@ async function returnData(client, email, password) {
   const data = await client.db("hypeHub").collection("users").find({ email });
   //Confirm password matches
   await data.forEach((el) => {
-    if (el.password === password) console.log(`\n ID STRING: \n ${el._id}`);
+    if (el.password === password) {
+      console.log(`\n ID STRING: \n ${el._id}`);
     return el._id;
+    }
+    return -1
   });
 }
 
