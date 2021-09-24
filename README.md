@@ -17,12 +17,12 @@ Users who like gaming perspective and want to improve themselves.
 
 ### Skateboard - Tuesday, Sept 28, 2021
 
-[] Login --> true/false
-[] EXP +1 on Goal completion
-[] 5 attributes (maybe nesting, maybe not) stored in users object
-[] Spotify (play plz)
-[] functional Goals component
-[] Add a Goal modal
+[] Login --> true/false\
+[] EXP +1 on Goal completion\
+[] 5 attributes (maybe nesting, maybe not) stored in users object\
+[] Spotify (play plz)\
+[] functional Goals component\
+[] Add a Goal modal\
 [] CRUD ops on Goal
 
 ## Links & Resources
