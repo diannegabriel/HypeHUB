@@ -1,17 +1,14 @@
 import React from "react";
 import './Header.scss'
 import User from './User'
+import Nav from './Nav'
 
 export default function Header() {
   return (
     <header id="user-container">
       <section className="master-header">
         <User />
-        
-        <article id="nav-bar">
-          <i className="fas fa-plus-circle fa-3x"></i>
-          <i className="far fa-calendar-alt fa-3x"></i>
-        </article>
+        <Nav />
       </section>
 
       <section className="burger">
