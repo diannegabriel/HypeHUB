@@ -1,27 +1,41 @@
-require('dotenv').config()
-const { MongoClient } = require('mongodb');
+require("dotenv").config({ path: "../.env" });
+const { MongoClient } = require("mongodb");
 
-const dbCreateUser =  (name, password, email) =>{
+async function dbCreateUser(name, password, email) {
+  const dbKey = process.env.DB_KEY;
+  const dbPass = process.env.DB_PASS;
 
-  // const dbKey = DB_KEY 
-  // const dbPass = DB_PASS
+  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
-  // const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-    const uri = `mongodb+srv://dbUser:bestteamever@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-  
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  client.connect(err => {
-    const collection = client.db("hypeHub").collection("users");
-    collection.insertOne({
-      name, 
-      password, 
-      email
-    })
-    .then(()=> console.log(`New users record has been created`))
-    .catch((err) => console.log(`\nERROR: \n${err}`))
-    .then (()=> client.close());
+  const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
-}
-module.export = dbCreateUser;
 
-dbCreateUser("users", "billy jo", "password", "billy@jo.com");
+  try {
+    await client.connect();
+    const collection = client.db("hypeHub").collection("users");
+    await collection.insertOne({
+      name,
+      password,
+      email,
+      attributes: {
+        xp: null,
+        Strength: null,
+        Vitality: null,
+        Knowledge: null,
+        Social: null,
+        Willpower: null,
+      },
+    });
+    console.log(`\nNew record created`);
+  } catch (err) {
+    console.log(`ERROR: \n ${err}`);
+  } finally {
+    await client.close();
+  }
+}
+
+module.export = dbCreateUser;
+//TEST
+// dbCreateUser("users", "billy jo", "password", "billy@jo.com");
