@@ -1,79 +1,78 @@
 import React from "react";
 import './GoalsList.scss'
+import GoalsListItem from "./GoalsListItem";
 
-export default function Goals() {
+export default function GoalsList() {
   return (
     <>
       <article className="daily goals">
         <h3>Daily Tasks</h3>
+        <GoalsListItem />
+        <li className="goal-entry">
+          Drink woter
+        </li>
+        <li className="goal-entry">
+          Workout
+        </li>
+        <li className="goal-entry">
+          Meditate
+        </li>
+        <li className="goal-entry">
+          Solve 20 katas
+        </li>
+        <li className="goal-entry">
+          Read 10 pages of a book
+        </li>
+        <li className="goal-entry">
+          Sleep 8 hrs
+        </li>
+        <li className="goal-entry">
+          Take meds
+        </li>
         <li className="goal-entry">
           Eat 1500 cals
         </li>
-        <div className="goal-entry">
+        <li className="goal-entry">
           Drink woter
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Workout
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Meditate
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Solve 20 katas
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Read 10 pages of a book
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Sleep 8 hrs
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Take meds
-        </div>
-        <div className="goal-entry">
-          Eat 1500 cals
-        </div>
-        <div className="goal-entry">
-          Drink woter
-        </div>
-        <div className="goal-entry">
-          Workout
-        </div>
-        <div className="goal-entry">
-          Meditate
-        </div>
-        <div className="goal-entry">
-          Solve 20 katas
-        </div>
-        <div className="goal-entry">
-          Read 10 pages of a book
-        </div>
-        <div className="goal-entry">
-          Sleep 8 hrs
-        </div>
-        <div className="goal-entry">
-          Take meds
-        </div>
+        </li>
       </article>
 
       <article className="short goals">
         <h3>Missions</h3>
-        <div className="goal-entry">
+        <li className="goal-entry">
           Lose 5lbs
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Go outside
-        </div>
+        </li>
       </article>
 
       <article className="long goals">
         <h3>Quests</h3>
-        <div className="goal-entry">
+        <li className="goal-entry">
           Go to Mars
-        </div>
-        <div className="goal-entry">
+        </li>
+        <li className="goal-entry">
           Become president
-        </div>
+        </li>
       </article>
     </>
   );
