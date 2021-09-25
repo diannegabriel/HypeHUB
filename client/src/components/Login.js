@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { dbReadUser } from "../dbHelpers/users/dbReadUser";
+import { dbReadUser } from "../../../server/dbHelpers/users/dbReadUser";
 import "./Login.scss";
 
 export default function Login() {
@@ -15,7 +15,9 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    
     setUserId(dbReadUser(email, password));
+    console.log(`\n---\n${JSON.stringify(userId)}`)
   }
 
   return (
@@ -39,7 +41,6 @@ export default function Login() {
           />
         </Form.Group>
         <Button
-          
           size="lg"
           type="submit"
           disabled={!validateForm()}
