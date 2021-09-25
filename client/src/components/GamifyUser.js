@@ -1,7 +1,7 @@
 import React from "react";
 import './User.scss'
 
-export default function User() {
+export default function Header() {
   return (
     <article id="user-bar">
       <div className="avatar">

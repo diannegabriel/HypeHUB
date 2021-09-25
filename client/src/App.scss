@@ -1,11 +1,18 @@
 body {
-  background-color: #e76f51;
+  background-color: #222;
+  // background-color: #e76f51;
 	background-size: 400% 400%;
 	height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
+  cursor: url("components/img/cursor/default.png"), auto !important; 
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: url("components/img/cursor/point.png") 10 0, auto !important; 
+
 }
 
 h3 {
