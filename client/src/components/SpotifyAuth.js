@@ -1,7 +1,7 @@
 export default function SpotifyAuth() {
   return (
-    <footer>
-      <div className='spotify-auth'>
+    <footer id='Spotify-Auth'>
+      <div>
         <header className='spotify-auth-header'>
           <a className='btn-spotify' href='/auth/login'>
             Login with Spotify
