@@ -41,7 +41,7 @@
 .hub {
   /* color: #fa633d; */
   /* color: #DAD5ED; */
-  font-family: 'Fredoka One', cursive;
+  // font-family: 'Fredoka One', cursive;
   /* font-family: 'Concert One', cursive; */
   /* font-family: 'Single Day', cursive; */
   /* font-family: 'Gochi Hand', cursive; */
@@ -50,9 +50,12 @@
   /* font-family: 'Autour One', cursive; */
   /* font-family: 'Short Stack', cursive; */
   /* padding-top: 5px; */
-  font-size: 6.5em;
+  margin-left: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 4.75em;
   text-shadow: 0 30px 20px rgba(0,0,0,0.2), 0 10px 10px rgba(0,0,0,0.1);
 }
+
 .body-text {
   align-items: center;
   display: flex;
@@ -67,8 +70,9 @@
 .icon-navi {
   text-align: center;
   animation: move 1s infinite alternate;
-  cursor: pointer;
+  cursor: url("img/cursor/point.png") 10 0, auto !important; 
 }
+
 @keyframes move{
   0%   { transform: translateY(0); }
   100% { transform: translateY(-5px); }
@@ -77,6 +81,7 @@
 // @media all and (min-width: 480px) {
   .Login {
     padding: 20px 0;
+    
   }
 
   .Login form {

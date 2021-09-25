@@ -5,13 +5,14 @@ import App from './App';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import Login from './components/Login';
+// import Login from './components/Login';
+import GamifyLogin from './components/GamifyLogin';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={GamifyLogin} />
         <Route exact path="/dashboard" component={App} />
       </Switch>
     </Router>
