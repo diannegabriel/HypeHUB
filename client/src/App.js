@@ -26,7 +26,7 @@ function App() {
     <>
       <Header />
       <Goals />
-      {token === "" ? <SpotifyAuth /> : <BattleTheme token={token} />}
+      {token ? <BattleTheme token={token} /> : <SpotifyAuth />}
     </>
   );
 }
