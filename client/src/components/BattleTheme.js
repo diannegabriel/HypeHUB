@@ -15,8 +15,6 @@ export default function BattleTheme(props) {
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
   const [current_track, setTrack] = useState(track);
-  const [position, setPosition] = useState(null);
-  const [duration, setDuration] = useState(null);
   const [playbackState, setPlaybackState] = useState({
     position: 0,
     totalTime: 0,
@@ -47,6 +45,7 @@ export default function BattleTheme(props) {
         console.log("Device ID has gone offline", device_id);
       });
 
+      player.connect();
       player.addListener("player_state_changed", (state) => {
         if (!state) {
           return;
@@ -63,8 +62,6 @@ export default function BattleTheme(props) {
           !state ? setActive(false) : setActive(true);
         });
       });
-
-      player.connect();
     };
   }, [props.token]);
   return (
