@@ -14,7 +14,7 @@ async function returnData(client, email, password) {
   });
 }
 
-export async function dbReadUser(email, password) {
+async function dbReadUser(email, password) {
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
   
@@ -39,6 +39,6 @@ export async function dbReadUser(email, password) {
   }
 }
 
-// module.export = dbReadUser;
+module.export = dbReadUser;
 //TEST
 // dbReadUser("billy@jo.com", "password");
