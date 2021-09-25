@@ -15,6 +15,12 @@ export default function BattleTheme(props) {
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
   const [current_track, setTrack] = useState(track);
+  const [position, setPosition] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [playbackState, setPlaybackState] = useState({
+    position: 0,
+    totalTime: 0,
+  });
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -48,20 +54,15 @@ export default function BattleTheme(props) {
 
         setTrack(state.track_window.current_track);
         setPaused(state.paused);
-
+        console.log(">>>>>>", state);
+        setPlaybackState({
+          position: state.position,
+          totalTime: state.duration,
+        });
         player.getCurrentState().then((state) => {
           !state ? setActive(false) : setActive(true);
         });
       });
-
-      player.addListener(
-        "player_state_changed",
-        ({ position, duration, track_window: { current_track } }) => {
-          console.log("Currently Playing", current_track);
-          console.log("Position in Song", position);
-          console.log("Duration of Song", duration);
-        }
-      );
 
       player.connect();
     };
@@ -109,6 +110,14 @@ export default function BattleTheme(props) {
           >
             &gt;&gt;
           </button>
+          <div className='progress-bar'>
+            <div className='progress-bar__position'>
+              {playbackState.position}
+            </div>
+            <div className='progress-bar__duration'>
+              {playbackState.totalTime}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
