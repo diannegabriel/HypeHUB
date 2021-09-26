@@ -76,7 +76,6 @@ export default function GamifyLogin() {
                     </div>
                   </div>
                 </div>
-                
               </div>
             </Form>
           </Collapse>
