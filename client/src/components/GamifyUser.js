@@ -2,7 +2,7 @@ import React from "react";
 import './User.scss'
 import "./rpgui.css";
 
-export default function GamifyUser() {
+export default function GamifyUser(props) {
   return (
     <article id="user-bar">
       <div className="rpgui-content">
@@ -27,7 +27,7 @@ export default function GamifyUser() {
                   <div id="hp-bar" data-value="0.4" className="rpgui-progress red bar" data-rpguitype="progress">
                     <div className=" rpgui-progress-track">
                       <div className="rpgui-progress-fill red herro user-progress-line">
-                        <span className="user-exp"></span></div>
+                        <span className="user-exp" style={{width: `${props.exp}%`}}></span></div>
                     </div>
                     <div className=" rpgui-progress-left-edge"></div>
                     <div className=" rpgui-progress-right-edge"></div>
