@@ -6,7 +6,7 @@ const PORT = 5000;
 const app = express();
 app.use(morgan("dev"));
 
-const dbReadUser = require('./dbHelpers/users/dbReadUser.js');
+const dbReadUser = require("./dbHelpers/users/dbReadUser");
 
 // Create the api object with the credentials
 const spotifyApi = new SpotifyWebApi({
@@ -64,12 +64,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Spotify-API Playground" });
 });
 
-app.get("/dbtest", (req, res) => {
 
-  const info = dbReadUser("billy@jo.com", "password");
-  console.log(`----\n${info}\n---`)
-  res.json({ message: "Spotify-API Playground" });
-});
 
 app.listen(PORT, () => {
   console.log(`Spotify-API app listeining on port ${PORT}`);
