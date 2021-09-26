@@ -72,7 +72,7 @@ export default function GamifyLogin() {
                     </Form.Group>
 
                     <div className="rpgui-center">
-                    <button className="rpgui-button" type="submit" disabled={!validateForm()}><p className="button-text">Enter</p></button>
+                    <a href="/dashboard" className="rpgui-button" type="submit" disabled={!validateForm()}><p className="button-text">Submit</p></a>
                     </div>
                   </div>
                 </div>
