@@ -9,7 +9,7 @@ inside your html file.
 * Customized scrollbars
 */
 /* to get pixelated images (nearest-neighbor filter) on all  browsers */
-.lol {
+.button-text {
   margin: 0 auto;
 }
 
@@ -648,7 +648,7 @@ ul.rpgui-list-imp {
   text-align: center;
   /* padding */
   padding: 0 0 0 0;
-  margin: 7px 7px 17px 7px; 
+  margin: 7px 7px 0px 7px; 
 }
 
 /* default gui header2 */
@@ -661,7 +661,7 @@ ul.rpgui-list-imp {
   text-align: center;
   /* padding */
   padding: 0 0 0 0;
-  margin: 7px 7px 17px 7px; }
+  margin: 7px 7px 0px 7px; }
 
 /* default gui header3 */
 .rpgui-content h3 {
@@ -784,7 +784,7 @@ ul.rpgui-list-imp {
   bottom: 8px;
   left: 0;
   width: 100%;
-  background-image: url("img/progress.png");
+  /* background-image: url("img/progress.png"); */
   background-repeat: repeat-x;
   background-size: 36px 100%; }
 
@@ -797,8 +797,13 @@ ul.rpgui-list-imp {
   background-image: url("img/progress-green.png"); }
 
 /* progress bar - red color */
-.rpgui-progress-fill.red {
-  background-image: url("img/progress-red.png"); }
+/* .rpgui-progress-fill.red {
+  background-image: url("img/progress-red.png"); 
+} */
+
+.herro {
+  width: 100%;
+}
 
 /**
 * style for radioes

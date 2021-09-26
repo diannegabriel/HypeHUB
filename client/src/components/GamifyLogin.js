@@ -9,28 +9,35 @@ export default function GamifyLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
+  const [validated, setValidated] = useState(false);
 
-  function validateForm() {
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
+  const validateForm = () => {
     return email.length > 0 && password.length > 5;
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
   }
 
   return (
     <>
-      <div class="demo">
-        <div class="logo">
-          <p class="hype">
+      <div className="demo">
+        <div className="logo">
+          <p className="hype">
             Hype
           </p>
-          <p class="hub">
+          <p className="hub">
             HUB
           </p>
         </div>
-        <div class="body-text">
-          <p class="text">
+        <div className="body-text">
+          <p className="text">
             Start your mission?
           </p>
           {/* <i class="icon-navi fas fa-angle-double-down"></i> */}
@@ -52,16 +59,20 @@ export default function GamifyLogin() {
                     <hr />
                     <Form.Group size="lg" controlId="email">
                       <Form.Label>E-mail</Form.Label>
-                      <input type="email" name="email" value={email} autocomplete="off" onChange={(e) => setEmail(e.target.value)} />
+                      <input type="email" name="email" value={email} autoComplete="off" onChange={(e) => setEmail(e.target.value)} />
                       <br/><br/>
 
                       <Form.Label>Password</Form.Label>
                       <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                      <Form.Text id="passwordHelpBlock" muted>
+                        Your password must be 6-20 characters long, contain letters and numbers, and
+                        must not contain spaces, special characters, or emoji.
+                      </Form.Text>
                       <br /><br />
                     </Form.Group>
 
                     <div className="rpgui-center">
-                    <button className="rpgui-button" type="submit" disabled={!validateForm()}><p class="lol">Enter</p></button>
+                    <button className="rpgui-button" type="submit" disabled={!validateForm()}><p className="button-text">Enter</p></button>
                     </div>
                   </div>
                 </div>
