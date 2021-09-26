@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 // import Login from './components/Login';
 import GamifyLogin from './components/GamifyLogin';
+import GamifyModal from './components/GamifyModal';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={GamifyLogin} />
         <Route exact path="/dashboard" component={App} />
+        <Route exact path="/add" component={GamifyModal} />
       </Switch>
     </Router>
   </React.StrictMode>,
