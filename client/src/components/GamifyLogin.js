@@ -10,7 +10,7 @@ export default function GamifyLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
-  const [UserId, setUserId] = useState("");
+  // const [UserId, setUserId] = useState("");
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -19,17 +19,16 @@ export default function GamifyLogin() {
       // event.stopPropagation();
     }
 
-
-
   };
   //////shit below
-  useEffect(() => {
-    axios.get("http://localhost:5000/db/dbtest")
-    .then((data) => {
-      console.log(`---\n${data.userId}\n---`)
-  setUserId(data.userId)
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/db/dbtest")
+  //   .then((res) => {
+  //     console.log(`----\n${JSON.stringify(res)}\n----`)
+  //     console.log(`----\n${res.data.userId}\n----`)
+  // setUserId(res.data.userId)
+  //   });
+  // }, []);
   ////shit above
 
   const validateForm = () => {
@@ -52,7 +51,7 @@ export default function GamifyLogin() {
             aria-expanded={open}
             className="slide-down-arrow"
           >
-            <i class="icon-navi fas fa-angle-double-down"></i>
+            <i className="icon-navi fas fa-angle-double-down"></i>
           </Button>
           <Collapse in={open}>
             <Form onSubmit={handleSubmit}>

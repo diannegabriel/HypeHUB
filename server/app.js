@@ -1,10 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 require("dotenv").config();
 const PORT = 5000;
 const app = express();
+app.use(cors());
 app.use(morgan("dev"));
-const cors = require("cors");
 
 //remove after testing
 // const dbReadUser = require("./dbHelpers/users/dbReadUser");
@@ -21,7 +22,6 @@ const dbRoutes = require("./routes/db-router");
 
 app.use("/auth", spotifyRoutes);
 app.use("/db", dbRoutes);
-app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Spotify-API app listeining on port ${PORT}`);
