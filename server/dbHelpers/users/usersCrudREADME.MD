@@ -19,6 +19,7 @@ Note: All attributes default to null on creation.
         Strength: null,
         Vitality: null,
         Knowledge: null,
+        .
         Social: null,
         Willpower: null,
       },
