@@ -5,16 +5,17 @@ async function returnData(client, email, password) {
   //Return all matches for email
   const data = await client.db("hypeHub").collection("users").find({ email });
   //Confirm password matches
+  let userId;
   await data.forEach((el) => {
     if (el.password === password) {
-      console.log(`\n ID STRING: \n ${el._id}`);
-    return el._id;
+      userId = el._id;
     }
-    return -1
   });
+  //if not match, rturn -1
+  return userId ? userId : -1;
 }
 
-async function dbReadUser(email, password) {
+module.exports = async (email, password) => {
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -25,17 +26,18 @@ async function dbReadUser(email, password) {
     useUnifiedTopology: true,
   });
 
+  let id;
   try {
     await client.connect();
-    //Check password and return id if there is a match
-    return await returnData(client, email, password);
+    console.log(`client connected`);
+    //See helper function above
+    id = await returnData(client, email, password);
+    console.log(`---\n ${id}\n---`);
+    return id;
   } catch (err) {
-    console.log(`ERROR: \n ${err}`);
+    console.log(`ERROR`, err);
   } finally {
     await client.close();
   }
-}
+};
 
-module.export = dbReadUser;
-//TEST
-dbReadUser("billy@jo.com", "password");
