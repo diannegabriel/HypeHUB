@@ -8,15 +8,9 @@ require("dotenv").config({ path: "../.env" });
 const dbReadUser = require(".././dbHelpers/users/dbReadUser");
 
 
-// router.get("/callback", (req, res) => {
-//   let code = req.query.code;
-
-//   res.redirect("/");
-// });
-
 //create nessisary routes for db query here
 
-router.get("/dbtest", (req, res) => {
+router.get("/db-user", (req, res) => {
   let userId = null;
   dbReadUser("billy@jo.com", "password")
     .then((info) => {
@@ -27,5 +21,14 @@ router.get("/dbtest", (req, res) => {
       res.json({ userId });
     });
 });
+
+router.get("/db-goals", (req, res) => {
+  let goals = null;
+
+  //Make DB call here
+  // .then(() => {
+  //   res.json({ goals })
+  // });
+})
 
 module.exports = router;
