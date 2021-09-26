@@ -5,7 +5,8 @@ export default function useData(){
 
 const [state, setState] = useState({
   userId: null,
-  
+  userExp: 99,
+
 })
 
 useEffect(() => {
@@ -15,7 +16,7 @@ useEffect(() => {
     console.log(`----\n${res.data.userId}\n----`)
 setState((prev) => ({
   ...prev,
-  userId: res.data.userId
+  userId: res.data.userId,
 }))
   });
 }, []);
