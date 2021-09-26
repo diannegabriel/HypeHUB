@@ -7,6 +7,7 @@ import "./Login.scss";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(null);
   const [open, setOpen] = useState(false);
 
   function validateForm() {
@@ -14,7 +15,7 @@ export default function Login() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); 
   }
 
   return (
@@ -71,7 +72,6 @@ export default function Login() {
         </div>
 			</div>
 		</div>
-    
     </>
   );
 }
