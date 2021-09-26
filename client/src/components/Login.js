@@ -20,17 +20,17 @@ export default function Login() {
 
   return (
     <>
-    <div class="demo">
-			<div class="logo">
-				<p class="hype">
+    <div className="demo">
+			<div className="logo">
+				<p className="hype">
 					Hype
 				</p>
-				<p class="hub">
+				<p className="hub">
 					HUB
 				</p>
 			</div>
-			<div class="body-text">
-				<p class="text">
+			<div className="body-text">
+				<p className="text">
 					Start your mission?
 				</p>
 				{/* <i class="icon-navi fas fa-angle-double-down"></i> */}
