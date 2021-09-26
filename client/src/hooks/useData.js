@@ -10,7 +10,7 @@ const [state, setState] = useState({
 })
 
 useEffect(() => {
-  axios.get("http://localhost:5000/db/dbtest")
+  axios.get("http://localhost:5000/db/db-user")
   .then((res) => {
     console.log(`----\n${JSON.stringify(res)}\n----`)
     console.log(`----\n${res.data.userId}\n----`)
