@@ -436,7 +436,7 @@ ul.rpgui-dropdown-imp {
   /* font */
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   color: white;
-  height: 16px;
+  /* height: 16px; */
   /* remove the dot */
   list-style-type: none;
   /* padding */
