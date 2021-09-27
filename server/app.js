@@ -10,9 +10,6 @@ app.use(morgan("dev"));
 // app.use(express.json());
 
 
-//remove after testing
-// const dbReadUser = require("./dbHelpers/users/dbReadUser");
-
 //Import all routes from sub directories
 const spotifyRoutes = require("./routes/spotify-router");
 const dbRoutes = require("./routes/db-router");

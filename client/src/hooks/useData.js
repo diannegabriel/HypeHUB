@@ -31,22 +31,19 @@ export default function useData() {
   }, []);
 
   function createGoal(formData) {
-    //data is an object of data from submit new goal form
-    // axios.post("http://localhost:5000/db/new-goal", data)
-    // .then((res) => {
-    //   console.log(res.headers)
-    // }, (err) => {
-    //   console.log(err)
-    // })
-    console.log(formData)
     axios({
-      method: 'post',
-      url: 'http://localhost:5000/db/new-goal',
-      headers: {'content-type': "application/json"},
-      data: JSON.stringify(formData)
-    });
-
-    
+      method: "post",
+      url: "http://localhost:5000/db/new-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(formData),
+    }).then(
+      (res) => {
+        console.log(res.headers);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   return { state, createGoal };
