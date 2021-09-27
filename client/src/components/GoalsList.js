@@ -24,7 +24,7 @@ export default function GoalsList(props) {
 
   return (
     <article className="goals">
-      {props.headerName}
+      <h3>{props.headerName}</h3>
       {goalList}
     </article>
   );
