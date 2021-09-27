@@ -5,11 +5,12 @@ import SidePanel from './SidePanel'
 // import User from './User'
 import GamifyUser from './GamifyUser'
 
+
 export default function Header() {
   return (
     <header id="user-container">
       <section className="master-header">
-        <GamifyUser />
+        <GamifyUser exp={99} />
         {/* <User /> */}
         <Nav />
       </section>

@@ -7,10 +7,14 @@ import SpotifyAuth from "./components/SpotifyAuth";
 import BattleTheme from "./components/BattleTheme";
 import Goals from "./components/Goals";
 import Header from "./components/Header";
+import GamifyLogin from "./components/GamifyLogin";
+import useData from "./hooks/useData";
 
 function App() {
+  const state = useData();
   //Token setup for spotifyAPI
   const [token, setToken] = useState("");
+  
 
   useEffect(() => {
     async function getToken() {
@@ -23,11 +27,15 @@ function App() {
   }, []);
 
   return (
-    // <Login />
     <>
-      <Header />
-      <Goals />
-      {token ? <BattleTheme token={token} /> : <SpotifyAuth />}
+    { !state.userId ? <GamifyLogin /> :
+    <>
+    <Header />
+    <Goals />
+    </>
+  }
+      
+      {/* {token ? <BattleTheme token={token} /> : <SpotifyAuth />}  */}
     </>
   );
 }
