@@ -1,0 +1,15 @@
+#spotify-auth {
+  bottom: 0px;
+  position: fixed;
+  width: 40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px;
+  background-color: #5996acb2;
+  color: #fff; 
+  .spotify-auth-header {
+    text-align: center;
+  }
+}
