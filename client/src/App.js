@@ -8,33 +8,32 @@ import Goals from "./components/Goals";
 import Header from "./components/Header";
 import GamifyLogin from "./components/GamifyLogin";
 import useData from "./hooks/useData";
+import axios from "axios";
 
 function App() {
   const state = useData();
   //Token setup for spotifyAPI
   const [token, setToken] = useState("");
-  
 
   useEffect(() => {
-    async function getToken() {
-      const response = await fetch("/auth/token");
-      const json = await response.json();
-      setToken(json.access_token);
-    }
-
-    getToken();
+    axios.get("http://localhost:5000/auth/token").then((res) => {
+      console.log(res);
+      setToken(res.data.access_token);
+    });
   }, []);
 
   return (
     <>
-    { !state.userId ? <GamifyLogin /> :
-    <>
-    <Header />
-    <Goals />
-    </>
-  }
-      
-      {/* {token ? <BattleTheme token={token} /> : <SpotifyAuth />}  */}
+      {!state.userId ? (
+        <GamifyLogin />
+      ) : (
+        <>
+          <Header />
+          <Goals />
+        </>
+      )}
+
+      {token ? <BattleTheme token={token} /> : <SpotifyAuth />}
     </>
   );
 }
