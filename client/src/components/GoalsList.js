@@ -2,59 +2,24 @@ import React from "react";
 import './GoalsList.scss'
 import GoalsListItem from "./GoalsListItem";
 
-export default function GoalsList() {
+export default function GoalsList(props) {
+  console.log(props)
+  const goals = [
+    {
+      title: "goals1",
+      description: "describe"
+    }
+  ]
   return (
     <>
-      <article className="daily goals">
-        <h3>Daily Tasks</h3>
-        <GoalsListItem />
+      {/* <article className="daily goals"> */}
+        <h3>{props.goalsType}</h3>
+        <GoalsListItem goals={goals}/>
         <li className="goal-entry">
           Drink woter
         </li>
-        <li className="goal-entry">
-          Workout
-        </li>
-        <li className="goal-entry">
-          Meditate
-        </li>
-        <li className="goal-entry">
-          Solve 20 katas
-        </li>
-        <li className="goal-entry">
-          Read 10 pages of a book
-        </li>
-        <li className="goal-entry">
-          Sleep 8 hrs
-        </li>
-        <li className="goal-entry">
-          Take meds
-        </li>
-        <li className="goal-entry">
-          Eat 1500 cals
-        </li>
-        <li className="goal-entry">
-          Drink woter
-        </li>
-        <li className="goal-entry">
-          Workout
-        </li>
-        <li className="goal-entry">
-          Meditate
-        </li>
-        <li className="goal-entry">
-          Solve 20 katas
-        </li>
-        <li className="goal-entry">
-          Read 10 pages of a book
-        </li>
-        <li className="goal-entry">
-          Sleep 8 hrs
-        </li>
-        <li className="goal-entry">
-          Take meds
-        </li>
-      </article>
-
+      {/* </article> */}
+{/* 
       <article className="short goals">
         <h3>Missions</h3>
         <li className="goal-entry">
@@ -73,7 +38,7 @@ export default function GoalsList() {
         <li className="goal-entry">
           Become president
         </li>
-      </article>
+      </article> */}
     </>
   );
 }
