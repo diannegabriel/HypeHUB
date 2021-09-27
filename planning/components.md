@@ -43,7 +43,7 @@
 - State:
 - Composed Props:
   - `<GoalsList> `
-    - `goalsType={"Daily Taskss!"}` // Name of the goal type
+    - `goalsType={goalType}` // Name of the goal type
 - Inherited Props:
 - Used by:
 

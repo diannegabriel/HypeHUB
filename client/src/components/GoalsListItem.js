@@ -1,11 +1,10 @@
 import React from "react";
 import './GoalsListItem.scss'
 
-export default function GoalsListItem(props) {
-  console.log(props)
+export default function GoalsListItem() {
   return (
     <li className="goal-entry">
-      {props.goals[0].title}
+      Eat 1500 cals
     </li>
   );
 }
