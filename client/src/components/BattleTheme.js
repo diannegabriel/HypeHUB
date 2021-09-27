@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./BattleTheme.scss";
 
@@ -63,6 +64,20 @@ export default function BattleTheme(props) {
         });
       });
     };
+    //Test to check if i can access user's currently playing track. will use later
+    axios({
+      method: "get",
+      url: "https://api.spotify.com/v1/me/player/currently-playing",
+      headers: {
+        Authorization: `Bearer ${props.token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then((res) => {
+      console.log(">>>Spotify-API--whatever request/endpoint", res);
+      // setState in here...
+      // need to configure the right scope for authorization request.
+    });
   }, [props.token]);
   return (
     <footer id='battle-theme'>
@@ -82,39 +97,43 @@ export default function BattleTheme(props) {
             </div>
           </div>
           <button
-            className='btn-spotify'
+            className='btn btn-spotify'
             onClick={() => {
               player.previousTrack();
             }}
           >
-            &lt;&lt;
+            <i className='fas fa-backward'></i>
           </button>
 
           <button
-            className='btn-spotify'
+            className='btn btn-spotify'
             onClick={() => {
               player.togglePlay();
             }}
           >
-            {is_paused ? "PLAY" : "PAUSE"}
+            {is_paused ? (
+              <i className='fas fa-play'></i>
+            ) : (
+              <i className='fas fa-pause'></i>
+            )}
           </button>
 
           <button
-            className='btn-spotify'
+            className='btn btn-spotify'
             onClick={() => {
               player.nextTrack();
             }}
           >
-            &gt;&gt;
+            <i className='fas fa-forward'></i>
           </button>
-          <div className='progress-bar'>
+          {/* <div className='progress-bar'>
             <div className='progress-bar__position'>
               {playbackState.position}
             </div>
             <div className='progress-bar__duration'>
               {playbackState.totalTime}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

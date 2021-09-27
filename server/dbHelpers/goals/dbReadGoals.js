@@ -26,7 +26,7 @@ async function returnData(client, userId, goalType) {
   }
 }
 
-async function dbReadGoals(userId, goalType) {
+module.exports = async (userId, goalType) => {
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -37,10 +37,12 @@ async function dbReadGoals(userId, goalType) {
     useUnifiedTopology: true,
   });
 
+  let goals;
   try {
     await client.connect();
     //Check password and return id if there is a match
-    return await returnData(client, userId, goalType);
+    goals =  await returnData(client, userId, goalType);
+    return goals
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
@@ -48,6 +50,6 @@ async function dbReadGoals(userId, goalType) {
   }
 }
 
-module.export = dbReadGoals;
+
 //TEST
 // dbReadGoals("614de5c4646237d2b991f65c", "daily");
