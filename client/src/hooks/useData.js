@@ -13,7 +13,7 @@ export default function useData() {
     Promise.all([
       axios.get("http://localhost:5000/db/db-user"),
       axios.get("http://localhost:5000/auth/token"),
-      axios.get("http://localhost:5000/db/db-goals"),
+      axios.get("http://localhost:5000/db/daily-goals"),
     ]).then((all) => {
       setState((prev) => ({
         ...prev,
