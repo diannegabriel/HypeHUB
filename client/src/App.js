@@ -11,7 +11,7 @@ import GamifyLogin from "./components/GamifyLogin";
 import useData from "./hooks/useData";
 
 function App() {
-  const state = useData();
+  const { state, createGoal } = useData();
 
   return (
     <>
