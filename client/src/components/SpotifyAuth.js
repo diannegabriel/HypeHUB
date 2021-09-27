@@ -1,3 +1,4 @@
+import "./SpotifyAuth.scss";
 export default function SpotifyAuth() {
   return (
     <footer id='spotify-auth'>
