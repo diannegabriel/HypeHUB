@@ -1,19 +1,28 @@
 import React from "react";
+import { NavItem } from "react-bootstrap";
 import "./GoalsList.scss";
 import GoalsListItem from "./GoalsListItem";
 
 export default function GoalsList(props) {
+  //Ternary prevents 'map of' error
+  //Will display no components if no goals available
+  const goalList = props.goals !== -1 ?
+  props.goals.map((goal) => {
+    return (
+      <GoalsListItem
+        key={goal.goalId}
+        title={goal.goalName}
+        goalDescription={goal.goalDescription}
+        status={goal.status}
+      />
+    );
+  }): null
 
 
-  const goalList = props.goals.map((goal) => {
-    return <GoalsListItem title={goal.title} something={goal.something} />;
-  });
   return (
-    
-      <div className="goals-list-item-container">
+    <div className="goals-list-item-container">
       {props.headerName}
       {goalList}
-      </div>
-    
+    </div>
   );
 }
