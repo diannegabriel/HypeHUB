@@ -63,6 +63,12 @@ router.get("/auth/callback", (req, res) => {
     .catch((err) => console.log("spotifyApi - Authorization error", err));
 });
 
+router.get("/auth/token", (req, res) => {
+  res.json({
+    access_token: spotifyApi.getAccessToken(),
+    refresh_token: spotifyApi.getRefreshToken(),
+  });
+});
 //get userData
 router.get("/me", (req, res) => {
   spotifyApi.getMe().then((data) => res.json(data));
