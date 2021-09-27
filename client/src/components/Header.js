@@ -13,7 +13,6 @@ export default function Header() {
     <header id="user-container">
       <section className="master-header">
         <GamifyUser exp={state.userExp} />
-        {/* <User /> */}
         <Nav />
       </section>
 
