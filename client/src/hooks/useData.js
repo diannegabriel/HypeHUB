@@ -2,11 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function useData() {
-  // const [state, setState] = useState({
-  //   userId: null,
-  //   userExp: 99,
-  // });
-
   const [state, setState] = useState({
     userId: null,
     userExp: 99,
@@ -15,7 +10,7 @@ export default function useData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:5000/db/dbtest"),
+      axios.get("http://localhost:5000/db/db-user"),
       axios.get("http://localhost:5000/auth/token"),
     ]).then((all) => {
       setState((prev) => ({
