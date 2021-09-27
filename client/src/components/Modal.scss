@@ -17,3 +17,9 @@ hr:not([size]), hr {
   height: 10px;
   background: url("img/hr.png") repeat-x top left, auto !important;
 }
+
+.modal-content {
+  margin-top: -50px;
+  background: none;
+  border: none;
+}
