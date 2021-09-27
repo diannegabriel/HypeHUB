@@ -20,7 +20,11 @@ function App() {
       ) : (
         <>
           <Header />
-          <Goals dailyGoals={state.dailyGoals} />
+          <Goals 
+          dailyGoals={state.dailyGoals} 
+          missionGoals={state.missionGoals}
+          questGoals={state.questGoals}
+          />
         </>
       )}
 

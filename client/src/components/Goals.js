@@ -7,8 +7,8 @@ export default function Goals(props) {
     <main id="main-container">
       <section className="goals-box">
         <GoalsList headerName={"Daily"} goals={props.dailyGoals} />
-        <GoalsList headerName={"Mission"} goals={null} /> 
-        <GoalsList headerName={"Quest"} goals={null} />
+        <GoalsList headerName={"Mission"} goals={props.missionGoals} /> 
+        <GoalsList headerName={"Quest"} goals={props.questGoals} />
       </section>
     </main>
   );
