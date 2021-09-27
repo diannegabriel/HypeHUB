@@ -30,5 +30,9 @@ export default function useData() {
     });
   }, []);
 
-  return state;
+  function createGoal() {
+    return -1
+  }
+
+  return { state, createGoal };
 }

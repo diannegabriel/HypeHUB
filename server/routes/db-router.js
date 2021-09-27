@@ -54,4 +54,9 @@ router.get("/quest-goals", (req, res) => {
     });
 });
 
+router.post("/new-goal", (req, res) => {
+  console.log(`---\nHit new goal route\n---`)
+  
+})
+
 module.exports = router;
