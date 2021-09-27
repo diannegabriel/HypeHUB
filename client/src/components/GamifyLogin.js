@@ -20,16 +20,6 @@ export default function GamifyLogin() {
     }
   };
 
-  //////shit below
-  // useEffect(() => {
-  //   axios.get("http://localhost:5000/db/dbtest")
-  //   .then((res) => {
-  //     console.log(`----\n${JSON.stringify(res)}\n----`)
-  //     console.log(`----\n${res.data.userId}\n----`)
-  // setUserId(res.data.userId)
-  //   });
-  // }, []);
-  ////shit above
 
   const validateForm = () => {
     return email.length > 0 && password.length > 5;
