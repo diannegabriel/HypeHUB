@@ -4,15 +4,16 @@ import "./GoalsList.scss";
 import GoalsListItem from "./GoalsListItem";
 
 export default function GoalsList(props) {
-  //Ternary prevents map of null error
-  //Will display no components id no goals available
-  const goalList = props.goals ?
+  //Ternary prevents 'map of' error
+  //Will display no components if no goals available
+  const goalList = props.goals !== -1 ?
   props.goals.map((goal) => {
     return (
       <GoalsListItem
         key={goal.goalId}
         title={goal.goalName}
         goalDescription={goal.goalDescription}
+        status={goal.status}
       />
     );
   }): null
