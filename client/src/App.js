@@ -20,7 +20,7 @@ function App() {
       ) : (
         <>
           <Header />
-          <Goals goalsFromDb={state.userGoals} />
+          <Goals dailyGoals={state.dailyGoals} />
         </>
       )}
 
