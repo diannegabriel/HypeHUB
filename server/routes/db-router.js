@@ -21,7 +21,7 @@ router.get("/db-user", (req, res) => {
     });
 });
 
-router.get("/db-goals", (req, res) => {
+router.get("/daily-goals", (req, res) => {
   let goals = null;
   dbReadGoals("614de5c4646237d2b991f65c", "daily")
     .then((info) => {
