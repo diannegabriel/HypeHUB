@@ -8,6 +8,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+hr:not([size]) {
+  display: block;
+  border: 0px;
+  height: 10px;
+  background: url("components/img/hr.png") repeat-x top left, auto !important;
 }

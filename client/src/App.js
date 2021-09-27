@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.scss";
 // import Login from './components/Login';
@@ -11,30 +12,19 @@ import useData from "./hooks/useData";
 
 function App() {
   const state = useData();
-  //Token setup for spotifyAPI
-  const [token, setToken] = useState("");
-  
-
-  useEffect(() => {
-    async function getToken() {
-      const response = await fetch("/auth/token");
-      const json = await response.json();
-      setToken(json.access_token);
-    }
-
-    getToken();
-  }, []);
 
   return (
     <>
-    { !state.userId ? <GamifyLogin /> :
-    <>
-    <Header />
-    <Goals />
-    </>
-  }
-      
-      {/* {token ? <BattleTheme token={token} /> : <SpotifyAuth />}  */}
+      {!state.userId ? (
+        <GamifyLogin />
+      ) : (
+        <>
+          <Header />
+          <Goals />
+        </>
+      )}
+
+      {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
     </>
   );
 }

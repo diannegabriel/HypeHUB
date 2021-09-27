@@ -1025,3 +1025,5 @@ RPGUI.insert_after = function(to_insert, after_element)
     after_element.parentNode.insertBefore(to_insert, after_element.nextSibling);
 };
 return RPGUI;})();
+
+module.exports = RPGUI;
