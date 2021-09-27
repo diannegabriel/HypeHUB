@@ -1,13 +1,16 @@
 require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
-async function dbCreateGoal(
-  userId,
-  goalName,
-  goalType,
-  goalDescription,
-  goalAttribute
-) {
+module.exports = async (dataObj) => {
+
+  //TEMP define information here
+  const userId = "614de5c4646237d2b991f65c"
+  const goalName = dataObj.goalName;
+  const goalType = dataObj.goalType.toLowerCase();
+  const goalDescription = dataObj.goalDescription;
+  const goalAttribute = "knowledge"
+
+
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -38,7 +41,7 @@ async function dbCreateGoal(
   }
 }
 
-module.export = dbCreateGoal;
+// module.export = dbCreateGoal;
 // TEST
 // dbCreateGoal(
 //   "614de5c4646237d2b991f65c",
