@@ -8,7 +8,6 @@ export default function SpotifyAuth() {
             className='btn-spotify'
             href='http://localhost:5000/login'
             rel='noopener noreferrer'
-            target='_blank'
           >
             Login with Spotify
           </a>

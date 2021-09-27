@@ -54,11 +54,8 @@ router.get("/auth/callback", (req, res) => {
       // Save the access token so that it's used in future calls
       spotifyApi.setAccessToken(data.body.access_token);
       spotifyApi.setRefreshToken(data.body.refresh_token);
-      //send access/refresh token as json...
-      res.json({
-        access_token: spotifyApi.getAccessToken(),
-        refresh_token: spotifyApi.getRefreshToken(),
-      });
+      //redirect to react app
+      res.redirect(process.env.FRONTEND_URI);
     })
     .catch((err) => console.log("spotifyApi - Authorization error", err));
 });
