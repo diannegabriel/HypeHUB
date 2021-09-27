@@ -28,12 +28,12 @@ function App() {
 
   return (
     <>
-    { !state.userId ? <GamifyLogin /> :
+    {/* { !state.userId ? <GamifyLogin /> : */}
     <>
     <Header />
     <Goals />
     </>
-  }
+  {/* } */}
       
       {/* {token ? <BattleTheme token={token} /> : <SpotifyAuth />}  */}
     </>
