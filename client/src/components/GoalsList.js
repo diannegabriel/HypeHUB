@@ -1,79 +1,28 @@
 import React from "react";
-import './GoalsList.scss'
+import { NavItem } from "react-bootstrap";
+import "./GoalsList.scss";
 import GoalsListItem from "./GoalsListItem";
 
-export default function GoalsList() {
+export default function GoalsList(props) {
+  //Ternary prevents 'map of' error
+  //Will display no components if no goals available
+  const goalList = props.goals !== -1 ?
+  props.goals.map((goal) => {
+    return (
+      <GoalsListItem
+        key={goal.goalId}
+        title={goal.goalName}
+        goalDescription={goal.goalDescription}
+        status={goal.status}
+      />
+    );
+  }): null
+
+
   return (
-    <>
-      <article className="daily goals">
-        <h3>Daily Tasks</h3>
-        <GoalsListItem />
-        <li className="goal-entry">
-          Drink woter
-        </li>
-        <li className="goal-entry">
-          Workout
-        </li>
-        <li className="goal-entry">
-          Meditate
-        </li>
-        <li className="goal-entry">
-          Solve 20 katas
-        </li>
-        <li className="goal-entry">
-          Read 10 pages of a book
-        </li>
-        <li className="goal-entry">
-          Sleep 8 hrs
-        </li>
-        <li className="goal-entry">
-          Take meds
-        </li>
-        <li className="goal-entry">
-          Eat 1500 cals
-        </li>
-        <li className="goal-entry">
-          Drink woter
-        </li>
-        <li className="goal-entry">
-          Workout
-        </li>
-        <li className="goal-entry">
-          Meditate
-        </li>
-        <li className="goal-entry">
-          Solve 20 katas
-        </li>
-        <li className="goal-entry">
-          Read 10 pages of a book
-        </li>
-        <li className="goal-entry">
-          Sleep 8 hrs
-        </li>
-        <li className="goal-entry">
-          Take meds
-        </li>
-      </article>
-
-      <article className="short goals">
-        <h3>Missions</h3>
-        <li className="goal-entry">
-          Lose 5lbs
-        </li>
-        <li className="goal-entry">
-          Go outside
-        </li>
-      </article>
-
-      <article className="long goals">
-        <h3>Quests</h3>
-        <li className="goal-entry">
-          Go to Mars
-        </li>
-        <li className="goal-entry">
-          Become president
-        </li>
-      </article>
-    </>
+    <div className="goals-list-item-container">
+      {props.headerName}
+      {goalList}
+    </div>
   );
 }
