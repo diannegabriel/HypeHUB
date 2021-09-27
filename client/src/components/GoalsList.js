@@ -9,20 +9,23 @@ export default function GoalsList(props) {
   const goalList = props.goals !== -1 ?
   props.goals.map((goal) => {
     return (
-      <GoalsListItem
-        key={goal.goalId}
-        title={goal.goalName}
-        goalDescription={goal.goalDescription}
-        status={goal.status}
-      />
+      // <article className="goals">
+      //   {props.headerName}
+        <GoalsListItem
+          key={goal.goalId}
+          title={goal.goalName}
+          goalDescription={goal.goalDescription}
+          status={goal.status}
+        />
+      // </article>
     );
   }): null
 
 
   return (
-    <div className="goals-list-item-container">
-      {props.headerName}
+    <article className="goals">
+      <h3>{props.headerName}</h3>
       {goalList}
-    </div>
+    </article>
   );
 }
