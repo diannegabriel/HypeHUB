@@ -6,7 +6,7 @@ export default function useData() {
     userId: null,
     userExp: 99,
     token: null,
-    userGoals: null,
+    dailyGoals: null,
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function useData() {
         ...prev,
         userId: all[0].data.userId,
         token: all[1].data.access_token,
-        userGoals: all[2].data.goals,
+        dailyGoals: all[2].data.goals,
       }));
     });
   }, []);
