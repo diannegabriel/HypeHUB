@@ -2,7 +2,11 @@
 const express = require("express");
 const router = express.Router();
 const request = require("request");
+const SpotifyWebApi = require("spotify-web-api-node");
 require("dotenv").config({ path: "../.env" });
+
+const client_id = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
 const generateRandomString = (length) => {
   let text = "";
   let possible =
@@ -13,60 +17,87 @@ const generateRandomString = (length) => {
   return text;
 };
 
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
-let access_token = null;
-// /auth routes
+// Create the api object with the credentials
+
+const scopes = [
+    "streaming",
+    "user-read-email",
+    "user-read-private",
+    "user-read-currently-playing",
+    "user-read-playback-state",
+    "user-modify-playback-state",
+    "user-read-recently-played",
+  ],
+  redirectUri = "http://localhost:5000/auth/callback",
+  state = generateRandomString(16);
+
+const spotifyApi = new SpotifyWebApi({
+  redirectUri: redirectUri,
+  clientId: client_id,
+  clientSecret: client_secret,
+});
+const authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+// console.log(authorizeURL);
+
+//authorize user with scopes
 router.get("/login", (req, res) => {
-  const scope = "streaming \
-  user-read-email \
-  user-read-private";
-  const state = generateRandomString(16);
+  res.redirect(authorizeURL);
+});
 
-  const auth_query_params = new URLSearchParams({
-    response_type: "code",
-    client_id: client_id,
-    scope: scope,
-    redirect_uri: "http://localhost:5000/auth/callback",
-    state: state,
-  });
+// Retrieve spotify access + refresh tokens
+router.get("/auth/callback", (req, res) => {
+  spotifyApi
+    .authorizationCodeGrant(req.query.code)
+    .then((data) => {
+      console.log("The access token expires in " + data.body["expires_in"]);
+      console.log("The access token is " + data.body["access_token"]);
+      // Save the access token so that it's used in future calls
+      spotifyApi.setAccessToken(data.body.access_token);
+      spotifyApi.setRefreshToken(data.body.refresh_token);
+      //send access/refresh token as json...
+      res.json({
+        access_token: spotifyApi.getAccessToken(),
+        refresh_token: spotifyApi.getRefreshToken(),
+      });
+    })
+    .catch((err) => console.log("spotifyApi - Authorization error", err));
+});
 
-  res.redirect(
-    "https://accounts.spotify.com/authorize/?" + auth_query_params.toString()
+//get userData
+router.get("/me", (req, res) => {
+  spotifyApi.getMe().then((data) => res.json(data));
+});
+
+router.get("/genre-seeds", (req, res) => {
+  spotifyApi.getAvailableGenreSeeds().then(
+    function (data) {
+      let genreSeeds = data.body;
+      console.log(genreSeeds);
+      res.json(genreSeeds);
+    },
+    function (err) {
+      console.log("Something went wrong!", err);
+    }
   );
 });
 
-router.get("/callback", (req, res) => {
-  let code = req.query.code;
-
-  const authOptions = {
-    url: "https://accounts.spotify.com/api/token",
-    form: {
-      code: code,
-      redirect_uri: "http://localhost:5000/auth/callback",
-      grant_type: "authorization_code",
-    },
-    headers: {
-      Authorization:
-        "Basic " +
-        Buffer.from(client_id + ":" + client_secret).toString("base64"),
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    json: true,
-  };
-
-  request.post(authOptions, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      access_token = body.access_token;
-      console.log("access token", access_token);
-      // res.json({ access_token });
-      res.redirect("/");
-    }
-  });
-});
-
-router.get("/token", (req, res) => {
-  res.json({ access_token });
+router.get("/chill", (req, res) => {
+  spotifyApi
+    .getRecommendations({
+      min_energy: 0.4,
+      seed_genres: ["chill", "acoustic", "classical", "jazz"],
+      min_popularity: 50,
+      min_valence: 0.3,
+    })
+    .then(
+      function (data) {
+        let recommendations = data.body;
+        res.json(recommendations);
+      },
+      function (err) {
+        console.log("Something went wrong!", err);
+      }
+    );
 });
 
 module.exports = router;
