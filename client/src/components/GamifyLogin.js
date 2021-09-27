@@ -16,10 +16,10 @@ export default function GamifyLogin() {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
-      // event.stopPropagation();
+      event.stopPropagation();
     }
-
   };
+
   //////shit below
   // useEffect(() => {
   //   axios.get("http://localhost:5000/db/dbtest")
@@ -94,7 +94,7 @@ export default function GamifyLogin() {
                         type="submit"
                         disabled={!validateForm()}
                       >
-                        <p className="button-text" onClick={handleSubmit}>
+                        <p className="button-text">
                           Submit
                         </p>
                       </button>
