@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-// import GamifyModal from "./GamifyModal";
+import GamifyModal from "./GamifyModal";
 import './Nav.scss'
 
 
@@ -11,28 +11,15 @@ export default function Nav() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [goal, setGoal] = useState("");
-
-  const validateForm = () => {
-    return goal.length > 5
-  }
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-  };
   return (
     <article id="nav-bar">
       <button onClick={handleShow}><i className="fas fa-plus-circle fa-3x"></i></button>
       <i className="far fa-calendar-alt fa-3x"></i>
 
-        {/* <GamifyModal /> */}
-        <form onSubmit={handleSubmit}>
-    <div className="Modal">
       <Modal show={show} onHide={handleClose}>
+        <GamifyModal />
+        {/* <form onSubmit={handleSubmit}>
+    <div className="Modal">
       <div className="rpgui-content">
         <div className="rpgui-container framed add-goal-modal">
           <h1>Next Goal</h1>
@@ -62,9 +49,9 @@ export default function Nav() {
           </div>
         </div>
       </div>
-      </Modal>
     </div>
-    </form>
+    </form> */}
+      </Modal>
     </article>
   );
 }
