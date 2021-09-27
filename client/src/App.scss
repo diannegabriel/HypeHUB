@@ -12,7 +12,13 @@ body {
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
   cursor: url("components/img/cursor/point.png") 10 0, auto !important; 
+}
 
+body hr {
+  display: block;
+  border: 0px;
+  height: 10px;
+  background: url("components/img/hr.png") repeat-x top left, auto !important;
 }
 
 a {
