@@ -8,6 +8,6 @@ export default function GoalsListItem(props) {
       {props.title}
     </li>
       {props.status}
-      </>
+    </>
   );
 }
