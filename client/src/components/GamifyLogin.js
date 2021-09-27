@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
@@ -16,9 +16,8 @@ export default function GamifyLogin() {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
-      // event.stopPropagation();
+      event.stopPropagation();
     }
-
   };
 
 
@@ -85,7 +84,7 @@ export default function GamifyLogin() {
                         type="submit"
                         disabled={!validateForm()}
                       >
-                        <p className="button-text" onClick={handleSubmit}>
+                        <p className="button-text">
                           Submit
                         </p>
                       </button>

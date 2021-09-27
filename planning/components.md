@@ -1,7 +1,9 @@
 # HypeHUB Components Breakdown
 
 ## Components
-- User
+- App
+- Header
+- User / GamifyUser
 - Goal
 - GoalList
 - GoalListItem
@@ -13,21 +15,36 @@
 - BattleTheme
 - AddGoalButton
 - Calendar
-- Login
+- Login / GamifyLogin
+- GamifyModal
 - Register
 
-### User
+### App
 - State:
 - Props: 
-  - username
-  - level
-  - avatar
-  - experience
 - Used by:
+
+### Header
+- State:
+- Composed Props: 
+  - `<GamifyUser>`
+    - `exp={integer}` // Experience of the user in percent (%)
+- Inherited Props:
+- Used by:
+
+### User / GamifyUser
+- State:
+- Composed Props:
+- Inherited Props:
+  - `{exp: 60}` // from Header
+- Used by: `className="user-exp"`
 
 ### Goal
 - State:
-- Props:
+- Composed Props:
+  - `<GoalsList> `
+    - `goalsType={goalType}` // Name of the goal type
+- Inherited Props:
 - Used by:
 
 ### GoalList
