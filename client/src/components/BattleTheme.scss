@@ -1,20 +1,24 @@
-#battle-theme {
+#battle-theme, .spotify-auth {
   bottom: 0px;
   position: fixed;
-  display: flex;
-  justify-content: center;
-  width: 50%;
+  width: 40%;
   left: 50%;
   transform: translate(-50%, 0);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 5px;
-  background-color: #264653;
+  background-color: #5996acb2;
   color: #fff; 
   .main-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-      width: 50px
+      height: 80px;
+      padding: 5px;
+    }
+    .now-playing__side {
+      margin: 0 10px;
     }
   }
 }
