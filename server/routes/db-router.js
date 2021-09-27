@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+router.use(express.json());
 
 require("dotenv").config({ path: "../.env" });
 
@@ -54,9 +55,13 @@ router.get("/quest-goals", (req, res) => {
     });
 });
 
-router.post("/new-goal", (req, res) => {
+router.post("/new-goal/", (req, res) => {
   console.log(`---\nHit new goal route\n---`)
-  
+  console.log(req.body)
+
+
+  //This needs to change to root ?
+  // res.redirect('/dashboard')
 })
 
 module.exports = router;
