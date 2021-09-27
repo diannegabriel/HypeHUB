@@ -3,6 +3,7 @@ import './User.scss'
 import "./rpgui.css";
 
 export default function GamifyUser(props) {
+  console.log(props)
   return (
     <article id="user-bar">
       <div className="rpgui-content">
