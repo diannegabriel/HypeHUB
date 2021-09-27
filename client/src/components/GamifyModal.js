@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./rpgui.css";
 import "./Modal.scss"
 
-export default function GamifyModal() {
+export default function GamifyModal(props) {
   const [goal, setGoal] = useState("");
 
   const validateForm = () => {
@@ -18,7 +18,7 @@ export default function GamifyModal() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} show={props.show}>
     <div className="Modal">
       <div className="rpgui-content">
         <div className="rpgui-container framed add-goal-modal">
@@ -43,7 +43,7 @@ export default function GamifyModal() {
           <br />
           <br />
           <div className="rpgui-center">
-          <button className="rpgui-button" type="submit" disabled={!validateForm()}>
+          <button className="rpgui-button" type="submit" onClick={props.handleClose}>
             <p className="button-text">Enter</p>
           </button>
           </div>
