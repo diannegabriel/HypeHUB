@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header id="user-container">
       <section className="master-header">
-        <GamifyUser exp={99} />
+        <GamifyUser exp={60} />
         {/* <User /> */}
         <Nav />
       </section>
