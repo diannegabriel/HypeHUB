@@ -9,12 +9,10 @@ import useData from "../hooks/useData";
 
 export default function Header() {
   const state = useData();
-  console.log(state.userExp)
   return (
     <header id="user-container">
       <section className="master-header">
         <GamifyUser exp={state.userExp} />
-        {/* <User /> */}
         <Nav />
       </section>
 
