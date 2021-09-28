@@ -78,10 +78,24 @@ router.get("/currently-playing", (req, res) => {
 });
 
 router.get("/transfer-playback", (req, res) => {
-  spotifyApi.getMyDevices().then((data) => {
-    let availableDevices = data.body.devices;
-    console.log("Devices>>>>", availableDevices);
-  });
+  spotifyApi
+    .getMyDevices()
+    .then((data) => {
+      let availableDevices = data.body.devices;
+      const hypeHubApp = availableDevices.find(
+        (device) => device.name === "HypeHUB - BattleTheme"
+      );
+      const deviceIds = [hypeHubApp.id];
+      return deviceIds;
+    })
+    .then((device) => {
+      console.log(device);
+      spotifyApi.transferMyPlayback(device).then(() => {
+        console.log("Transfering playback to HypeHubApp on device id:", device);
+        res.json({ device });
+      });
+    })
+    .catch((err) => res.json({ err }));
 });
 router.get("/genre-seeds", (req, res) => {
   spotifyApi.getAvailableGenreSeeds().then(
