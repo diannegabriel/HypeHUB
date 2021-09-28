@@ -1,9 +1,15 @@
 import React from "react";
 import "./GoalsListItem.scss";
+import useData from "./../hooks/useData";
 
 export default function GoalsListItem(props) {
+  const { updateGoalStatus } = useData();
+
   const handleClick = () => {
-    console.log(`-----------\ncomponent clicked -> ${props.goalId}`);
+    updateGoalStatus({
+      goalId: props.goalId,
+      status: "xyz",
+    });
   };
 
   return (
