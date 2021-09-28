@@ -54,11 +54,8 @@ router.get("/auth/callback", (req, res) => {
       // Save the access token so that it's used in future calls
       spotifyApi.setAccessToken(data.body.access_token);
       spotifyApi.setRefreshToken(data.body.refresh_token);
-      //send access/refresh token as json...
-      res.json({
-        access_token: spotifyApi.getAccessToken(),
-        refresh_token: spotifyApi.getRefreshToken(),
-      });
+      //redirect to react app
+      res.redirect(process.env.FRONTEND_URI);
     })
     .catch((err) => console.log("spotifyApi - Authorization error", err));
 });
@@ -74,6 +71,18 @@ router.get("/me", (req, res) => {
   spotifyApi.getMe().then((data) => res.json(data));
 });
 
+router.get("/currently-playing", (req, res) => {
+  spotifyApi.getMyCurrentPlayingTrack().then((data) => {
+    res.json(data.body);
+  });
+});
+
+router.get("/transfer-playback", (req, res) => {
+  spotifyApi.getMyDevices().then((data) => {
+    let availableDevices = data.body.devices;
+    console.log("Devices>>>>", availableDevices);
+  });
+});
 router.get("/genre-seeds", (req, res) => {
   spotifyApi.getAvailableGenreSeeds().then(
     function (data) {
@@ -88,10 +97,13 @@ router.get("/genre-seeds", (req, res) => {
 });
 
 router.get("/chill", (req, res) => {
+  //do a call to get user's top 50 tracks, - store that in an object/var
+  spotifyApi.getMyTopTracks;
   spotifyApi
     .getRecommendations({
       min_energy: 0.4,
       seed_genres: ["chill", "acoustic", "classical", "jazz"],
+      //seed_tracks:
       min_popularity: 50,
       min_valence: 0.3,
     })

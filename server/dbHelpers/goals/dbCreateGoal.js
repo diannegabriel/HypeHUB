@@ -1,13 +1,28 @@
 require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
-async function dbCreateGoal(
-  userId,
-  goalName,
-  goalType,
-  goalDescription,
-  goalAttribute
-) {
+const parseBoolData = (data) =>{
+  let attributes = [];
+  data.Strength && (attributes.push("strength"))
+  data.Vitality && (attributes.push("vitality"))
+  data.Knowledge && (attributes.push("knowledge"))
+  data.Social && (attributes.push("social"))
+  data.Willpower && (attributes.push("willpower"))
+
+  //Return array with only the selected attributes.
+  return attributes;
+}
+
+
+module.exports = async (dataObj) => {
+  const userId = dataObj.userId
+  const goalName = dataObj.goalName;
+  const goalType = dataObj.goalType.toLowerCase();
+  const goalDescription = dataObj.goalDescription;
+  //Helper function above to parse attributes.
+  const goalAttribute = parseBoolData(dataObj);
+
+
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -37,13 +52,3 @@ async function dbCreateGoal(
     await client.close();
   }
 }
-
-module.export = dbCreateGoal;
-// TEST
-// dbCreateGoal(
-//   "614de5c4646237d2b991f65c",
-//   "Get Vsmrt",
-//   "quest",
-//   "Read 50 books/year ",
-//   ["Knowledge", "Vitality"]
-// );
