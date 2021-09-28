@@ -51,5 +51,3 @@ module.exports = async (userId, goalType) => {
 }
 
 
-//TEST
-// dbReadGoals("614de5c4646237d2b991f65c", "daily");
