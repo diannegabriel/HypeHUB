@@ -7,8 +7,7 @@ require("dotenv").config({ path: "../.env" });
 //Import db helper functions
 const dbReadUser = require(".././dbHelpers/users/dbReadUser");
 const dbReadGoals = require(".././dbHelpers/goals/dbReadGoals");
-const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal")
-
+const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal");
 
 //create nessisary routes for db query here
 router.get("/db-user", (req, res) => {
@@ -57,16 +56,11 @@ router.get("/quest-goals", (req, res) => {
 });
 
 router.post("/new-goal/", (req, res) => {
-  console.log(`---\nHit new goal route\n---`)
-  const data = req.body
+  const data = req.body;
 
-  dbCreateGoal(data)
-  .then(() => {
-
-    res.redirect('/dashboard')
-  })
-
-  //This needs to change to root ?
-})
+  dbCreateGoal(data).then(() => {
+    res.redirect("/dashboard");
+  });
+});
 
 module.exports = router;
