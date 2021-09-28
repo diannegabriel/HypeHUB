@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
+router.use(express.json());
 
 require("dotenv").config({ path: "../.env" });
 
 //Import db helper functions
 const dbReadUser = require(".././dbHelpers/users/dbReadUser");
 const dbReadGoals = require(".././dbHelpers/goals/dbReadGoals");
-
+const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal");
 
 //create nessisary routes for db query here
 router.get("/db-user", (req, res) => {
@@ -52,6 +53,14 @@ router.get("/quest-goals", (req, res) => {
     .then(() => {
       res.json({ goals });
     });
+});
+
+router.post("/new-goal/", (req, res) => {
+  const data = req.body;
+
+  dbCreateGoal(data).then(() => {
+    res.redirect("/dashboard");
+  });
 });
 
 module.exports = router;
