@@ -1,7 +1,10 @@
 require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
+var ObjectId = require('mongodb').ObjectID;
 
-async function dbCreateUser(name, password, email) {
+
+// module.exports =
+ async function updateGoal(goalId, status){
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -12,23 +15,17 @@ async function dbCreateUser(name, password, email) {
     useUnifiedTopology: true,
   });
 
+  
+  await client.connect();
   try {
-    await client.connect();
-    const collection = client.db("hypeHub").collection("users");
-    await collection.insertOne({
-      name,
-      password,
-      email,
-      attributes: {
-        xp: null,
-        Strength: null,
-        Vitality: null,
-        Knowledge: null,
-        Social: null,
-        Willpower: null,
-      },
-    });
-    console.log(`\nNew record created`);
+
+    await client.db("hypeHub").collection("goals").updateOne(
+      //record to be updated
+      {_id: ObjectId("615322239db179698d74f704")},
+      // {goalName: "j"},
+      //Update status field to passed in value.
+      {$set:{status}}
+    )
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
@@ -36,5 +33,4 @@ async function dbCreateUser(name, password, email) {
   }
 }
 
-module.export = dbCreateUser;
-
+updateGoal("615322239db179698d74f704", "DONEEEE");
