@@ -12,7 +12,7 @@ import useData from "./hooks/useData";
 import SelectTheme from "./components/SelectTheme";
 
 function App() {
-  const state = useData();
+  const { state } = useData();
 
   return (
     <>
