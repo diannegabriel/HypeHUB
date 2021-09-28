@@ -8,7 +8,8 @@ module.exports = async (dataObj) => {
   const goalName = dataObj.goalName;
   const goalType = dataObj.goalType.toLowerCase();
   const goalDescription = dataObj.goalDescription;
-  const goalAttribute = "knowledge"
+  //Every goal has one attribute of knowledge atm - need to resolve check box issue.
+  const goalAttribute = ["knowledge"]
 
 
   const dbKey = process.env.DB_KEY;
@@ -40,13 +41,3 @@ module.exports = async (dataObj) => {
     await client.close();
   }
 }
-
-// module.export = dbCreateGoal;
-// TEST
-// dbCreateGoal(
-//   "614de5c4646237d2b991f65c",
-//   "Get Vsmrt",
-//   "quest",
-//   "Read 50 books/year ",
-//   ["Knowledge", "Vitality"]
-// );

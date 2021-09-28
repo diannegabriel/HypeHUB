@@ -9,7 +9,6 @@ export default function GamifyModal(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`handle submit called\n-----`)
     // const form = event.currentTarget;
     // if (form.checkValidity() === false) {
     //   event.preventDefault();
@@ -42,7 +41,6 @@ export default function GamifyModal(props) {
         <div className="rpgui-container framed add-goal-modal">
           <h1>Next Goal</h1>
           <hr />
-          
             <label>Goal:</label>
             <input type="text" name="goal" value={goal} autoComplete="off" onChange={(e) => setGoal(e.target.value)} />
             <br/><br/>
@@ -66,7 +64,6 @@ export default function GamifyModal(props) {
               <p className="button-text">Enter</p>
             </button>
             </div>
-           
         </div>
       </div>
     </div>
