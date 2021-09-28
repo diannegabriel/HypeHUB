@@ -15,8 +15,8 @@ export default function Nav() {
       <button onClick={handleShow}><i className="fas fa-plus-circle fa-3x"></i></button>
       <i className="far fa-calendar-alt fa-3x"></i>
 
-      <Modal show={show} onHide={handleClose}>
-        <GamifyModal />
+      <Modal show={show} >
+        <GamifyModal handleClose={handleClose} />
       </Modal>
     </article>
   );

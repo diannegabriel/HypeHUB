@@ -1,6 +1,7 @@
 import React from "react";
 import "./Goals.scss";
 import GoalsList from "./GoalsList";
+import useData from "../hooks/useData";
 
 export default function Goals(props) {
   return (

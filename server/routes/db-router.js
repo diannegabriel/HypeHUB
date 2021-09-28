@@ -58,8 +58,9 @@ router.get("/quest-goals", (req, res) => {
 router.post("/new-goal/", (req, res) => {
   const data = req.body;
 
-  dbCreateGoal(data).then(() => {
-    res.redirect("/dashboard");
+  dbCreateGoal(data).then((goal) => {
+    // res.redirect("/dashboard");
+    res.json({ goal })
   });
 });
 

@@ -23,7 +23,6 @@ export default function GamifyModal(props) {
       Social: event.target[6].checked,
       Willpower: event.target[7].checked,
     };
-
     createGoal(formData);
   };
 
@@ -116,7 +115,7 @@ export default function GamifyModal(props) {
             <br />
             <br />
             <div className='rpgui-center'>
-              <button className='rpgui-button' type='submit'>
+              <button className='rpgui-button' type='submit' onClick={props.handleClose}>
                 <p className='button-text'>Enter</p>
               </button>
             </div>
