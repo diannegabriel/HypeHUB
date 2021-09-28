@@ -30,5 +30,21 @@ export default function useData() {
     });
   }, []);
 
-  return state;
+  function createGoal(formData) {
+    axios({
+      method: "post",
+      url: "http://localhost:5000/db/new-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(formData),
+    }).then(
+      (res) => {
+        console.log(res.headers);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  return { state, createGoal };
 }
