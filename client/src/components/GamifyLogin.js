@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
@@ -10,7 +9,6 @@ export default function GamifyLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
-  // const [UserId, setUserId] = useState("");
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -19,7 +17,6 @@ export default function GamifyLogin() {
       event.stopPropagation();
     }
   };
-
 
   const validateForm = () => {
     return email.length > 0 && password.length > 5;
@@ -34,7 +31,6 @@ export default function GamifyLogin() {
         </div>
         <div className="body-text">
           <p className="text">Start your mission?</p>
-          {/* <i class="icon-navi fas fa-angle-double-down"></i> */}
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
