@@ -66,7 +66,7 @@ export default function GamifyModal(props) {
               name='goal-type'
               data-rpgui='dropdown'
             >
-              <option value='Daily' selected>
+              <option value='Daily'>
                 Daily Task
               </option>
               <option value='Mission'>Mission</option>

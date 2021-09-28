@@ -37,5 +37,4 @@ async function dbCreateUser(name, password, email) {
 }
 
 module.export = dbCreateUser;
-//TEST
-// dbCreateUser("billy jo", "password", "billy@jo.com");
+
