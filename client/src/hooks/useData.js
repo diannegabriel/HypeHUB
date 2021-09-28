@@ -31,6 +31,7 @@ export default function useData() {
   }, []);
 
   function createGoal(formData) {
+    console.log(`func in useData called.`)
     axios({
       method: "post",
       url: "http://localhost:5000/db/new-goal",
@@ -46,5 +47,22 @@ export default function useData() {
     );
   }
 
-  return { state, createGoal };
+  function updateGoalStatus(data){
+    axios({
+      method: "post",
+      url: "http://localhost:5000/db/update-goal-status",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(data),
+    }).then(
+      (res) => {
+        console.log(res.headers);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+  }
+
+  return { state, createGoal, updateGoalStatus };
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.scss";
-// import Login from './components/Login';
 import SpotifyAuth from "./components/SpotifyAuth";
 import BattleTheme from "./components/BattleTheme";
 import Goals from "./components/Goals";
