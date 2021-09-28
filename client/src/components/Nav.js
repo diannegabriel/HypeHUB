@@ -6,7 +6,6 @@ import "./rpgui.css";
 
 export default function Nav() {
   const [show, setShow] = useState(false);
-  const [open, setOpen] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
