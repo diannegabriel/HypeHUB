@@ -1,15 +1,26 @@
 require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
-module.exports = async (dataObj) => {
+const parseBoolData = (data) =>{
+  let attributes = [];
+  data.Strength && (attributes.push("strength"))
+  data.Vitality && (attributes.push("vitality"))
+  data.Knowledge && (attributes.push("knowledge"))
+  data.Social && (attributes.push("social"))
+  data.Willpower && (attributes.push("willpower"))
 
-  //TEMP define information here
-  const userId = "614de5c4646237d2b991f65c"
+  //Return array with only the selected attributes.
+  return attributes;
+}
+
+
+module.exports = async (dataObj) => {
+  const userId = dataObj.userId
   const goalName = dataObj.goalName;
   const goalType = dataObj.goalType.toLowerCase();
   const goalDescription = dataObj.goalDescription;
-  //Every goal has one attribute of knowledge atm - need to resolve check box issue.
-  const goalAttribute = ["knowledge"]
+  //Helper function above to parse attributes.
+  const goalAttribute = parseBoolData(dataObj);
 
 
   const dbKey = process.env.DB_KEY;
