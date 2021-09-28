@@ -33,12 +33,12 @@ export default function useData() {
   function createGoal(formData) {
     axios({
       method: "post",
-      url: "http://localhost:5000/db/new-goal",
+      url: "/db/new-goal",
       headers: { "content-type": "application/json" },
       data: JSON.stringify(formData),
     }).then(
       (res) => {
-        console.log(res.headers);
+        console.log(res);
       },
       (err) => {
         console.log(err);
