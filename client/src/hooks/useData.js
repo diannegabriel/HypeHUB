@@ -5,9 +5,9 @@ let hasFetchedData = false;
 let state = {
   userExp: 99,
 };
-
+//Do not change updaters
 let updaters = [];
-
+//Do not export setState
 const setState = (newState) => {
   state = {
     ...state,
@@ -63,7 +63,7 @@ export default function useData() {
         console.log(res.data);
         const goalTypeKey = `${res.data.goal.goalType}Goals`
         setState({
-          [goalTypeKey]: [...state[goalTypeKey], res.data.goal]
+          [goalTypeKey]: [...state[goalTypeKey]]
         })
         
       },
