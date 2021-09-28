@@ -1,14 +1,16 @@
+import "./SpotifyAuth.scss";
+
 export default function SpotifyAuth() {
   return (
     <footer id='spotify-auth'>
-      <div>
+      <div className='rpgui-container framed'>
         <header className='spotify-auth-header'>
           <a
             className='btn-spotify'
             href='http://localhost:5000/login'
             rel='noopener noreferrer'
-            target='_blank'
           >
+            <img src='/spotify-icon-white.png' alt='Spotify Logo' />
             Login with Spotify
           </a>
         </header>

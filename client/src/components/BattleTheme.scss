@@ -1,4 +1,4 @@
-#battle-theme, .spotify-auth {
+#battle-theme {
   bottom: 0px;
   position: fixed;
   width: 40%;
@@ -7,7 +7,6 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 5px;
-  background-color: #5996acb2;
   color: #fff; 
   .main-wrapper {
     display: flex;
@@ -19,6 +18,16 @@
     }
     .now-playing__side {
       margin: 0 10px;
+      .now-playing__name {
+        font-family: 'Tourney', cursive;
+      }
+      .now-playing__artist {
+        font-family: 'Tourney', cursive;
+        font-style: italic;
+      }
+    }
+    .btn-spotify {
+      color:#fff;
     }
   }
 }
