@@ -29,10 +29,10 @@ function App() {
         </>
       )}
 
-      {/* {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />} */}
+      {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
       {/* once authenticated, I want to show the select theme, from there I want to be able to set state and pass that in as props to the battletheme component... */}
       {/* !theme ? <SelectTheme /> : <BattleTheme token={state.token} theme={..theme} /> */}
-      <SelectTheme />
+      {/* <SelectTheme /> */}
     </>
   );
 }
