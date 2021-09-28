@@ -1,17 +1,32 @@
 import React, { useState, useRef, useEffect } from "react";
+import useData from "../hooks/useData";
+
 import "./rpgui.css";
-import "./Modal.scss"
+import "./Modal.scss";
 
 export default function GamifyModal(props) {
   const [goal, setGoal] = useState("");
+
   const formEl = useRef(null);
+  //Rename state === lot of changes. Group talk. (App.js, dbCreateGoal.js,useData.js)
+  const { state, createGoal } = useData();
+
 
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    event.preventDefault();
+    let formData = {
+      userId: state.userId,
+      goalName: event.target[0].value,
+      goalDescription: event.target[1].value,
+      goalType: event.target[2].value,
+      Strength: event.target[3].checked,
+      Vitality: event.target[4].checked,
+      Knowledge: event.target[5].checked,
+      Social: event.target[6].checked,
+      Willpower: event.target[7].checked,
+    };
+
+    createGoal(formData);
   };
 
   useEffect(() => {
@@ -55,7 +70,6 @@ export default function GamifyModal(props) {
           </div>
         </div>
       </div>
-    </div>
     </form>
   );
-};
+}
