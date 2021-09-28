@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function useData() {
   const [state, setState] = useState({
     userId: null,
-    userExp: 99,
+    userExp: 60,
     token: null,
     dailyGoals: null,
     missionGoals: null,
