@@ -9,6 +9,7 @@ import Goals from "./components/Goals";
 import Header from "./components/Header";
 import GamifyLogin from "./components/GamifyLogin";
 import useData from "./hooks/useData";
+import SelectTheme from "./components/SelectTheme";
 
 function App() {
   const state = useData();
@@ -20,15 +21,18 @@ function App() {
       ) : (
         <>
           <Header />
-          <Goals 
-          dailyGoals={state.dailyGoals} 
-          missionGoals={state.missionGoals}
-          questGoals={state.questGoals}
+          <Goals
+            dailyGoals={state.dailyGoals}
+            missionGoals={state.missionGoals}
+            questGoals={state.questGoals}
           />
         </>
       )}
 
-      {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
+      {/* {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />} */}
+      {/* once authenticated, I want to show the select theme, from there I want to be able to set state and pass that in as props to the battletheme component... */}
+      {/* !theme ? <SelectTheme /> : <BattleTheme token={state.token} theme={..theme} /> */}
+      <SelectTheme />
     </>
   );
 }
