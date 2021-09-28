@@ -20,6 +20,7 @@ const setState = (newState) => {
 }
 //logout func to set state to null.
 export default function useData() {
+
   const newUpdater = useState()[1];
   useEffect(()=>{
     updaters.push(newUpdater);
@@ -27,6 +28,7 @@ export default function useData() {
       updaters = updaters.filter((updater) => updater !== newUpdater)
     }
   }, [])
+
 
   useEffect(() => {
     if (!hasFetchedData){

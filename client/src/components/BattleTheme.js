@@ -48,47 +48,40 @@ export default function BattleTheme(props) {
 
       player.connect();
       player.addListener("player_state_changed", (state) => {
+        // console.log("state - listener", state);
         if (!state) {
           return;
         }
 
-        setTrack(state.track_window.current_track);
-        setPaused(state.paused);
-        console.log(">>>>>>", state);
-        setPlaybackState({
-          position: state.position,
-          totalTime: state.duration,
-        });
         player.getCurrentState().then((state) => {
+          console.log("state after getCurrent state", state);
           !state ? setActive(false) : setActive(true);
+          setTrack(state.track_window.current_track);
+          setPaused(state.paused);
+          setPlaybackState((prev) => ({
+            ...prev,
+            position: state.position,
+            totalTime: state.duration,
+          }));
         });
       });
+      //Test to check if i can access transfer playback endpoint, will use when genrating battletheme...
+      axios.get("http://localhost:5000/transfer-playback").then((res) => {
+        console.log(">>>Spotify-API--transfer playback get req", res);
+        // setState in here...
+        // //not sure how this works exactly yet...
+      });
     };
-    //Test to check if i can access user's currently playing track. will use later
-    axios({
-      method: "get",
-      url: "https://api.spotify.com/v1/me/player/currently-playing",
-      headers: {
-        Authorization: `Bearer ${props.token}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then((res) => {
-      console.log(">>>Spotify-API--whatever request/endpoint", res);
-      // setState in here...
-      // need to configure the right scope for authorization request.
-    });
   }, [props.token]);
   return (
     <footer id='battle-theme'>
       <div className='container'>
-        <div className='main-wrapper'>
+        <div className='main-wrapper rpgui-container framed'>
           <img
             src={current_track.album.images[0].url}
             className='now-playing__cover'
             alt=''
           />
-
           <div className='now-playing__side'>
             <div className='now-playing__name'>{current_track.name}</div>
 

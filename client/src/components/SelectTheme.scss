@@ -1,0 +1,19 @@
+#select-theme {
+  .rpgui-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  .rpgui-button {
+    margin: 0 0.5em;
+    font-family: 'Tourney', cursive;
+    color: #fff; 
+    text-align: center;
+    .fas {
+      margin: 0 0.2em;
+    }
+  }
+  }
+}
