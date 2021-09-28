@@ -12,8 +12,11 @@ export default function Nav() {
 
   return (
     <article id="nav-bar">
-      <button onClick={handleShow}><i className="fas fa-plus-circle fa-3x"></i></button>
-      <i className="far fa-calendar-alt fa-3x"></i>
+      <button onClick={handleShow} className="exclamation">
+        {/* <i className="fas fa-plus-circle fa-3x"></i> */}
+        <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/8be157fc744cf39.png" className="exclamation"/>
+      </button>
+      {/* <i className="far fa-calendar-alt fa-3x"></i> */}
 
       <Modal show={show} >
         <GamifyModal handleClose={handleClose} />
