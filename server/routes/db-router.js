@@ -59,14 +59,13 @@ router.get("/quest-goals", (req, res) => {
 router.post("/new-goal/", (req, res) => {
   const data = req.body;
 
-  dbCreateGoal(data).then(() => {
-    res.redirect("/dashboard");
+  dbCreateGoal(data).then((goal) => {
+    res.json({goal})
   });
 });
 
 router.post("/update-goal-status/", (req, res) => {
   const data = req.body;
-  console.log(`data in router ---\n ${data}`)
   dbUpdateGoalStatus(data).then(() => {
     res.redirect("/dashboard");
   });
