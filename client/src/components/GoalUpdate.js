@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
-import useData from "../hooks/useData";
+
 
 export default function GoalUpdate({ goalId, reCollapse }) {
   //This is for updating the goal name
   const [goal, setGoal] = useState("");
 
   const { updateGoal } = useData();
+
 
   const formEl = useRef(null);
   useEffect(() => {

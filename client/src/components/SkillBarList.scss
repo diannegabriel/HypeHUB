@@ -5,14 +5,15 @@
   border-radius: 10px;
   background-color: rgba(156, 156, 156, 0.4);;
   width: 90%;
+  image-rendering: pixelated;
 }
 
 .skills-bar .bar {
-  margin: 15px 0;
+  margin: 0px 0px 27px 0px;
 }
 
-.skills-bar .bar .info span {
-  font-size: 1rem;
+.skills-bar .bar .info {
+  font-size: 1em;
   font-weight: 500;
 }
 
@@ -161,4 +162,44 @@
 }
 .progress-line .willpower::after {
   content: "90%";
+}
+
+.rpgui-content {
+
+  .skill-attribute-name {
+    font-size: 1em;
+  }
+
+}
+
+.user-progress-line {
+  .attributes {
+    background-repeat: repeat-x;
+    background-size: 36px 100%;
+  }
+  .user-str{
+    background-image: url('img/progress-red.png');
+  }
+  .user-vit{
+    background-image: url('img/progress-blue.png');
+  }
+  .user-kno{
+    background-image: url('img/progress-blue.png');
+  }
+  .user-soc{
+    background-image: url('img/progress.png');
+  }
+  .user-wil{
+    background-image: url('img/progress-green.png');
+  }
+}
+
+.bar .user-progress-line span::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  right: 0;
+  top: -14px;
+  width: 0;
+  border: 7px solid transparent;
 }
