@@ -21,6 +21,7 @@ const generateRandomString = (length) => {
 
 const scopes = [
     "streaming",
+    "user-top-read",
     "user-read-email",
     "user-read-private",
     "user-read-currently-playing",
@@ -61,6 +62,7 @@ router.get("/auth/callback", (req, res) => {
 });
 
 router.get("/auth/token", (req, res) => {
+  console.log(req.body);
   res.json({
     access_token: spotifyApi.getAccessToken(),
     refresh_token: spotifyApi.getRefreshToken(),
@@ -92,7 +94,7 @@ router.get("/transfer-playback", (req, res) => {
       console.log(device);
       spotifyApi.transferMyPlayback(device).then(() => {
         console.log("Transfering playback to HypeHubApp on device id:", device);
-        res.json({ device });
+        res.sendStatus(200);
       });
     })
     .catch((err) => res.json({ err }));
@@ -112,24 +114,31 @@ router.get("/genre-seeds", (req, res) => {
 
 router.get("/chill", (req, res) => {
   //do a call to get user's top 50 tracks, - store that in an object/var
-  spotifyApi.getMyTopTracks;
   spotifyApi
-    .getRecommendations({
-      min_energy: 0.4,
-      seed_genres: ["chill", "acoustic", "classical", "jazz"],
-      //seed_tracks:
-      min_popularity: 50,
-      min_valence: 0.3,
+    .getMyTopTracks()
+    .then((data) => {
+      // console.log(data);
+      let topTracks = data.body.items;
+      res.json({ topTracks });
     })
-    .then(
-      function (data) {
-        let recommendations = data.body;
-        res.json(recommendations);
-      },
-      function (err) {
-        console.log("Something went wrong!", err);
-      }
-    );
+    .catch((err) => res.json({ err }));
+  // spotifyApi
+  //   .getRecommendations({
+  //     min_energy: 0.4,
+  //     seed_genres: ["chill", "acoustic", "classical", "jazz"],
+  //     //seed_tracks:
+  //     min_popularity: 50,
+  //     min_valence: 0.3,
+  //   })
+  //   .then(
+  //     function (data) {
+  //       let recommendations = data.body;
+  //       res.json(recommendations);
+  //     },
+  //     function (err) {
+  //       console.log("Something went wrong!", err);
+  //     }
+  //   );
 });
 
 module.exports = router;
