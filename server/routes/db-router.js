@@ -10,6 +10,7 @@ const dbReadUser = require(".././dbHelpers/users/dbReadUser");
 const dbReadGoals = require(".././dbHelpers/goals/dbReadGoals");
 const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal");
 const dbUpdateGoalStatus = require("../dbHelpers/goals/dbUpdateGoalStatus");
+const dbUpdateGoal = require ("../dbHelpers/goals/dbUpdateGoal");
 
 //create nessisary routes for db query here
 router.get("/db-user", (req, res) => {
@@ -67,6 +68,16 @@ router.post("/new-goal/", (req, res) => {
 router.post("/update-goal-status/", (req, res) => {
   const data = req.body;
   dbUpdateGoalStatus(data).then((status) => {
+    res.json({status})
+  });
+});
+
+//put request
+router.put("/update-goal", (req, res) => {
+  const data = req.body;
+  console.log(`data from body\n${data}`)
+
+  dbUpdateGoal(data).then((status) => {
     res.json({status})
   });
 });

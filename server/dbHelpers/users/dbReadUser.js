@@ -32,7 +32,6 @@ module.exports = async (email, password) => {
     console.log(`client connected`);
     //See helper function above
     id = await returnData(client, email, password);
-    console.log(`---\n ${id}\n---`);
     return id;
   } catch (err) {
     console.log(`ERROR`, err);
@@ -40,4 +39,3 @@ module.exports = async (email, password) => {
     await client.close();
   }
 };
-

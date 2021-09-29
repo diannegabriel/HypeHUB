@@ -9,12 +9,12 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
   const [open, setOpen] = useState(false);
   const { updateGoalStatus } = useData();
 
-  const handleClick = () => {
-    // updateGoalStatus({
-    //   goalType: goalType,
-    //   goalId: goalId,
-    //   status: status,
-    // });
+  const handleStatusClick = () => {
+    updateGoalStatus({
+      goalType: goalType,
+      goalId: goalId,
+      status: status,
+    });
     console.log(`submit called`);
   };
 
@@ -30,7 +30,7 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
   return (
     <>
       <li className="goal-entry">
-        <button onClick={handleClick} className="goals-status-name">
+        <button onClick={handleStatusClick} className="goals-status-name">
           {statusIcon}
         </button>
         <p className="goals-title-name">{title}</p>
@@ -41,7 +41,7 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
       </li>
       <Collapse in={open}>
         <div>
-          <GoalUpdate />
+          <GoalUpdate goalId={goalId}/>
         </div>
       </Collapse>
     </>
