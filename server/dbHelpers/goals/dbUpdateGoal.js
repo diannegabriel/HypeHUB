@@ -2,15 +2,19 @@ require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectID;
 
+async function filterAttributes(data) {
+  let attr = [];
+  data.Strength && attr.push("strength");
+  data.Vitality && attr.push("vitality");
+  data.Knowledge && attr.push("knowledge");
+  data.Social && attr.push("social");
+  data.Willpower && attr.push("willpower");
+  return attr;
+}
 
 module.exports = async (data) => {
   //data = {"goalId":"61545b3ecba9def7d9c11e75","goalName":"ergqer","goalType":"Daily","Strength":false,"Vitality":false,"Knowledge":false,"Social":false,"Willpower":true}
 
-  // The passed in data does not have current status. 
-  //ENSURE existing status will persist
-
-
-  console.log(`data in update function: ${data}`);
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -23,19 +27,25 @@ module.exports = async (data) => {
 
   await client.connect();
 
+  const newAttributes = await filterAttributes(data);
   try {
- 
-
+    console.log(`------------\n ${newAttributes}`);
     let document = await client
       .db("hypeHub")
       .collection("goals")
       .updateOne(
-        //Find record to be updated
+        //Find record to be updated w/ unique _id
         { _id: ObjectId(data.goalId) },
-        //Update status field to passed in value.
-        { $set: { goalName: data.goalName } }
+        //Update field with passed in value.
+        {
+          $set: {
+            goalName: data.goalName,
+            goalType: data.goalType.toLowerCase(),
+            goalAttribute: newAttributes,
+          },
+        }
       );
-      return document
+    return document;
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
