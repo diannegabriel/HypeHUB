@@ -63,7 +63,7 @@ export default function useData() {
         console.log(res.data);
         const goalTypeKey = `${res.data.goal.goalType}Goals`
         setState({
-          [goalTypeKey]: [...state[goalTypeKey]]
+          [goalTypeKey]: [...state[goalTypeKey], res.data.goal]
         })
         
       },
