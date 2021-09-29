@@ -29,7 +29,12 @@ module.exports = async (data) => {
 
   const newAttributes = await filterAttributes(data);
   try {
-    console.log(`------------\n ${newAttributes}`);
+
+    const newData = {
+      goalName: data.goalName,
+      goalType: data.goalType.toLowerCase(),
+      goalAttribute: newAttributes,
+    }
     let document = await client
       .db("hypeHub")
       .collection("goals")
@@ -38,14 +43,14 @@ module.exports = async (data) => {
         { _id: ObjectId(data.goalId) },
         //Update field with passed in value.
         {
-          $set: {
-            goalName: data.goalName,
-            goalType: data.goalType.toLowerCase(),
-            goalAttribute: newAttributes,
-          },
+          $set: newData,
         }
       );
-    return document;
+    return {
+      ...newData,
+    goalId: data.goalId,
+    goalType: data.goalType
+    };
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
