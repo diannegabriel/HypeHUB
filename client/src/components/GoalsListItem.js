@@ -3,7 +3,7 @@ import "./GoalsListItem.scss";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
 
-export default function GoalsListItem({goalId, status, title}) {
+export default function GoalsListItem({goalId, status, title, goalType}) {
   const [open, setOpen] = useState(false);
   const { updateGoalStatus } = useData();
   const formEl = useRef(null);
@@ -19,6 +19,7 @@ export default function GoalsListItem({goalId, status, title}) {
 
   const handleClick = () => {
     updateGoalStatus({
+      goalType: goalType,
       goalId: goalId,
       status: status,
     });

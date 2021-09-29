@@ -28,7 +28,7 @@ module.exports = async (data) => {
   try {
     newStatus = await updateStatus(data.status);
 
-    await client
+    let document = await client
       .db("hypeHub")
       .collection("goals")
       .updateOne(
@@ -37,6 +37,10 @@ module.exports = async (data) => {
         //Update status field to passed in value.
         { $set: { status: newStatus } }
       );
+      return {
+        goalId:data.goalId,
+        status: newStatus
+      }
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
