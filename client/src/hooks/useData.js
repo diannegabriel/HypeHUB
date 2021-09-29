@@ -55,7 +55,7 @@ export default function useData() {
     console.log(`func in useData called.`)
     axios({
       method: "post",
-      url: "http://localhost:5000/db/new-goal",
+      url: "/db/new-goal",
       headers: { "content-type": "application/json" },
       data: JSON.stringify(formData),
     }).then(

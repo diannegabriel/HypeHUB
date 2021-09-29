@@ -21,8 +21,8 @@ export default function GoalsList(props) {
 
 
   return (
-    <article className="goals">
-      <h3>{props.headerName}</h3>
+    <article className="goals rpgui-container framed-golden-2">
+      <h2>{props.headerName}</h2>
       {goalList}
     </article>
   );

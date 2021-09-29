@@ -75,7 +75,7 @@ export default function BattleTheme(props) {
   }, [props.token]);
   return (
     <footer id='battle-theme'>
-      <div className='container'>
+      <div className='spotify-content'>
         <div className='main-wrapper rpgui-container framed'>
           <img
             src={current_track.album.images[0].url}
