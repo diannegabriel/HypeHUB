@@ -9,6 +9,7 @@ inside your html file.
 * Customized scrollbars
 */
 /* to get pixelated images (nearest-neighbor filter) on all  browsers */
+
 .button-text {
   margin: 0 auto;
 }
@@ -486,7 +487,8 @@ ul.rpgui-dropdown-imp {
   height: 64px; }
 
 .rpgui-icon.sword {
-  background-image: url("img/icons/sword.png"); }
+  background-image: url("img/icons/sword.png"); 
+}
 
 .rpgui-icon.shield {
   background-image: url("img/icons/shield.png"); }
