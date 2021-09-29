@@ -41,7 +41,7 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
       </li>
       <Collapse in={open}>
         <div>
-          <GoalUpdate goalId={goalId}/>
+          <GoalUpdate goalId={goalId} reCollapse={setOpen}/>
         </div>
       </Collapse>
     </>

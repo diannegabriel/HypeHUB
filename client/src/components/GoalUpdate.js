@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
 import useData from "../hooks/useData";
 
-export default function GoalUpdate({ goalId }) {
+export default function GoalUpdate({ goalId, reCollapse }) {
   //This is for updating the goal name
   const [goal, setGoal] = useState("");
 
@@ -38,6 +38,7 @@ export default function GoalUpdate({ goalId }) {
     };
 
     updateGoal(updateInformation);
+    reCollapse(false)
   };
   
   return (
