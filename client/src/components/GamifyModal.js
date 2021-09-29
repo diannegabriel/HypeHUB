@@ -23,7 +23,6 @@ export default function GamifyModal(props) {
       Social: event.target[6].checked,
       Willpower: event.target[7].checked,
     };
-
     createGoal(formData);
   };
 
@@ -41,7 +40,10 @@ export default function GamifyModal(props) {
       <div className='Modal'>
         <div className='rpgui-content'>
           <div className='rpgui-container framed add-goal-modal'>
-            <h1>Next Goal</h1>
+            <div className="modal-header">
+              <h1 class='modal-header-title'>Next Goal</h1>
+              <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png" className="close-button" onClick={props.handleClose} />
+            </div>
             <hr />
             <label>Goal:</label>
             <input
@@ -67,7 +69,7 @@ export default function GamifyModal(props) {
               name='goal-type'
               data-rpgui='dropdown'
             >
-              <option value='Daily' selected>
+              <option value='Daily'>
                 Daily Task
               </option>
               <option value='Mission'>Mission</option>
@@ -116,7 +118,7 @@ export default function GamifyModal(props) {
             <br />
             <br />
             <div className='rpgui-center'>
-              <button className='rpgui-button' type='submit'>
+              <button className='rpgui-button' type='submit' onClick={props.handleClose}>
                 <p className='button-text'>Enter</p>
               </button>
             </div>

@@ -10,11 +10,11 @@ body {
   cursor: url("components/img/cursor/default.png"), auto !important; 
 }
 
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled), .close-button {
   cursor: url("components/img/cursor/point.png") 10 0, auto !important; 
 }
 
-body hr {
+body {
   display: block;
   border: 0px;
   height: 10px;
@@ -97,4 +97,9 @@ button {
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 700;
+}
+
+.full-page {
+  width: 100%;
+  height: 100vh;
 }

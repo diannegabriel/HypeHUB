@@ -66,8 +66,8 @@ router.post("/new-goal/", (req, res) => {
 
 router.post("/update-goal-status/", (req, res) => {
   const data = req.body;
-  dbUpdateGoalStatus(data).then(() => {
-    res.redirect("/dashboard");
+  dbUpdateGoalStatus(data).then((goal) => {
+    res.json({goal})
   });
 });
 
