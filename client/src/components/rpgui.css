@@ -793,21 +793,17 @@ ul.rpgui-list-imp {
   background-size: 36px 100%; }
 
 /* progress bar - blue color */
-.rpgui-progress-fill.blue {
-  background-image: url("img/progress-blue.png"); }
+/* .rpgui-progress-fill.blue {
+  background-image: url("img/progress-blue.png"); } */
 
 /* progress bar - green color */
-.rpgui-progress-fill.green {
-  background-image: url("img/progress-green.png"); }
+/* .rpgui-progress-fill.green {
+  background-image: url("img/progress-green.png"); } */
 
 /* progress bar - red color */
 /* .rpgui-progress-fill.red {
   background-image: url("img/progress-red.png"); 
 } */
-
-.herro {
-  width: 100%;
-}
 
 /**
 * style for radioes

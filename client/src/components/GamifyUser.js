@@ -26,7 +26,7 @@ export default function GamifyUser(props) {
                 <div>
                   <div id="hp-bar" data-value="0.4" className="rpgui-progress red bar" data-rpguitype="progress">
                     <div className=" rpgui-progress-track">
-                      <div className="rpgui-progress-fill red herro user-progress-line">
+                      <div className="rpgui-progress-fill red user-progress-line">
                         <span className="user-exp" style={{width: `${props.exp}%`}}></span></div>
                     </div>
                     <div className=" rpgui-progress-left-edge"></div>
