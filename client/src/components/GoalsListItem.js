@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
-import AnotherForm from "./AnotherForm";
+import GoalUpdate from "./GoalUpdate";
 import Quotes from "./Quotes";
 
 export default function GoalsListItem({goalId, status, title, goalType}) {
@@ -46,9 +46,8 @@ export default function GoalsListItem({goalId, status, title, goalType}) {
     </li>
       <Collapse in={open}>
         <div>
-        <AnotherForm />
+        <GoalUpdate />
         </div>
-        {/* <AnotherForm /> */}
         {/* <form ref={formEl}>
           <div className="rpgui-container framed-grey">
           <label>Update Goal:</label>
