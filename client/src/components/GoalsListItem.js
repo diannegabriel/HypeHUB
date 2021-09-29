@@ -7,7 +7,6 @@ import Collapse from "react-bootstrap/Collapse";
 
 export default function GoalsListItem({ goalId, status, title, goalType }) {
   const [open, setOpen] = useState(false);
-
   const { updateGoalStatus } = useData();
 
   const handleClick = () => {
