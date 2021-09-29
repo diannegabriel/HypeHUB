@@ -94,7 +94,6 @@ export default function useData() {
           if (state[goalKey][i].goalId === id) {
             const updatedArray = [...state[goalKey]];
             updatedArray[i].status = newStatus;
-
             setState({
               goalKey: updatedArray,
             });
@@ -107,5 +106,40 @@ export default function useData() {
     );
   }
 
-  return { state, createGoal, updateGoalStatus };
+  function updateGoal(data) {
+    // console.log(`goal: ${JSON.stringify(data)}`)
+    axios({
+      method: "put",
+      url: "http://localhost:5000/db/update-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(data),
+    }).then((res) => {
+      console.log(res.data.update);
+      const id = res.data.update.goalId;
+      const name = res.data.update.goalName;
+      const attr = res.data.update.goalAttribute;
+      const goalKey = `${res.data.update.goalType.toLowerCase()}Goals`;
+
+      ///////////////////////////////////////////////////////
+      //ISSUE: Will not be able to update goalType with out//
+      //removing goal from one list and adding to another////
+      ///////////////////////////////////////////////////////
+
+      //Iterate through array of goals based on type.
+      for (let i = 0; i < state[goalKey].length; i++) {
+        if (state[goalKey][i].goalId === id) {
+          //Update existing state with info returned from db update.
+          const updatedGoal = [...state[goalKey]];
+          updatedGoal[i].goalName = name;
+          updatedGoal[i].goalAttribute = attr;
+
+          setState({
+            goalKey: updatedGoal,
+          });
+        }
+      }
+    });
+  }
+
+  return { state, createGoal, updateGoalStatus, updateGoal };
 }
