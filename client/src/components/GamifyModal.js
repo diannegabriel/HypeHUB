@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import useData from "../hooks/useData";
-
 import "./rpgui.css";
 import "./Modal.scss";
 
