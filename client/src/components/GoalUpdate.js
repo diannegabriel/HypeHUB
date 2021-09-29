@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
-import useData from "../hooks/useData";
 
 export default function AnotherForm() {
   const formEl = useRef(null);
+  const [goal, setGoal] = useState("");
 
   useEffect(() => {
     formEl.current.querySelectorAll("[data-rpgui]").forEach((el) => {
@@ -21,7 +21,9 @@ export default function AnotherForm() {
         <input
           type='text'
           name='goal'
+          value={goal}
           autoComplete='off'
+          onChange={(e) => setGoal(e.target.value)}
         />
         <br />
         <br />
