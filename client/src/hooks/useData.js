@@ -107,5 +107,17 @@ export default function useData() {
     );
   }
 
-  return { state, createGoal, updateGoalStatus };
+  function updateGoal(data){
+    // console.log(`goal: ${JSON.stringify(data)}`)
+    axios({
+      method: "put",
+      url: "http://localhost:5000/db/update-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(data),
+    })
+    
+
+  }
+
+  return { state, createGoal, updateGoalStatus, updateGoal };
 }
