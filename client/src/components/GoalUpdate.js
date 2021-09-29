@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
 import useData from "../hooks/useData";
-// import Collapse from "react-bootstrap/Collapse";
 
 export default function AnotherForm() {
-  const [open, setOpen] = useState(false);
-  const { updateGoalStatus } = useData();
   const formEl = useRef(null);
 
   useEffect(() => {
