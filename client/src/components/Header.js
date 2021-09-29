@@ -2,6 +2,7 @@ import React from "react";
 import './Header.scss'
 import Nav from './Nav'
 import SidePanel from './SidePanel'
+import Quotes from './Quotes'
 import GamifyUser from './GamifyUser'
 import useData from "../hooks/useData";
 
@@ -13,6 +14,7 @@ export default function Header() {
       <section className="master-header">
         <GamifyUser exp={state.userExp} />
         <Nav />
+        <Quotes />
       </section>
 
       <section className="burger">

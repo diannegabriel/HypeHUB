@@ -1,9 +1,8 @@
 #nav-bar {
   // background-color: rgb(160, 160, 160);
-  width: 200px;
-  height: 125px;
-  left: 45%;
-  margin: 20px 20px 0px 0px;
+  // width: 100px;
+  height: 140px;
+  margin-top: 20px;
   /* position: absolute; */
   display: flex;
   flex-direction: row;
@@ -11,9 +10,18 @@
   // justify-content: space-around;
 }
 
-.exclamation {
+.new-goal-button {
   background: none;
-  // background-color: transparent;
-  width: 85px;
-  // background-color: hsl(0, 0%, 90%);
+
+  .exclamation {
+    // background-color: transparent;
+    width: 120px;
+    // background-color: hsl(0, 0%, 90%);
+  }
+  
+  .new-goal-text {
+    font-family: 'Tourney', cursive;
+    color: #fff;
+    font-size: 1.2em;
+  }
 }
