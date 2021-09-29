@@ -1,55 +1,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GoalsListItem.scss";
 import useData from "./../hooks/useData";
-import Collapse from "react-bootstrap/Collapse";
-import AnotherForm from "./AnotherForm";
-import Quotes from "./Quotes";
+// import Collapse from "react-bootstrap/Collapse";
 
-export default function GoalsListItem({goalId, status, title, goalType}) {
+export default function AnotherForm() {
   const [open, setOpen] = useState(false);
   const { updateGoalStatus } = useData();
-  // const formEl = useRef(null);
+  const formEl = useRef(null);
 
-  // useEffect(() => {
-  //   formEl.current.querySelectorAll("[data-rpgui]").forEach((el) => {
-  //     if (window.RPGUI) {
-  //       const type = el.dataset.rpgui;
-  //       window.RPGUI.create(el, type);
-  //     }
-  //   });
-  // }, []);
-
-  const handleClick = () => {
-    updateGoalStatus({
-      goalType: goalType,
-      goalId: goalId,
-      status: status,
+  useEffect(() => {
+    formEl.current.querySelectorAll("[data-rpgui]").forEach((el) => {
+      if (window.RPGUI) {
+        const type = el.dataset.rpgui;
+        window.RPGUI.create(el, type);
+      }
     });
-  };
-
-  let statusIcon = "";
-  if (status === 'complete') {
-    statusIcon = <i class="nes-icon star"></i>;
-  } else if (status === 'incomplete') {
-    statusIcon = <i class="nes-icon star is-empty"></i>;
-  } else if (status === 'in progress') {
-    statusIcon = <i class="nes-icon star is-half"></i>;
-  }
+  }, []);
 
   return (
-    <>
-    <li className="goal-entry">
-      <button onClick={handleClick} className="goals-status-name">{statusIcon}</button>
-      <p className="goals-title-name">{title}</p>
-      <div className="rpgui-icon sword edit-button" onClick={() => setOpen(!open)}></div>
-      {/* <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/015a5440cba9551.png" className="pencil-edit-button" /> */}
-    </li>
-      <Collapse in={open}>
-        <div>
-        <AnotherForm />
-        </div>
-        {/* <AnotherForm /> */}
-        {/* <form ref={formEl}>
+
+<form ref={formEl}>
           <div className="rpgui-container framed-grey">
           <label>Update Goal:</label>
             <input
@@ -122,8 +92,5 @@ export default function GoalsListItem({goalId, status, title, goalType}) {
               </button>
             </div>
           </div>
-        </form> */}
-      </Collapse>
-    </>
-  );
-}
+        </form>
+  )}
