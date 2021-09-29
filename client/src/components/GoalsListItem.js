@@ -24,18 +24,19 @@ export default function GoalsListItem({goalId, status, title}) {
     });
   };
 
+  let statusIcon = "";
   if (status === 'complete') {
-    status = <i class="nes-icon star"></i>;
+    statusIcon = <i class="nes-icon star"></i>;
   } else if (status === 'incomplete') {
-    status = <i class="nes-icon star is-empty"></i>;
+    statusIcon = <i class="nes-icon star is-empty"></i>;
   } else if (status === 'in progress') {
-    status = <i class="nes-icon star is-half"></i>;
+    statusIcon = <i class="nes-icon star is-half"></i>;
   }
 
   return (
     <>
     <li className="goal-entry">
-      <button onClick={handleClick} className="goals-status-name">{status}</button>
+      <button onClick={handleClick} className="goals-status-name">{statusIcon}</button>
       <p className="goals-title-name">{title}</p>
       <div className="rpgui-icon sword edit-button" onClick={() => setOpen(!open)}></div>
       {/* <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/015a5440cba9551.png" className="pencil-edit-button" /> */}
@@ -43,12 +44,12 @@ export default function GoalsListItem({goalId, status, title}) {
       <Collapse in={open}>
         <form ref={formEl}>
           <div className="rpgui-container framed-grey">
-          <div className='rpgui-center'>
+          {/* <div className='rpgui-center'>
           <button className='rpgui-button golden'>
-            <p className='button-text'>Delete</p>
+            <p className='button-text'>Delete?</p>
           </button>
-          </div>
-          <br />
+          </div> */}
+          {/* <br /> */}
           <label>Update Goal:</label>
             <input
               type='text'
@@ -57,14 +58,14 @@ export default function GoalsListItem({goalId, status, title}) {
             />
             <br />
             <br />
-            <textarea
+            {/* <textarea
               name='description'
               rows='4'
               cols='50'
               placeholder='Goal Description'
             ></textarea>
             <br />
-            <br />
+            <br /> */}
             <label>Update the type:</label>
             <select
               className='rpgui-dropdown'
@@ -121,9 +122,11 @@ export default function GoalsListItem({goalId, status, title}) {
             <br />
             <div className='rpgui-center'>
               <button className='rpgui-button' type='submit'>
-                <p className='button-text'>Update</p>
+                <p className='button-text'>E</p>
               </button>
-              
+              <button className='rpgui-button'>
+                <p className='button-text'>D?</p>
+              </button>
             </div>
           </div>
         </form>
