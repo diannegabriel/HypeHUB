@@ -14,13 +14,15 @@ const dbUpdateGoal = require("../dbHelpers/goals/dbUpdateGoal");
 
 //create nessisary routes for db query here
 router.get("/db-user", (req, res) => {
-  let userId = null;
+  // let userId = null;
+  // let userExp = null;
+  let userData;
   dbReadUser("billy@jo.com", "password")
-    .then((info) => {
-      userId = info;
-    })
-    .then(() => {
-      res.json({ userId });
+    // .then((info) => {
+    //   userData = info;
+    // })
+    .then((data) => {
+      res.json({ data });
     });
 });
 
