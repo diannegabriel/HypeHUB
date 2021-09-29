@@ -75,7 +75,7 @@ router.post("/update-goal-status/", (req, res) => {
 //put request
 router.put("/update-goal", (req, res) => {
   const data = req.body;
-  console.log(`data from body\n${data}`)
+  // console.log(`data from body\n${JSON.stringify(data)}`)
 
   dbUpdateGoal(data).then((status) => {
     res.json({status})
