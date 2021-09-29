@@ -10,7 +10,9 @@ let state = {
 
 //Do not change updaters
 let updaters = [];
+
 //Do not export setState
+//setState is expecting an object.
 const setState = (newState) => {
   state = {
     ...state,
@@ -85,8 +87,36 @@ export default function useData() {
     }).then(
       (res) => {
         //Update state to match db
-        console.log(res.data);
-        
+        // console.log(res.data);
+        const newStatus = res.data.status.status
+        const id = res.data.status.goalId
+        const goalKey = `${data.goalType}Goals`
+
+        //find array of goals, same type
+        const goalsOfType = [...state[goalKey]]
+        //iterate through list of goals
+        for (let i = 0; i < state[goalKey].length; i++){
+        // for (const goal of goalsOfType){
+          //find the correct goal (goalId)
+          if (state[goalKey][i].goalId === id){
+            const pastStatus = [...state[goalKey]][i].status;
+            console.log(`pastStatus: ${pastStatus}`)
+    
+          
+          //Array of one goal type
+            const updatedArray = [...state[goalKey]]
+            updatedArray[i].status = newStatus
+            // console.log(blah)
+            // blah[i].status = newStatus;
+            // console.log(blah)
+            setState({questGoals: updatedArray}
+              // state[goalKey]: updatedArray,
+            )
+          }
+        }
+        //Update status of that goal
+        //set the state
+
       },
       (err) => {
         console.log(err);
