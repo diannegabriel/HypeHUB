@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 let hasFetchedData = false;
 //Original state before load.
 let state = {
-  userExp: 99,
 };
 
 //Do not change updaters
@@ -43,8 +42,13 @@ export default function useData() {
         axios.get("http://localhost:5000/db/mission-goals"),
         axios.get("http://localhost:5000/db/quest-goals"),
       ]).then((all) => {
+        console.log(`-------\n${JSON.stringify(all[0].data.data)}`)
+        console.log(`-------\n${JSON.stringify(all[2].data)}`)
+      
+
         setState({
-          userId: all[0].data.userId,
+          userId: all[0].data.data.userId,
+          userExp: all[0].data.data.userExp,
           token: all[1].data.access_token,
           dailyGoals: all[2].data.goals,
           missionGoals: all[3].data.goals,
