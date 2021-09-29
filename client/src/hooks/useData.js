@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+//Boolen, cause State to be set on original load.
 let hasFetchedData = false;
+//Original state before load.
 let state = {
   userExp: 99,
 };
+
 //Do not change updaters
 let updaters = [];
 //Do not export setState
@@ -52,7 +55,7 @@ export default function useData() {
   }, []);
 
   function createGoal(formData) {
-    console.log(`func in useData called.`)
+    //Update db with new goal
     axios({
       method: "post",
       url: "/db/new-goal",
@@ -60,12 +63,11 @@ export default function useData() {
       data: JSON.stringify(formData),
     }).then(
       (res) => {
-        console.log(res.data);
+        //Update state to match db
         const goalTypeKey = `${res.data.goal.goalType}Goals`
         setState({
           [goalTypeKey]: [...state[goalTypeKey], res.data.goal]
         })
-        
       },
       (err) => {
         console.log(err);
@@ -74,6 +76,7 @@ export default function useData() {
   }
 
   function updateGoalStatus(data){
+    //Update db with new status.
     axios({
       method: "post",
       url: "http://localhost:5000/db/update-goal-status",
@@ -81,7 +84,9 @@ export default function useData() {
       data: JSON.stringify(data),
     }).then(
       (res) => {
-        console.log(res.headers);
+        //Update state to match db
+        console.log(res.data);
+        
       },
       (err) => {
         console.log(err);
