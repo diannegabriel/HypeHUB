@@ -56,6 +56,14 @@ export default function useData() {
     }
   }, []);
 
+  const shuffleQuote = () => {
+    axios.get("http://localhost:5000/quote").then((res) => {
+      setState({
+        quote: res.data.quote,
+      });
+    });
+  };
+
   function createGoal(formData) {
     //Update db with new goal
     axios({
@@ -109,5 +117,5 @@ export default function useData() {
     );
   }
 
-  return { state, createGoal, updateGoalStatus };
+  return { state, shuffleQuote, createGoal, updateGoalStatus };
 }

@@ -20,10 +20,10 @@ router.get("/", (req, res) => {
     });
   };
 
-  //generate random number between 1 and 5
+  //generate random number between 0 and 5
   let randomNum = Math.floor(Math.random() * 5);
 
-  if (randomNum > 2) {
+  if (randomNum > 3) {
     console.log(randomNum);
     getTrollQuote();
   } else {
