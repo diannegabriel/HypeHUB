@@ -4,14 +4,10 @@ import { useState, useEffect } from "react";
 //Boolen, cause State to be set on original load.
 let hasFetchedData = false;
 //Original state before load.
-let state = {
-  userExp: 99,
-};
-
+let state = {};
 //Do not change updaters
 let updaters = [];
-
-//Do not export setState
+//Do not export setState -> call if form another function in the file.
 //setState is expecting an object.
 const setState = (newState) => {
   state = {
@@ -23,7 +19,7 @@ const setState = (newState) => {
     updater(state);
   });
 };
-//logout func to set state to null.
+//TO DO? logout func to set state to null.
 export default function useData() {
   const newUpdater = useState()[1];
   useEffect(() => {
@@ -45,7 +41,8 @@ export default function useData() {
         axios.get("http://localhost:5000/quote"),
       ]).then((all) => {
         setState({
-          userId: all[0].data.userId,
+          userId: all[0].data.data.userId,
+          userExp: all[0].data.data.userExp,
           token: all[1].data.access_token,
           dailyGoals: all[2].data.goals,
           missionGoals: all[3].data.goals,
@@ -117,7 +114,6 @@ export default function useData() {
   }
 
   function updateGoal(data) {
-    // console.log(`goal: ${JSON.stringify(data)}`)
     axios({
       method: "put",
       url: "http://localhost:5000/db/update-goal",
@@ -151,5 +147,34 @@ export default function useData() {
     });
   }
 
-  return { state, shuffleQuote, createGoal, updateGoalStatus, updateGoal };
+  function updateUserStats(data){
+    const updateData = {
+      //data currently blank from goalStatus onClick
+      //REMOVE?
+      ...data,
+      userId: state.userId,
+      userExp: state.userExp,
+    }
+    axios({
+      method: "put",
+      url: "http://localhost:5000/db/update-user-stats",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify(updateData),
+    }).then((res) => {
+      //Update state here
+      const updatedExp = res.data.update.newData.exp
+      setState({
+        userExp: updatedExp,
+      })
+    })
+  }
+
+  return { 
+    state, 
+    shuffleQuote,
+    createGoal, 
+    updateGoalStatus, 
+    updateGoal,
+    updateUserStats };
+
 }
