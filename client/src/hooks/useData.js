@@ -38,6 +38,7 @@ export default function useData() {
         axios.get("http://localhost:5000/db/daily-goals"),
         axios.get("http://localhost:5000/db/mission-goals"),
         axios.get("http://localhost:5000/db/quest-goals"),
+        axios.get("http://localhost:5000/quote"),
       ]).then((all) => {
         setState({
           userId: all[0].data.data.userId,
@@ -46,10 +47,19 @@ export default function useData() {
           dailyGoals: all[2].data.goals,
           missionGoals: all[3].data.goals,
           questGoals: all[4].data.goals,
+          quote: all[5].data.quote,
         });
       });
     }
   }, []);
+
+  const shuffleQuote = () => {
+    axios.get("http://localhost:5000/quote").then((res) => {
+      setState({
+        quote: res.data.quote,
+      });
+    });
+  };
 
   function createGoal(formData) {
     //Update db with new goal
@@ -163,8 +173,10 @@ export default function useData() {
 
   return { 
     state, 
+    shuffleQuote,
     createGoal, 
     updateGoalStatus, 
     updateGoal,
     updateUserStats };
+
 }
