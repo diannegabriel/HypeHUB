@@ -109,3 +109,26 @@
     visibility: visible;
   }
 
+.complete-goal-stroke {
+  image-rendering: pixelated;
+}
+
+.rpgui-content .completed-goal {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  text-shadow: none;
+  image-rendering: pixelated;
+
+  display: flex;
+  // justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0;
+}
+
+// .completed-goal::before { 
+//   position:absolute; 
+//   display:block; 
+//   content: url('./img/complete-brown.png');  
+//   image-rendering: pixelated;
+// } 

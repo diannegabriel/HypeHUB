@@ -5,7 +5,6 @@ import App from './App';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import GamifyLogin from './components/GamifyLogin';
-import GamifyModal from './components/GamifyModal';
 
 ReactDOM.render(
   <React.StrictMode>

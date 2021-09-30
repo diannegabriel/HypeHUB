@@ -3,6 +3,7 @@ import "./GoalsListItem.scss";
 import GoalUpdate from "./GoalUpdate";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
+import complete from './img/complete-brown.png'
 
 
 export default function GoalsListItem({ goalId, status, title, goalType, goalDescription }) {
@@ -39,7 +40,10 @@ export default function GoalsListItem({ goalId, status, title, goalType, goalDes
           {statusIcon}
         </button>
         <p className="goals-title-name tooltip">
-          {title}
+        {/* <img src={complete} className="complete-goal-stroke" /> */}
+          <p className="completed-goal">
+            {title}
+            </p>
           <div class="tooltiptext nes-balloon">
             <p className="tooltip-text-hover">{goalDescription}</p>
           </div>
