@@ -16,15 +16,21 @@
 }
 
 .rpgui-content {
-
+  
   li {
     margin-top: 15px;
     left: 0;
-  }
 
+    .rpgui-icon {
+      width: 30px;
+      height: 35px;
+    }
+  }
+  
   .goals-title-name {
     // font-family: 'Tourney', cursive;
     font-family: 'Roboto', sans-serif;
+    background: none;
     font-size: 1.25em;
     text-shadow: none;
     color: #222;
@@ -33,25 +39,19 @@
     width: 200px;
   }
 
-}
+  .goals-status-name {
+    padding: 0;
+    // font-family: 'Tourney', cursive;
+    // font-family: 'Roboto', sans-serif;
+    margin: 2px 5px 0px 5px;
+    background: none;
+  }
 
-// .rpgui-content .goals-title-name {
-// }
-
-.rpgui-content .goals-status-name {
-  padding: 0;
-  // font-family: 'Tourney', cursive;
-  font-family: 'Roboto', sans-serif;
-  margin: 0px 5px 0px 5px;
-}
-
-li .rpgui-icon {
-  width: 30px;
-  height: 35px;
 }
 
 .pencil-edit-button, .edit-button {
   transform: rotate(-140deg);
   margin: 0px 5px 0px 5px;
   right: 0;
+  cursor: url("img/cursor/point.png") 10 0, auto !important;
 }
