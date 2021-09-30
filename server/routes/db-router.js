@@ -1,27 +1,23 @@
 const express = require("express");
 const router = express.Router();
 router.use(express.json());
-
 require("dotenv").config({ path: "../.env" });
 
-//Import db helper functions
+//Import db helper functions for users.
 const dbReadUser = require(".././dbHelpers/users/dbReadUser");
+const dbUpdateUserStats = require("../dbHelpers/users/dbUpdateUserStats");
 
+//Import db helper functions for goals.
 const dbReadGoals = require(".././dbHelpers/goals/dbReadGoals");
 const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal");
 const dbUpdateGoalStatus = require("../dbHelpers/goals/dbUpdateGoalStatus");
 const dbUpdateGoal = require("../dbHelpers/goals/dbUpdateGoal");
 
-//create nessisary routes for db query here
+
 router.get("/db-user", (req, res) => {
-  let userId = null;
-  dbReadUser("billy@jo.com", "password")
-    .then((info) => {
-      userId = info;
-    })
-    .then(() => {
-      res.json({ userId });
-    });
+  dbReadUser("billy@jo.com", "password").then((data) => {
+    res.json({ data });
+  });
 });
 
 router.get("/daily-goals", (req, res) => {
@@ -74,11 +70,16 @@ router.post("/update-goal-status/", (req, res) => {
 
 router.put("/update-goal", (req, res) => {
   const data = req.body;
-  // console.log(`data from body\n${JSON.stringify(data)}`)
-
   dbUpdateGoal(data).then((update) => {
     res.json({ update });
   });
 });
 
+router.put("/update-user-stats", (req, res) => {
+  const data = req.body;
+  dbUpdateUserStats(data)
+  .then((update) => {
+    res.json({ update });
+  });
+});
 module.exports = router;
