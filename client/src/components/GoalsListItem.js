@@ -18,7 +18,8 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
     //Set points to attr and exp on update from "in progress" to "complete"
     if(status === "in progress"){
       updateUserStats({
-  
+        goalType: goalType,
+        goalId: goalId,
       })
     }
   };
