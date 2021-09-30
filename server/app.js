@@ -9,13 +9,14 @@ app.use(cors());
 app.use(morgan("dev"));
 // app.use(express.json());
 
-
 //Import all routes from sub directories
 const spotifyRoutes = require("./routes/spotify-router");
 const dbRoutes = require("./routes/db-router");
+const quoteRoutes = require("./routes/quote-router");
 
 app.use("/", spotifyRoutes);
 app.use("/db", dbRoutes);
+app.use("/quote", quoteRoutes);
 
 app.listen(PORT, () => {
   console.log(`Spotify-API app listening on port ${PORT}`);
