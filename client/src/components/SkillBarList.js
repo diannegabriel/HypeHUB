@@ -1,8 +1,10 @@
 import React from "react";
+import useData from "../hooks/useData";
 import './SkillBarList.scss'
 import './rpgui.css'
 
 export default function SkillBarList() {
+  const { state } = useData();
   return (
     <div className="rpgui-container framed-golden skills-bar">
       <div className="rpgui-content">
