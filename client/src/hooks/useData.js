@@ -173,11 +173,14 @@ export default function useData() {
       Social: state.userSocial,
       Willpower: state.userWillpower,
     }
-
+    console.log(`attrs to increment: ${attributesToIncrement}`)
     //iterate through array and append value to obj w/ current val
-    // for (const el  of attributesToIncrement){
-
-    // }
+    for (const el  of attributesToIncrement){
+      //Format attr as updateData key (capitalize first letter ex. knowledge -> Knowledge)
+      const key = el.charAt(0).toUpperCase() + el.slice(1);
+      //increment only the attributes associated with the goal
+      updateData[key] += 5
+    }
 
     axios({
       method: "put",
@@ -185,12 +188,16 @@ export default function useData() {
       headers: { "content-type": "application/json" },
       data: JSON.stringify(updateData),
     }).then((res) => {
+      // console.log(res);
 
-      //Update state here
-      // const updatedExp = res.data.update.newData.Exp
-
+      //Update state to match db.
       setState({
         userExp: updateData.Exp,
+        userStrength: updateData.Strength,
+        userVitality: updateData.Vitality,
+        userKnowledge: updateData.Knowledge,
+        userSocial: updateData.Social,
+        userWillpower: updateData.Willpower,
       })
     })
   }
