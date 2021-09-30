@@ -79,3 +79,59 @@
     opacity: 1;
   }
 }
+
+
+  // .tooltip .tooltiptext {
+  //   visibility: hidden;
+  //   color: #222;
+  //   text-align: center;
+  //   border-radius: 6px;
+  //   padding: 5px 0;
+    
+  //   /* Position the tooltip */
+  //   position: absolute;
+  //   z-index: 1;
+  //   left: 200px;
+  // }
+
+  // .tooltip:hover .tooltiptext {
+  //   visibility: visible;
+  // }
+
+  // .wrapper {
+  //   position: absolute;
+  //   background: pink;
+  //   padding: 1em;
+  //   box-sizing: border-box;
+  //   min-height: 50px;
+  //   width: 500px;
+  //   bottom: 0;
+  // }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    // border-bottom: 1px dotted black;
+    opacity: 1;
+
+    .nes-balloon .tooltip-text-hover {
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+  
+  .tooltip .tooltiptext {
+    // visibility: hidden;
+    width: 326px;
+    background-color: #181818e0;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    left: -36%;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
