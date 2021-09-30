@@ -163,8 +163,6 @@ export default function useData() {
     }).then((res) => {
       //Update state here
       const updatedExp = res.data.update.newData.exp
-      console.log(`res.data ===${JSON.stringify(res.data.update.newData)}`)
-      console.log(`updatedExp: ${updatedExp}`)
       setState({
         userExp: updatedExp,
       })
