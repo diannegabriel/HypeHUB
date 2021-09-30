@@ -8,6 +8,7 @@ const shuffleQuote = () => {};
 export default function Quotes(props) {
   const [open, setOpen] = useState(false);
   console.log("quotes props", props);
+  let { quote } = props;
   return (
     <article id='quotes-bar'>
       <button onClick={() => setOpen(!open)} className='new-goal-button'>
@@ -23,9 +24,12 @@ export default function Quotes(props) {
                   <img
                     src='https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/cda4060eb29c5b0.png'
                     className='quote-shuffle-button'
+                    alt='Small arrow'
                   />
-                  &ldquo;{props.quote.q}&rdquo; &mdash;
-                  <footer>{props.quote.a}</footer>
+                  &ldquo;
+                  {quote.q ? quote.q : quote.quote}
+                  &rdquo; &mdash;
+                  <footer>{quote.a ? quote.a : "Kanye West"}</footer>
                 </blockquote>
               </div>
             </Card>

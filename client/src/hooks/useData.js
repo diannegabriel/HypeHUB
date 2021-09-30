@@ -50,7 +50,7 @@ export default function useData() {
           dailyGoals: all[2].data.goals,
           missionGoals: all[3].data.goals,
           questGoals: all[4].data.goals,
-          quote: all[5].data.quote[0],
+          quote: all[5].data.quote,
         });
       });
     }
