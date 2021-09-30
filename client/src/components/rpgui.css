@@ -9,6 +9,7 @@ inside your html file.
 * Customized scrollbars
 */
 /* to get pixelated images (nearest-neighbor filter) on all  browsers */
+
 .button-text {
   margin: 0 auto;
 }
@@ -209,7 +210,7 @@ inside your html file.
   /* padding: 20px 0; */
   margin: 0 0 0 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* left: 0px;
   top: 0px; */
   /* position: fixed; */
@@ -262,7 +263,7 @@ inside your html file.
   border-image-source: url("img/border-image.png");
   border-image-repeat: repeat;
   border-image-slice: 6 6 6 6;
-  border-image-width: 18px;
+  /* border-image-width: 18px; */
   border-width: 15px;
   padding: 12px;
   /* internal border */
@@ -282,7 +283,7 @@ inside your html file.
   border-image-source: url("img/border-image-golden.png");
   border-image-repeat: repeat;
   border-image-slice: 4 4 4 4;
-  border-image-width: 18px;
+  /* border-image-width: 18px; */
   border-width: 15px;
   padding: 12px;
   /* internal border */
@@ -293,7 +294,8 @@ inside your html file.
   background: url("img/background-image-golden.png") repeat repeat;
   background-clip: padding-box;
   background-origin: padding-box;
-  background-position: center; }
+  background-position: center; 
+}
 
 /* game div with golden2 background image*/
 .rpgui-container.framed-golden-2 {
@@ -486,7 +488,8 @@ ul.rpgui-dropdown-imp {
   height: 64px; }
 
 .rpgui-icon.sword {
-  background-image: url("img/icons/sword.png"); }
+  background-image: url("img/icons/sword.png"); 
+}
 
 .rpgui-icon.shield {
   background-image: url("img/icons/shield.png"); }
@@ -734,7 +737,7 @@ ul.rpgui-list-imp {
 /* default gui label */
 .rpgui-content li {
   /* color and border */
-  margin-left: 20px;
+  /* margin-left: 20px; */
   color: white;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   font-size: 1.0em;
@@ -791,21 +794,17 @@ ul.rpgui-list-imp {
   background-size: 36px 100%; }
 
 /* progress bar - blue color */
-.rpgui-progress-fill.blue {
-  background-image: url("img/progress-blue.png"); }
+/* .rpgui-progress-fill.blue {
+  background-image: url("img/progress-blue.png"); } */
 
 /* progress bar - green color */
-.rpgui-progress-fill.green {
-  background-image: url("img/progress-green.png"); }
+/* .rpgui-progress-fill.green {
+  background-image: url("img/progress-green.png"); } */
 
 /* progress bar - red color */
 /* .rpgui-progress-fill.red {
   background-image: url("img/progress-red.png"); 
 } */
-
-.herro {
-  width: 100%;
-}
 
 /**
 * style for radioes

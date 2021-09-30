@@ -14,7 +14,7 @@
   width: 80px; 
   height: 46.19px;
   margin: 0px 15px 0px 20px;
-  background-image: url(https://mingklebooks.files.wordpress.com/2020/04/tobi-with-cookie.jpg);
+  background-image: url(https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/628240cfb54faa5.png);
   background-size: auto 92.3760px;
   background-position: center;
 }
@@ -93,13 +93,13 @@
   padding: 5px;
 }
 .username {
-  font-family: 'Tourney', cursive;
+  // font-family: 'Tourney', cursive;
   font-size: 1.5em;
   font-weight: 900;
   margin: 0px;
 }
 .user-level {
-  font-family: 'Roboto', sans-serif;
+  // font-family: 'Roboto', sans-serif;
   font-size: 1em;
   margin: 0px 20px 0px 0px;
 }
@@ -132,7 +132,6 @@
 }
 
 .user-progress-line .user-exp{
-  width: 60%;
   background-repeat: repeat-x;
   background-image: url('img/progress-red.png');
   background-size: 36px 100%;
@@ -147,11 +146,6 @@
   width: 0;
   border: 7px solid transparent;
 }
-
-// .herro {
-//   left: 0px; 
-//   width: 40%;
-// }
 
 .experience-bar {
   width: 100%;

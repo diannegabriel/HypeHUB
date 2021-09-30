@@ -6,13 +6,19 @@ async function returnData(client, email, password) {
   const data = await client.db("hypeHub").collection("users").find({ email });
   //Confirm password matches
   let userId;
+  let userExp;
   await data.forEach((el) => {
     if (el.password === password) {
       userId = el._id;
+      userExp = el.attributes.exp
     }
   });
   //if not match, rturn -1
-  return userId ? userId : -1;
+  // return userId ? userId : -1;
+  return {
+    userId,
+    userExp
+  }
 }
 
 module.exports = async (email, password) => {
@@ -26,18 +32,17 @@ module.exports = async (email, password) => {
     useUnifiedTopology: true,
   });
 
-  let id;
+  let userData;
   try {
     await client.connect();
     console.log(`client connected`);
     //See helper function above
-    id = await returnData(client, email, password);
-    console.log(`---\n ${id}\n---`);
-    return id;
+    userData = await returnData(client, email, password);
+    return userData;
+    
   } catch (err) {
     console.log(`ERROR`, err);
   } finally {
     await client.close();
   }
 };
-

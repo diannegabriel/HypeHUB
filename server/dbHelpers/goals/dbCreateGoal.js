@@ -37,15 +37,22 @@ module.exports = async (dataObj) => {
     await client.connect();
     const collection = client.db("hypeHub").collection("goals");
     //Create the goal w/ passed in values.
-    await collection.insertOne({
+    const newGoal = {
       userId,
       goalName,
       goalType,
       goalDescription,
       goalAttribute,
       status: "incomplete"
-    });
+    }
+    const document = await collection.insertOne(newGoal);
     console.log(`\nNew record created`);
+    console.log(document);
+    return {
+      goalId: document.insertedId,
+      ...newGoal
+    }
+
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
