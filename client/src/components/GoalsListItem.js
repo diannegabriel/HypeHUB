@@ -5,7 +5,7 @@ import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
 
 
-export default function GoalsListItem({ goalId, status, title, goalType }) {
+export default function GoalsListItem({ goalId, status, title, goalType, goalDescription }) {
   const [open, setOpen] = useState(false);
   const { updateGoalStatus, updateUserStats } = useData();
 
@@ -38,12 +38,20 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
         <button onClick={handleStatusClick} className="goals-status-name">
           {statusIcon}
         </button>
-        <p className="goals-title-name">{title}</p>
+        <p className="goals-title-name tooltip">
+          {title}
+          <div class="tooltiptext nes-balloon">
+            <p className="tooltip-text-hover">{goalDescription}</p>
+          </div>
+        </p>
+        
         <div
           className="rpgui-icon sword edit-button"
           onClick={() => setOpen(!open)}
         ></div>
+        
       </li>
+      
       <Collapse in={open}>
         <div>
           <GoalUpdate goalId={goalId} reCollapse={setOpen}/>
