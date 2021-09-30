@@ -20,7 +20,7 @@ async function dbCreateUser(name, password, email) {
       password,
       email,
       attributes: {
-        xp: null,
+        exp: null,
         Strength: null,
         Vitality: null,
         Knowledge: null,
