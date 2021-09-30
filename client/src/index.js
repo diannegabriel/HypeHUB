@@ -13,7 +13,6 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={GamifyLogin} />
         <Route exact path="/dashboard" component={App} />
-        <Route exact path="/add" component={GamifyModal} />
       </Switch>
     </Router>
   </React.StrictMode>,
