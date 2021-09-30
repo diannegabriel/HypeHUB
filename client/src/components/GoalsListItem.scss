@@ -79,3 +79,31 @@
     opacity: 1;
   }
 }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    // border-bottom: 1px dotted black;
+    opacity: 1;
+
+    .nes-balloon .tooltip-text-hover {
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 326px;
+    background-color: #181818e0;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    left: -36%;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

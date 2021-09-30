@@ -44,13 +44,14 @@ export default function GamifyModal(props) {
               <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png" className="close-button" onClick={props.handleClose} />
             </div>
             <hr />
-            <label>Goal:</label>
+            <label>Goal (Limit of 20 characters):</label>
             <input
               type='text'
               name='goal'
               value={goal}
               autoComplete='off'
               onChange={(e) => setGoal(e.target.value)}
+              maxLength = "20"
             />
             <br />
             <br />
