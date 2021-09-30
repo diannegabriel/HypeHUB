@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import useData from "./../hooks/useData";
 import "./GoalsListItem.scss";
-import useData from "../hooks/useData";
 
 export default function GoalUpdate({ goalId, reCollapse }) {
   //This is for updating the goal name
@@ -22,6 +21,8 @@ export default function GoalUpdate({ goalId, reCollapse }) {
   const handleDeleteClick = (event) => {
     event.preventDefault();
     console.log(`delete called`);
+    //See parent component - this closes "edit mode"
+    reCollapse(false);
   };
 
   const handleEditClick = (event) => {
@@ -39,6 +40,7 @@ export default function GoalUpdate({ goalId, reCollapse }) {
     };
 
     updateGoal(updateInformation);
+    //See parent component - this closes "edit mode"
     reCollapse(false);
   };
 
