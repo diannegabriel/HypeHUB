@@ -4,20 +4,34 @@ const { MongoClient } = require("mongodb");
 async function returnData(client, email, password) {
   //Return all matches for email
   const data = await client.db("hypeHub").collection("users").find({ email });
-  //Confirm password matches
   let userId;
   let userExp;
+  let userStrength;
+  let userVitality;
+  let userKnowledge;
+  let userSocial;
+  let userWillpower;
+  //Confirm password matches
   await data.forEach((el) => {
     if (el.password === password) {
+      //set variables to return
       userId = el._id;
-      userExp = el.attributes.exp
+      userExp = el.attributes.Exp;
+      userStrength = el.attributes.Strength;
+      userVitality = el.attributes.Vitality;
+      userKnowledge = el.attributes.Knowledge;
+      userSocial = el.attributes.Social;
+      userWillpower = el.attributes. Willpower;
     }
   });
-  //if not match, rturn -1
-  // return userId ? userId : -1;
   return {
     userId,
-    userExp
+    userExp,
+    userStrength,
+    userVitality,
+    userKnowledge,
+    userSocial,
+    userWillpower,
   }
 }
 
@@ -38,8 +52,8 @@ module.exports = async (email, password) => {
     console.log(`client connected`);
     //See helper function above
     userData = await returnData(client, email, password);
+    // console.log(`======\n======\n${JSON.stringify(userData)}`)
     return userData;
-    
   } catch (err) {
     console.log(`ERROR`, err);
   } finally {
