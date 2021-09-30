@@ -3,6 +3,8 @@ import './User.scss'
 import "./rpgui.css";
 
 export default function GamifyUser(props) {
+  const displayExp = props.exp % 100;
+  const displayLvl = Math.floor(props.exp / 100);
   return (
     <article id="user-bar">
       <div className="rpgui-content">
@@ -14,20 +16,15 @@ export default function GamifyUser(props) {
           <div className="user">
             <div className="user-info">
               <h1 className="username">Chubby_Bunny</h1>
-              <h2 className="user-level">LVL 1</h2>
+              <h2 className="user-level">LVL {displayLvl}</h2>
             </div>
-            {/* <div className="exp-bar">
-              <div className="bar">
-                <div className="user-progress-line"><span className="user-exp"></span></div>
-              </div>
-            </div> */}
             <div className="rpgui-content">
               <div id="progress" className="rpgui-container experience-bar">
                 <div>
                   <div id="hp-bar" data-value="0.4" className="rpgui-progress red bar" data-rpguitype="progress">
                     <div className=" rpgui-progress-track">
                       <div className="rpgui-progress-fill red user-progress-line">
-                        <span className="user-exp" style={{width: `${props.exp}%`}}></span></div>
+                        <span className="user-exp" style={{width: `${displayExp}%`}}></span></div>
                     </div>
                     <div className=" rpgui-progress-left-edge"></div>
                     <div className=" rpgui-progress-right-edge"></div>
