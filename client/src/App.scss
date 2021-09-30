@@ -3,7 +3,9 @@ $bg-height: 50px;
 
 body {
   // background-color: #222;
-  background: url('./components/img/background.png') repeat 0 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./components/img/background-gold2.png');
+
+  // background: url('./components/img/background-gold2.png') repeat 0 0;
   background-clip: padding-box;
   background-origin: padding-box;
   background-position: center; 
@@ -23,10 +25,10 @@ body {
   cursor: url("components/img/cursor/default.png"), auto !important; 
 
 
-  -webkit-animation: bg-scrolling-reverse 15s infinite; /* Safari 4+ */
-  -moz-animation:    bg-scrolling-reverse 15s infinite; /* Fx 5+ */
-  -o-animation:      bg-scrolling-reverse 15s infinite; /* Opera 12+ */
-  animation:         bg-scrolling-reverse 15s infinite; /* IE 10+ */
+  -webkit-animation: bg-scrolling-reverse 55s infinite; /* Safari 4+ */
+  -moz-animation:    bg-scrolling-reverse 55s infinite; /* Fx 5+ */
+  -o-animation:      bg-scrolling-reverse 55s infinite; /* Opera 12+ */
+  animation:         bg-scrolling-reverse 55s infinite; /* IE 10+ */
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function:    linear;
   -o-animation-timing-function:      linear;
