@@ -7,13 +7,13 @@ import GamifyUser from "./GamifyUser";
 import useData from "../hooks/useData";
 
 export default function Header() {
-  const { state } = useData();
+  const { state, shuffleQuote } = useData();
   return (
     <header id='user-container'>
       <section className='master-header'>
         <GamifyUser exp={state.userExp} />
         <Nav />
-        <Quotes quote={state.quote} />
+        <Quotes quote={state.quote} shuffleQuote={shuffleQuote} />
       </section>
 
       <section className='burger'>
