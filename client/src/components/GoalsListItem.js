@@ -7,7 +7,7 @@ import Collapse from "react-bootstrap/Collapse";
 
 export default function GoalsListItem({ goalId, status, title, goalType }) {
   const [open, setOpen] = useState(false);
-  const { updateGoalStatus } = useData();
+  const { updateGoalStatus, updateUserStats } = useData();
 
   const handleStatusClick = () => {
     updateGoalStatus({
@@ -15,16 +15,21 @@ export default function GoalsListItem({ goalId, status, title, goalType }) {
       goalId: goalId,
       status: status,
     });
-    console.log(`submit called`);
+    //Set points to attr and exp on update from "in progress" to "complete"
+    if(status === "in progress"){
+      updateUserStats({
+  
+      })
+    }
   };
 
   let statusIcon = "";
   if (status === "complete") {
-    statusIcon = <i class="nes-icon star"></i>;
+    statusIcon = <i className="nes-icon star"></i>;
   } else if (status === "incomplete") {
-    statusIcon = <i class="nes-icon star is-empty"></i>;
+    statusIcon = <i className="nes-icon star is-empty"></i>;
   } else if (status === "in progress") {
-    statusIcon = <i class="nes-icon star is-half"></i>;
+    statusIcon = <i className="nes-icon star is-half"></i>;
   }
 
   return (
