@@ -3,8 +3,8 @@ const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectID;
 
 
-module.exports = async (data) => {
-  //data= { userId: 354afdsdf35, userExp: 10}
+module.exports = async ({userId, Exp, Strength, Vitality, Knowledge, Social, Willpower}) => {
+
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
 
@@ -16,24 +16,24 @@ module.exports = async (data) => {
   });
   
   await client.connect();
-  const calculateExp = data.userExp + 10
+
   try {
-    //Change these null values
+  
     const newData = {
-      exp: calculateExp,
-      Strength: null,
-      Vitality: null,
-      Knowledge: null,
-      Social: null,
-      Willpower: null,
+      Exp,
+      Strength,
+      Vitality,
+      Knowledge,
+      Social,
+      Willpower,
     }
     let document = await client
     .db("hypeHub")
     .collection("users")
     .updateOne(
       //Find user to be updated w/ unique _id
-      { _id: ObjectId(data.userId) },
-      //Update field with passed in value.
+      { _id: ObjectId(userId) },
+      //Update fields with passed in value.
       { $set: {
         attributes: newData
       }}
