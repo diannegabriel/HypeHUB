@@ -1,7 +1,7 @@
 #spotify-auth {
   bottom: 0px;
   position: fixed;
-  width: 40%;
+  width: 500px;
   left: 50%;
   transform: translate(-50%, 0);
   border-top-left-radius: 10px;
@@ -15,5 +15,13 @@
       margin: 0 5px;
       height: 30px;
     }
+  }
+}
+
+.rpgui-content .spotify-content {
+  // width: 100%;
+  
+  a {
+    color: inherit;
   }
 }

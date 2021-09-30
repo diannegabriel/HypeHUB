@@ -1,13 +1,14 @@
 .burger input[type="checkbox"]{
-  width: 42px;
+  width: 44px;
   height: 42px;
   position: fixed;
   top: 15px;
-  right: 14px;
+  right: 18px;
   display: block;
-  z-index: 4;
+  z-index: 25;
   opacity: 0;
   overflow: hidden;
+  cursor: url("img/cursor/point.png") 10 0, auto !important;
 }
 
 .burgerlines{
@@ -16,7 +17,7 @@
   position: fixed;
   top: 25px;
   right: 20px;
-  z-index: 3;
+  z-index: 23;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,8 +27,8 @@
   display: block;
   height: 4px;
   width: 100%;
-  background: black;
-  border-radius: 10px;
+  background: #c97003;
+  // border-radius: 10px;
 }
 
 .burger{
@@ -39,7 +40,8 @@
   transform: translate(110%);
   transition: transform 0.5s ease-in-out;
   padding-left: 28px;
-  background: #fff;
+  // background: #2b2b2b;
+  background: url("img/background-image.png") repeat repeat;
   right: 0;
   top: 0;
   color: #232323;
@@ -49,18 +51,35 @@
   height: 115vh;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
-  z-index: 2;
+  z-index: 20;
   position: fixed;
+  border-style: solid;
+  border-image-source: url("img/border-image-grey.png");
+  border-image-repeat: repeat;
+  border-image-slice: 3 3 3 3;
+  border-image-width: 7px;
+  border-width: 7px;
+  image-rendering: pixelated;
 }
 
 .burger input[type="checkbox"]:checked ~ .menu-items{
   display: block;
   transform: translate(0%);
-  background: #fff;
+  background: url("img/background-image.png") repeat repeat;
+  border-style: solid;
+  border-image-source: url("img/border-image-grey.png");
+  border-image-repeat: repeat;
+  border-image-slice: 3 3 3 3;
+  border-image-width: 7px;
+  border-width: 7px;
+  image-rendering: pixelated;
+  // padding: 12px;
+  // background: #2b2b2b;
 }
 
 .burger input[type="checkbox"]:checked ~ .burgerlines .lines{
-  background: #232323;
+  // background: #232323;
+  background: #c97003;
 }
 
 .burgerlines .line1{
@@ -86,7 +105,7 @@
 }
 
 .skills {
-  background: #fff;
+  // background: #c97003;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 

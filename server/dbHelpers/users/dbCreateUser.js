@@ -20,7 +20,7 @@ async function dbCreateUser(name, password, email) {
       password,
       email,
       attributes: {
-        xp: null,
+        exp: null,
         Strength: null,
         Vitality: null,
         Knowledge: null,
@@ -37,5 +37,4 @@ async function dbCreateUser(name, password, email) {
 }
 
 module.export = dbCreateUser;
-//TEST
-// dbCreateUser("billy jo", "password", "billy@jo.com");
+

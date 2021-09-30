@@ -1,23 +1,28 @@
 #battle-theme {
   bottom: 0px;
   position: fixed;
-  width: 40%;
   left: 50%;
   transform: translate(-50%, 0);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 5px;
   color: #fff; 
+  image-rendering: pixelated;
+  z-index: 10;
+
   .main-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 500px;
+
     img {
       height: 80px;
       padding: 5px;
     }
     .now-playing__side {
       margin: 0 10px;
+
       .now-playing__name {
         font-family: 'Tourney', cursive;
       }
@@ -28,6 +33,16 @@
     }
     .btn-spotify {
       color:#fff;
+      font-family: 'Tourney', cursive;
+      border: none;
+
+      &:active, &:focus, &:hover {
+        background-color: transparent;
+        border: none;
+        outline: none !important;
+        outline-offset: none !important;
+        box-shadow: none !important;
+      }
     }
   }
 }

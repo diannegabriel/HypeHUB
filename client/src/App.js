@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.scss";
-// import Login from './components/Login';
 import SpotifyAuth from "./components/SpotifyAuth";
 import BattleTheme from "./components/BattleTheme";
 import Goals from "./components/Goals";
@@ -16,16 +15,19 @@ function App() {
 
   return (
     <>
+    {/* <div className="rpgui-content full-page">
+      <div className="rpgui-container framed full-page"> */}
+
       {!state.userId ? (
         <GamifyLogin />
-      ) : (
-        <>
+        ) : (
+          <>
           <Header />
           <Goals
             dailyGoals={state.dailyGoals}
             missionGoals={state.missionGoals}
             questGoals={state.questGoals}
-          />
+            />
         </>
       )}
 
@@ -33,6 +35,8 @@ function App() {
       {/* once authenticated, I want to show the select theme, from there I want to be able to set state and pass that in as props to the battletheme component... */}
       {/* !theme ? <SelectTheme /> : <BattleTheme token={state.token} theme={..theme} /> */}
       {/* <SelectTheme /> */}
+      {/* </div>
+    </div> */}
     </>
   );
 }

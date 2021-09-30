@@ -1,12 +1,81 @@
 .goal-entry {
   flex-direction: row;
-  background-color: honeydew;
+  // background-color: honeydew;
   width: 100%;
-  min-height: 45px;
+  min-height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
-  border-radius: 5px;
-  margin : 15px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 3px;
+  border-style: solid;
+  border-image-source: url("img/border-image-pale.png");
+  border-image-repeat: repeat;
+  border-image-slice: 4 4 4 4;
+  // border-image-width: 18px;
+  border-width: 5px;
+  padding: 3px;
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* background */
+  background: url("img/background-image-pale.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center; 
+}
+
+.rpgui-content {
+  
+  li {
+    margin-top: 15px;
+    left: 0;
+
+    .rpgui-icon {
+      width: 30px;
+      height: 35px;
+    }
+  }
+  
+  .goals-title-name {
+    // font-family: 'Tourney', cursive;
+    font-family: 'Roboto', sans-serif;
+    background: none;
+    font-size: 1.25em;
+    text-shadow: none;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+  }
+
+  .goals-status-name {
+    padding: 0;
+    // font-family: 'Tourney', cursive;
+    // font-family: 'Roboto', sans-serif;
+    margin: 2px 5px 0px 5px;
+    background: none;
+  }
+
+}
+
+.pencil-edit-button, .edit-button {
+  transform: rotate(-140deg);
+  margin: 0px 5px 0px 5px;
+  right: 0;
+  cursor: url("img/cursor/point.png") 10 0, auto !important;
+  opacity: 0.2;
+
+  &:hover {
+    -webkit-transition: opacity 0.15s ease-in-out;
+    -moz-transition: opacity 0.15s ease-in-out;
+    -ms-transition: opacity 0.15s ease-in-out;
+    -o-transition: opacity 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
+    opacity: 1;
+  }
 }

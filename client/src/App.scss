@@ -10,11 +10,11 @@ body {
   cursor: url("components/img/cursor/default.png"), auto !important; 
 }
 
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled), .close-button {
   cursor: url("components/img/cursor/point.png") 10 0, auto !important; 
 }
 
-body hr {
+body {
   display: block;
   border: 0px;
   height: 10px;
@@ -76,4 +76,30 @@ h3 {
 
 .star-drop {
   height: 50%;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clickMe {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.full-page {
+  width: 100%;
+  height: 100vh;
 }
