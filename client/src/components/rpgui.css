@@ -263,7 +263,7 @@ inside your html file.
   border-image-source: url("img/border-image.png");
   border-image-repeat: repeat;
   border-image-slice: 6 6 6 6;
-  border-image-width: 18px;
+  /* border-image-width: 18px; */
   border-width: 15px;
   padding: 12px;
   /* internal border */
@@ -283,7 +283,7 @@ inside your html file.
   border-image-source: url("img/border-image-golden.png");
   border-image-repeat: repeat;
   border-image-slice: 4 4 4 4;
-  border-image-width: 18px;
+  /* border-image-width: 18px; */
   border-width: 15px;
   padding: 12px;
   /* internal border */
@@ -294,7 +294,8 @@ inside your html file.
   background: url("img/background-image-golden.png") repeat repeat;
   background-clip: padding-box;
   background-origin: padding-box;
-  background-position: center; }
+  background-position: center; 
+}
 
 /* game div with golden2 background image*/
 .rpgui-container.framed-golden-2 {
