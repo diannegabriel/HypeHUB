@@ -15,23 +15,25 @@ function App() {
 
   return (
     <>
-    {/* <div className="rpgui-content full-page">
+      {/* <div className="rpgui-content full-page">
       <div className="rpgui-container framed full-page"> */}
 
       {!state.userId ? (
         <GamifyLogin />
-        ) : (
-          <>
+      ) : (
+        <>
           <Header />
           <Goals
             dailyGoals={state.dailyGoals}
             missionGoals={state.missionGoals}
             questGoals={state.questGoals}
-            />
+          />
         </>
       )}
 
       {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
+      {/* {state.token ? <SelectTheme token={state.token} /> : <SpotifyAuth />} */}
+      {/* Can I initialize a component with an onClick? - I tried setting the theme then rendering -- no go... */}
       {/* once authenticated, I want to show the select theme, from there I want to be able to set state and pass that in as props to the battletheme component... */}
       {/* !theme ? <SelectTheme /> : <BattleTheme token={state.token} theme={..theme} /> */}
       {/* <SelectTheme /> */}
