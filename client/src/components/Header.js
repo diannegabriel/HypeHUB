@@ -9,7 +9,8 @@ import useData from "../hooks/useData";
 export default function Header() {
   const { state, shuffleQuote } = useData();
   return (
-    <header id='user-container'>
+    // <header id='user-container'>
+    <>
       <section className='master-header'>
         <GamifyUser exp={state.userExp} />
         <Nav />
@@ -19,6 +20,6 @@ export default function Header() {
       <section className='burger'>
         <SidePanel />
       </section>
-    </header>
+   </>
   );
 }

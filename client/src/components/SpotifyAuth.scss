@@ -1,12 +1,14 @@
 #spotify-auth {
-  bottom: 0px;
-  position: fixed;
-  width: 500px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
   padding: 5px;
+  // background-color: #264653;
+  color: #fff; 
+  align-self: center;
+  justify-self: flex-end;
+  flex-basis: 10%;
   .spotify-auth-header {
     color: #fff; 
     text-align: center;
@@ -16,10 +18,11 @@
       height: 30px;
     }
   }
+
 }
 
+
 .rpgui-content .spotify-content {
-  // width: 100%;
   
   a {
     color: inherit;
