@@ -78,9 +78,19 @@ export default function useData() {
       (res) => {
         //Update state to match db
         const goalTypeKey = `${res.data.goal.goalType}Goals`;
-        setState({
-          [goalTypeKey]: [...state[goalTypeKey], res.data.goal],
-        });
+
+        if (state[goalTypeKey] === -1 || state[goalTypeKey].length === null) {
+          console.log(`===${state[goalTypeKey]}`);
+          //If there are no existing goals of this tpye:
+          setState({
+            [goalTypeKey]: [res.data.goal],
+          });
+        } else {
+          console.log(`===${state[goalTypeKey]}`);
+          setState({
+            [goalTypeKey]: [...state[goalTypeKey], res.data.goal],
+          });
+        }
       },
       (err) => {
         console.log(err);
@@ -153,6 +163,29 @@ export default function useData() {
     });
   }
 
+  function deleteGoal({ goalId, goalType }) {
+    axios({
+      method: "delete",
+      url: "http://localhost:5000/db/delete-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify({ goalId: goalId }),
+    });
+
+    const goalKey = `${goalType}Goals`;
+
+    //remove deleted goal from goal array in state and update state with new array.
+    const updatedGoalArr = [...state[goalKey]].filter(
+      (goal) => goal.goalId !== goalId
+    );
+
+    console.log(`${JSON.stringify(updatedGoalArr[0])}`);
+    console.log(`=====\n${goalId}`);
+
+    setState({
+      [goalKey]: updatedGoalArr,
+    });
+  }
+  
   function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
@@ -209,6 +242,8 @@ export default function useData() {
     createGoal,
     updateGoalStatus,
     updateGoal,
+    deleteGoal,
+
     updateUserStats,
   };
 }
