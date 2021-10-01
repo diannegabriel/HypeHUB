@@ -47,7 +47,6 @@ export default function GoalsListItem({
           {statusIcon}
         </button>
         <p className='goals-title-name tooltip'>
-          {" "}
           {/* <img src={complete} className="complete-goal-stroke" /> */}
           <p className='completed-goal'>{title}</p>
           <div class='tooltiptext nes-balloon'>

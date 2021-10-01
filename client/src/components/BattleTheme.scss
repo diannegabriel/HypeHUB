@@ -9,40 +9,14 @@
   color: #fff; 
   image-rendering: pixelated;
   z-index: 10;
-
-  .main-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-
-    img {
-      height: 80px;
-      padding: 5px;
-    }
-    .now-playing__side {
-      margin: 0 10px;
-
-      .now-playing__name {
-        font-family: 'Tourney', cursive;
-      }
-      .now-playing__artist {
-        font-family: 'Tourney', cursive;
-        font-style: italic;
-      }
-    }
-    .btn-spotify {
-      color:#fff;
-      font-family: 'Tourney', cursive;
-      border: none;
-
-      &:active, &:focus, &:hover {
-        background-color: transparent;
-        border: none;
-        outline: none !important;
-        outline-offset: none !important;
-        box-shadow: none !important;
-      }
-    }
-  }
+  font-family: 'Tourney', cursive;
+  width: 500px;
+  // &:active, &:focus, &:hover {
+  //   background-color: transparent;
+  //   // border: none;
+  //   outline: none !important;
+  //   outline-offset: none !important;
+  //   box-shadow: none !important;
+  // }
+  
 }
