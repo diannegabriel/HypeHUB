@@ -14,30 +14,30 @@ function App() {
   const { state } = useData();
 
   return (
-    <div className="overall-body">
+    <>
     {/* <div className="rpgui-content full-page">
       <div className="rpgui-container framed full-page"> */}
 
       {!state.userId ? (
         <GamifyLogin />
         ) : (
-          <>
+          <div className="overall-body">
           <Header />
           <Goals
             dailyGoals={state.dailyGoals}
             missionGoals={state.missionGoals}
             questGoals={state.questGoals}
             />
-        </>
+          {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
+        </div>
       )}
 
-      {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
       {/* once authenticated, I want to show the select theme, from there I want to be able to set state and pass that in as props to the battletheme component... */}
       {/* !theme ? <SelectTheme /> : <BattleTheme token={state.token} theme={..theme} /> */}
       {/* <SelectTheme /> */}
       {/* </div>
     </div> */}
-    </div>
+    </>
   );
 }
 

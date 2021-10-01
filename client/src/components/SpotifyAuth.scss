@@ -1,13 +1,12 @@
 #spotify-auth {
-  bottom: 0px;
-  position: fixed;
+  bottom: 10px;
+  position: relative;
   width: 500px;
   left: 50%;
   transform: translate(-50%, 0);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   padding: 5px;
-  z-index: 50;
+  // z-index: 50;
+
   .spotify-auth-header {
     color: #fff; 
     text-align: center;

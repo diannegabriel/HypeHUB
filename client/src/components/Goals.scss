@@ -1,6 +1,6 @@
 #main-container {
   // background-color: gray;
-  padding: 10px 20px 20px 20px;
+  padding: 5px 20px 10px 20px;
   // margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -10,9 +10,9 @@
 .goals-box {
   background-color: rgb(110, 43, 219); 
   width: 100vw;
+  height: 69vh;
   display: flex;
   flex-direction: row;
-  height: 68vh;
   justify-content: center;
   margin: 0 auto;
   padding: 30px;
