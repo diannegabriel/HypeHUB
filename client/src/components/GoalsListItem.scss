@@ -126,9 +126,9 @@
   margin: 0;
 }
 
-// .completed-goal::before { 
-//   position:absolute; 
-//   display:block; 
-//   content: url('./img/complete-brown.png');  
-//   image-rendering: pixelated;
-// } 
+.completed-goal::before { 
+  position:absolute; 
+  display:block; 
+  content: url('https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/f4288ab17cae33e.png');  
+  image-rendering: pixelated;
+} 
