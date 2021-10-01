@@ -2,7 +2,7 @@ import "./SpotifyAuth.scss";
 
 export default function SpotifyAuth() {
   return (
-    // <footer id='spotify-auth'>
+    <footer id='spotify-auth'>
       <div className='rpgui-content'>
         <div className='rpgui-container framed spotify-content'>
           <header className='spotify-auth-header'>
@@ -17,6 +17,6 @@ export default function SpotifyAuth() {
           </header>
         </div>
       </div>
-    // </footer>
+    </footer>
   );
 }

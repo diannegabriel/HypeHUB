@@ -27,9 +27,7 @@ function App() {
                 questGoals={state.questGoals}
                 />
             </main>
-            <footer id='spotify-auth'>
             {state.token ? <SelectTheme token={state.token} /> : <SpotifyAuth />}
-            </footer>
         </div>
       )}
     </>

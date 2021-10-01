@@ -83,58 +83,6 @@ button {
 
 // --------------------- FLEXBOX ---------------------
 
-// #overall-body {
-//   background-color: khaki;
-//   display: flex;
-//   flex-direction: column;
-//   // justify-content: space-around;
-
-//   width: 100vw;
-//   height: 100vh;
-// }
-
-// #header-container {
-//   background-color: antiquewhite;
-//   // height: 160px;
-//   // flex-basis: 50%;
-//   flex-basis: 15%;
-//   margin-bottom: 10px;
-// }
-
-// #main-container {
-//   background-color: gray;
-//   flex-basis: 60%;
-
-//   // padding: 5px 20px 10px 20px;
-//   // margin-top: 10px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// #spotify-auth {
-//   // background-color: #264653;
-//   // bottom: 10px;
-//   // position: relative;
-//   // width: 500px;
-//   // left: 50%;
-//   // transform: translate(-50%, 0);
-//   // padding: 5px;
-//   // z-index: 50;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 40%;
-
-//   padding: 5px;
-//   background-color: #264653;
-//   color: #fff; 
-//   align-self: center;
-//   justify-self: flex-end;
-
-//   flex-basis: 10%;
-// }
-
 #overall-body {
   display: flex;
   flex-direction: column;
@@ -169,27 +117,6 @@ button {
   margin: 0px 20px 0px 20px;
   flex-basis: 30%;
   /* width: 500px; */
-}
-
-#spotify-auth {
-  /* bottom: 0px; */
-  /* position: fixed; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  /* left: 50%;
-  height: 50px;
-  transform: translate(-50%, 0); */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 5px;
-  // background-color: #264653;
-  color: #fff; 
-  align-self: center;
-  justify-self: flex-end;
-
-  flex-basis: 10%;
 }
 
 @-webkit-keyframes bg-scrolling-reverse {
