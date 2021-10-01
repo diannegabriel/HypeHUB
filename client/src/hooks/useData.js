@@ -153,6 +153,19 @@ export default function useData() {
     });
   }
 
+  
+  //////Need goal type for efficient removeal in state
+  function deleteGoal({ goalId }){
+    console.log(`delete called: ${goalId}`)
+    axios({
+      method: "delete",
+      url: "http://localhost:5000/db/delete-goal",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify({ goalId: goalId}),
+    })
+
+  }
+
   function updateUserStats(data){
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
@@ -208,5 +221,6 @@ export default function useData() {
     createGoal, 
     updateGoalStatus, 
     updateGoal,
+    deleteGoal,
     updateUserStats };
 }
