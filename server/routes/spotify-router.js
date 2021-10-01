@@ -95,6 +95,7 @@ router.get("/transfer-playback", (req, res) => {
 });
 
 router.get("/recs/knowledge", (req, res) => {
+  // console.log("PLZ WORK?!")
   // GENERATE RECOMMENDATIONS FOR KNOWLEDGE THEME
   //do a call to get user's top 50 tracks, - store that in an object/var and sort that and pick 1-3 seed tracks to feed into recommendations? Lol i ended up doing this...
   /* Audio features for knowledge:
@@ -118,6 +119,7 @@ router.get("/recs/knowledge", (req, res) => {
       return threeTracks;
     })
     .then((seedTracks) => {
+
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
       spotifyApi
         .getRecommendations({
@@ -130,6 +132,7 @@ router.get("/recs/knowledge", (req, res) => {
           max_valence: 0.45,
         })
         .then((data) => {
+
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => {
             if (!track) {
