@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-const ObjectId = require("mongodb").ObjectID;
+// const ObjectId = require("mongodb").ObjectID;
 
 //Boolen, cause State to be set on original load.
 let hasFetchedData = false;
@@ -153,18 +153,16 @@ export default function useData() {
     });
   }
 
-
-  function updateUserStats(data){
+  function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
 
-    let attributesToIncrement = []
-    for (const goal of state[goalKey]){
-      if(goal.goalId === data.goalId){
-        attributesToIncrement = goal.goalAttribute
+    let attributesToIncrement = [];
+    for (const goal of state[goalKey]) {
+      if (goal.goalId === data.goalId) {
+        attributesToIncrement = goal.goalAttribute;
       }
     }
-   
 
     const updateData = {
       userId: state.userId,
@@ -175,14 +173,14 @@ export default function useData() {
       Knowledge: state.userKnowledge,
       Social: state.userSocial,
       Willpower: state.userWillpower,
-    }
-    console.log(`attrs to increment: ${attributesToIncrement}`)
+    };
+    console.log(`attrs to increment: ${attributesToIncrement}`);
     //iterate through array and append value to obj w/ current val
-    for (const el  of attributesToIncrement){
+    for (const el of attributesToIncrement) {
       //Format attr as updateData key (capitalize first letter ex. knowledge -> Knowledge)
       const key = el.charAt(0).toUpperCase() + el.slice(1);
       //increment only the attributes associated with the goal
-      updateData[key] += 5
+      updateData[key] += 5;
     }
 
     axios({
@@ -191,7 +189,6 @@ export default function useData() {
       headers: { "content-type": "application/json" },
       data: JSON.stringify(updateData),
     }).then((res) => {
-
       // console.log(res);
 
       //Update state to match db.
@@ -202,8 +199,8 @@ export default function useData() {
         userKnowledge: updateData.Knowledge,
         userSocial: updateData.Social,
         userWillpower: updateData.Willpower,
-      })
-    })
+      });
+    });
   }
 
   return {
@@ -212,5 +209,6 @@ export default function useData() {
     createGoal,
     updateGoalStatus,
     updateGoal,
-    updateUserStats };
+    updateUserStats,
+  };
 }
