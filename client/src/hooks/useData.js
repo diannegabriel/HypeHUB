@@ -185,7 +185,7 @@ export default function useData() {
       [goalKey]: updatedGoalArr,
     });
   }
-
+  
   function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
@@ -199,6 +199,7 @@ export default function useData() {
 
     const updateData = {
       userId: state.userId,
+
       Exp: state.userExp + 10,
       Strength: state.userStrength,
       Vitality: state.userVitality,
@@ -242,6 +243,7 @@ export default function useData() {
     updateGoalStatus,
     updateGoal,
     deleteGoal,
+
     updateUserStats,
   };
 }
