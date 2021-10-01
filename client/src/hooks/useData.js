@@ -48,7 +48,6 @@ export default function useData() {
           missionGoals: all[3].data.goals,
           questGoals: all[4].data.goals,
           quote: all[5].data.quote,
-          theme: null,
         });
       });
     }
@@ -59,12 +58,6 @@ export default function useData() {
       setState({
         quote: res.data.quote,
       });
-    });
-  };
-
-  const setTheme = (attribute) => {
-    setState({
-      theme: attribute,
     });
   };
 
@@ -179,7 +172,6 @@ export default function useData() {
   return {
     state,
     shuffleQuote,
-    setTheme,
     createGoal,
     updateGoalStatus,
     updateGoal,
