@@ -109,7 +109,7 @@ router.get("/genre-seeds", (req, res) => {
   );
 });
 
-router.get("/recs/learn", (req, res) => {
+router.get("/recs/knowledge", (req, res) => {
   // GENERATE RECOMMENDATIONS FOR KNOWLEDGE THEME
   //do a call to get user's top 50 tracks, - store that in an object/var and sort that and pick 1-3 seed tracks to feed into recommendations? Lol i ended up doing this...
   /* Audio features for knowledge:
@@ -149,7 +149,10 @@ router.get("/recs/learn", (req, res) => {
           const tracks = recommendations.map((track) => track.uri);
           // pick random track from recs...can implement adding tracks to playlist as stretch...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          res.json(tracks[randomNum]);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
         });
     })
     .catch((err) =>
@@ -157,7 +160,7 @@ router.get("/recs/learn", (req, res) => {
     );
 });
 
-router.get("/recs/heal", (req, res) => {
+router.get("/recs/vitality", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR VITALITY THEME
    * Acousticness, valence(low-mid), Energy (mid), Danceability(mid), instrumentalness (low-mid)
    * *NOTE*: I tried abstracting the getTopTracks function but it kept returning undefined for the seedTracks... Need to figure out a way to DRY Up this code...
@@ -199,14 +202,17 @@ router.get("/recs/heal", (req, res) => {
           const tracks = recommendations.map((track) => track.uri);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          res.json(tracks[randomNum]);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
         });
     })
     .catch((err) =>
       console.log("❌ Error getting (heal) recomendations ❌", err)
     );
 });
-router.get("/recs/hype", (req, res) => {
+router.get("/recs/strength", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR STRENGTH THEME
    * Audio features to target:
    * Loudness (mid-high), Energy (mid-high), valence(low-mid), Danceability (mid), loudness(mid-high)
@@ -246,14 +252,17 @@ router.get("/recs/hype", (req, res) => {
           const tracks = recommendations.map((track) => track.uri);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          res.json(tracks[randomNum]);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
         });
     })
     .catch((err) =>
       console.log("❌ Error getting (hype) recomendations ❌", err)
     );
 });
-router.get("/recs/party", (req, res) => {
+router.get("/recs/social", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR SOCIAL THEME
    * Audio features to target:
    * Valence (mid-high --feelgood), Danceability (high) //not sure how this works tho...Popularity (min 50 want known bops), Energy (mid-high)
@@ -293,14 +302,17 @@ router.get("/recs/party", (req, res) => {
           const tracks = recommendations.map((track) => track.uri);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          res.json(tracks[randomNum]);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
         });
     })
     .catch((err) =>
       console.log("❌ Error getting (party) recomendations ❌", err)
     );
 });
-router.get("/recs/letsgo", (req, res) => {
+router.get("/recs/willpower", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR WILLPOWER THEME
    * Audio features to target:
    * Valence (mid-high --positive), Energy (mid), Danceability (mid-high)
@@ -340,7 +352,10 @@ router.get("/recs/letsgo", (req, res) => {
           const tracks = recommendations.map((track) => track.uri);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          res.json(tracks[randomNum]);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
         });
     })
     .catch((err) =>
