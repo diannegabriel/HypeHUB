@@ -15,20 +15,23 @@ function App() {
 
   return (
     <>
-    {/* <div className="rpgui-content full-page">
-      <div className="rpgui-container framed full-page"> */}
-
       {!state.userId ? (
         <GamifyLogin />
         ) : (
-          <div className="overall-body">
-          <Header />
-          <Goals
-            dailyGoals={state.dailyGoals}
-            missionGoals={state.missionGoals}
-            questGoals={state.questGoals}
-            />
-          {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
+          <div id="overall-body">
+            <header id='header-container'>
+             <Header />
+            </header>
+            <main id="main-container" className="rpgui-content">
+              <Goals
+                dailyGoals={state.dailyGoals}
+                missionGoals={state.missionGoals}
+                questGoals={state.questGoals}
+                />
+            </main>
+            <footer id='spotify-auth'>
+              {state.token ? <BattleTheme token={state.token} /> : <SpotifyAuth />}
+            </footer>
         </div>
       )}
 

@@ -3,7 +3,7 @@ $bg-height: 50px;
 
 body {
   // background-color: #222;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./components/img/background-gold2.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./components/img/background-gold2.png') repeat 0 0;
 
   // background: url('./components/img/background-gold2.png') repeat 0 0;
   background-clip: padding-box;
@@ -49,8 +49,9 @@ body {
   display: block;
   border: 0px;
   height: 10px;
-  background: url("components/img/hr.png") repeat-x top left, auto !important;
+  background: url("") repeat-x top left, auto !important;
 }
+
 
 a {
   color: inherit;
@@ -67,60 +68,10 @@ h3 {
   margin: 0;
 }
 
-.total-goals {
-  margin-top: 20px;
-  /* padding: 2px 0px 5px 0px; */
-  /* border: 1px solid #bbb; */
-  border-radius: 10px;
-	background: linear-gradient(-45deg, #055b7e, #42a3c9);
-  width: 90%;
-  height: 100px;
-  color: #fff;
-  font-weight: 500;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-}
-
-.login-streak {
-  margin-top: 20px;
-  /* padding: 2px 0px 5px 25px; */
-  /* border: 1px solid #bbb; */
-  border-radius: 10px;
-	background: linear-gradient(-45deg, #ffa856, #fa633d);
-  width: 90%;
-  height: 100px;
-  color: #07374a;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-}
-
-.star-drop {
-  height: 50%;
-}
-
 button {
   border: none;
   outline: none;
   cursor: pointer;
-}
-
-.App {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .clickMe {
@@ -130,16 +81,115 @@ button {
   font-weight: 700;
 }
 
-.full-page {
-  width: 100%;
+// --------------------- FLEXBOX ---------------------
+
+// #overall-body {
+//   background-color: khaki;
+//   display: flex;
+//   flex-direction: column;
+//   // justify-content: space-around;
+
+//   width: 100vw;
+//   height: 100vh;
+// }
+
+// #header-container {
+//   background-color: antiquewhite;
+//   // height: 160px;
+//   // flex-basis: 50%;
+//   flex-basis: 15%;
+//   margin-bottom: 10px;
+// }
+
+// #main-container {
+//   background-color: gray;
+//   flex-basis: 60%;
+
+//   // padding: 5px 20px 10px 20px;
+//   // margin-top: 10px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// #spotify-auth {
+//   // background-color: #264653;
+//   // bottom: 10px;
+//   // position: relative;
+//   // width: 500px;
+//   // left: 50%;
+//   // transform: translate(-50%, 0);
+//   // padding: 5px;
+//   // z-index: 50;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 40%;
+
+//   padding: 5px;
+//   background-color: #264653;
+//   color: #fff; 
+//   align-self: center;
+//   justify-self: flex-end;
+
+//   flex-basis: 10%;
+// }
+
+#overall-body {
+  display: flex;
+  flex-direction: column;
+  /* /* justify-content: center; */
+  /* align-items: center; */
+  width: 100vw;
   height: 100vh;
 }
 
-.overall-body {
-  background-color: khaki;
+#header-container {
+  // background-color: antiquewhite;
+  /* width: 100vw; */
+  /* height: 150px; */
+  flex-basis: 15%;
+  /* flex-grow: 2; */
+  // margin-bottom: 20px;
+}
+
+#main-container {
+  // background-color: gray;
+  flex-basis: 70%;
+  // margin-bottom: 20px;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.goals {
+  /* height: 100%; */
+  // background-color: aqua;
+  padding: 50px;
+  margin: 0px 20px 0px 20px;
+  flex-basis: 30%;
+  /* width: 500px; */
+}
+
+#spotify-auth {
+  /* bottom: 0px; */
+  /* position: fixed; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  /* left: 50%;
+  height: 50px;
+  transform: translate(-50%, 0); */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px;
+  // background-color: #264653;
+  color: #fff; 
+  align-self: center;
+  justify-self: flex-end;
+
+  flex-basis: 10%;
 }
 
 @-webkit-keyframes bg-scrolling-reverse {
