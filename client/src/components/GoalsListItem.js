@@ -25,8 +25,10 @@ export default function GoalsListItem({ goalId, status, title, goalType, goalDes
   };
 
   let statusIcon = "";
+  let completedGoal = "";
   if (status === "complete") {
     statusIcon = <i className="nes-icon star"></i>;
+    completedGoal = <span className="completed-goal"></span>;
   } else if (status === "incomplete") {
     statusIcon = <i className="nes-icon star is-empty"></i>;
   } else if (status === "in progress") {
@@ -40,10 +42,8 @@ export default function GoalsListItem({ goalId, status, title, goalType, goalDes
           {statusIcon}
         </button>
         <p className="goals-title-name tooltip">
-        {/* <img src={complete} className="complete-goal-stroke" /> */}
-          <p className="completed-goal">
             {title}
-            </p>
+            {completedGoal}
           <div class="tooltiptext nes-balloon">
             <p className="tooltip-text-hover">{goalDescription}</p>
           </div>
