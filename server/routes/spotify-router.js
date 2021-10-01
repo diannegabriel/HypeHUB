@@ -112,33 +112,106 @@ router.get("/genre-seeds", (req, res) => {
   );
 });
 
-router.get("/chill", (req, res) => {
-  //do a call to get user's top 50 tracks, - store that in an object/var
+router.get("/recs/learn", (req, res) => {
+  // GENERATE RECOMMENDATIONS FOR KNOWLEDGE THEME
+  //do a call to get user's top 50 tracks, - store that in an object/var and sort that and pick 1-3 seed tracks to feed into recommendations? Lol i ended up doing this...
+  /* Audio features for knowledge:
+   * Energy: low-mid  * Acousticness: max 0.45   * Valence: max 0.45  * Instrumentalness: min 0.55  */
   spotifyApi
     .getMyTopTracks()
     .then((data) => {
-      // console.log(data);
+      //store response object in topTracks...
       let topTracks = data.body.items;
-      res.json({ topTracks });
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 4 seed tracks randomly from topTracks...
+      const fourTracks = [];
+      for (let i = 0; i < 4; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        fourTracks.push(topTracksArr[randomNum]);
+      }
+      return fourTracks;
     })
-    .catch((err) => res.json({ err }));
-  // spotifyApi
-  //   .getRecommendations({
-  //     min_energy: 0.4,
-  //     seed_genres: ["chill", "acoustic", "classical", "jazz"],
-  //     //seed_tracks:
-  //     min_popularity: 50,
-  //     min_valence: 0.3,
-  //   })
-  //   .then(
-  //     function (data) {
-  //       let recommendations = data.body;
-  //       res.json(recommendations);
-  //     },
-  //     function (err) {
-  //       console.log("Something went wrong!", err);
-  //     }
-  //   );
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 10,
+          seed_tracks: seedTracks.join(","),
+          max_energy: 0.45,
+          min_instrumentalness: 0.55,
+          max_acousticness: 0.45,
+          max_valence: 0.45,
+        })
+        .then((data) => {
+          let recommendations = data.body;
+          res.json({ recommendations });
+        });
+    })
+    .catch((err) => console.log("❌ Error getting reccomendations ❌", err));
+});
+
+router.get("/recs/heal", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR VITALITY THEME
+   * Acousticness, valence(low-mid), Energy (mid), Danceability(mid), instrumentalness (low-mid)
+   */
+  spotifyApi
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 4 seed tracks randomly from topTracks...
+      const fourTracks = [];
+      for (let i = 0; i < 4; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        fourTracks.push(topTracksArr[randomNum]);
+      }
+      return fourTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 10,
+          seed_tracks: seedTracks.join(","),
+          max_energy: 0.45,
+          max_danceability: 0.65,
+          min_acousticness: 0.35,
+          max_acousticness: 0.7,
+          max_valence: 0.65,
+        })
+        .then((data) => {
+          let recommendations = data.body;
+          res.json({ recommendations });
+        });
+    })
+    .catch((err) => console.log("❌ Error getting reccomendations ❌", err));
+});
+router.get("/recs/hype", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR STRENGTH THEME
+   * Audio features to target:
+   * Loudness (mid-high), Energy (mid-high), valence(low-mid), Danceability (mid), loudness(mid-high)
+   */
+});
+router.get("/recs/party", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR SOCIAL THEME
+   * Audio features to target:
+   * Valence (mid-high --feelgood), Danceability (high) //not sure how this works tho...Popularity (min 50 want known bops), Energy (mid-high)
+   */
+});
+router.get("/recs/letsgoo", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR WILLPOWER THEME
+   * Audio features to target:
+   * Valence (mid-high --positive), Energy (mid), Danceability (mid-high)
+   */
 });
 
 module.exports = router;
