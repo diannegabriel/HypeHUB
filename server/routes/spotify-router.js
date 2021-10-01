@@ -22,6 +22,8 @@ const generateRandomString = (length) => {
 const scopes = [
     "streaming",
     "user-top-read",
+    "user-library-read",
+    "user-library-modify",
     "user-read-email",
     "user-read-private",
     "user-read-currently-playing",
@@ -71,12 +73,6 @@ router.get("/me", (req, res) => {
   spotifyApi.getMe().then((data) => res.json(data));
 });
 
-router.get("/currently-playing", (req, res) => {
-  spotifyApi.getMyCurrentPlayingTrack().then((data) => {
-    res.json(data.body);
-  });
-});
-
 router.get("/transfer-playback", (req, res) => {
   spotifyApi
     .getMyDevices()
@@ -96,17 +92,6 @@ router.get("/transfer-playback", (req, res) => {
       });
     })
     .catch((err) => res.json({ err }));
-});
-router.get("/genre-seeds", (req, res) => {
-  spotifyApi.getAvailableGenreSeeds().then(
-    function (data) {
-      let genreSeeds = data.body;
-      res.json(genreSeeds);
-    },
-    function (err) {
-      console.log("Error getting genre-seeds", err);
-    }
-  );
 });
 
 router.get("/recs/knowledge", (req, res) => {
@@ -146,13 +131,15 @@ router.get("/recs/knowledge", (req, res) => {
         })
         .then((data) => {
           let recommendations = data.body.tracks;
-          const tracks = recommendations.map((track) => track.uri);
-          // pick random track from recs...can implement adding tracks to playlist as stretch...
-          let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          let trackArr = [];
-          trackArr.push(tracks[randomNum]);
-          console.log(trackArr);
-          res.json(trackArr);
+          const tracks = recommendations.map((track) => {
+            if (!track) {
+              return;
+            }
+            return track.uri;
+          });
+
+          console.log(tracks);
+          res.json(tracks);
         });
     })
     .catch((err) =>
@@ -199,13 +186,15 @@ router.get("/recs/vitality", (req, res) => {
         })
         .then((data) => {
           let recommendations = data.body.tracks;
-          const tracks = recommendations.map((track) => track.uri);
-          // do math.random to pick random track from recs...
-          let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          let trackArr = [];
-          trackArr.push(tracks[randomNum]);
-          console.log(trackArr);
-          res.json(trackArr);
+          const tracks = recommendations.map((track) => {
+            if (!track) {
+              return;
+            }
+            return track.uri;
+          });
+
+          console.log(tracks);
+          res.json(tracks);
         });
     })
     .catch((err) =>
@@ -249,17 +238,19 @@ router.get("/recs/strength", (req, res) => {
         })
         .then((data) => {
           let recommendations = data.body.tracks;
-          const tracks = recommendations.map((track) => track.uri);
-          // do math.random to pick random track from recs...
-          let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          let trackArr = [];
-          trackArr.push(tracks[randomNum]);
-          console.log(trackArr);
-          res.json(trackArr);
+          const tracks = recommendations.map((track) => {
+            if (!track) {
+              return;
+            }
+            return track.uri;
+          });
+
+          console.log(tracks);
+          res.json(tracks);
         });
     })
     .catch((err) =>
-      console.log("❌ Error getting (hype) recomendations ❌", err)
+      console.log("❌ Error getting (strength) recomendations ❌", err)
     );
 });
 router.get("/recs/social", (req, res) => {
@@ -299,13 +290,15 @@ router.get("/recs/social", (req, res) => {
         })
         .then((data) => {
           let recommendations = data.body.tracks;
-          const tracks = recommendations.map((track) => track.uri);
-          // do math.random to pick random track from recs...
-          let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          let trackArr = [];
-          trackArr.push(tracks[randomNum]);
-          console.log(trackArr);
-          res.json(trackArr);
+          const tracks = recommendations.map((track) => {
+            if (!track) {
+              return;
+            }
+            return track.uri;
+          });
+
+          console.log(tracks);
+          res.json(tracks);
         });
     })
     .catch((err) =>
@@ -349,13 +342,15 @@ router.get("/recs/willpower", (req, res) => {
         })
         .then((data) => {
           let recommendations = data.body.tracks;
-          const tracks = recommendations.map((track) => track.uri);
-          // do math.random to pick random track from recs...
-          let randomNum = Math.floor(Math.random() * tracks.length - 1);
-          let trackArr = [];
-          trackArr.push(tracks[randomNum]);
-          console.log(trackArr);
-          res.json(trackArr);
+          const tracks = recommendations.map((track) => {
+            if (!track) {
+              return;
+            }
+            return track.uri;
+          });
+
+          console.log(tracks);
+          res.json(tracks);
         });
     })
     .catch((err) =>
