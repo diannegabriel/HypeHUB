@@ -101,11 +101,10 @@ router.get("/genre-seeds", (req, res) => {
   spotifyApi.getAvailableGenreSeeds().then(
     function (data) {
       let genreSeeds = data.body;
-      console.log(genreSeeds);
       res.json(genreSeeds);
     },
     function (err) {
-      console.log("Something went wrong!", err);
+      console.log("Error getting genre-seeds", err);
     }
   );
 });
@@ -148,7 +147,6 @@ router.get("/recs/learn", (req, res) => {
         .then((data) => {
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => track.uri);
-          console.log(tracks);
           // pick random track from recs...can implement adding tracks to playlist as stretch...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
           res.json(tracks[randomNum]);
@@ -162,10 +160,9 @@ router.get("/recs/learn", (req, res) => {
 router.get("/recs/heal", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR VITALITY THEME
    * Acousticness, valence(low-mid), Energy (mid), Danceability(mid), instrumentalness (low-mid)
-   * *NOTE: I tried abstracting the getTopTracks function but it kept returning undefined for the seedTracks... Need to figure out a way to DRY Up this code...
+   * *NOTE*: I tried abstracting the getTopTracks function but it kept returning undefined for the seedTracks... Need to figure out a way to DRY Up this code...
+   * Potential stretch feature: Generate Playlist for user from recs?
    */
-
-  //Generate Playlist for user from recs?
 
   spotifyApi
     .getMyTopTracks()
@@ -194,14 +191,12 @@ router.get("/recs/heal", (req, res) => {
           max_energy: 0.45,
           max_danceability: 0.55,
           min_acousticness: 0.35,
-          // max_instrumentalness: 0.45,
           max_acousticness: 0.7,
           max_valence: 0.65,
         })
         .then((data) => {
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => track.uri);
-          console.log(tracks);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
           res.json(tracks[randomNum]);
@@ -245,14 +240,10 @@ router.get("/recs/hype", (req, res) => {
           min_danceability: 0.7,
           min_valence: 0.55,
           min_popularity: 58,
-          // max_acousticness: 0.25,
-          // min_speechiness: 0.45,
-          // min_loudness: 0.6,
         })
         .then((data) => {
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => track.uri);
-          console.log(tracks);
           // do math.random to pick random track from recs...
           let randomNum = Math.floor(Math.random() * tracks.length - 1);
           res.json(tracks[randomNum]);
