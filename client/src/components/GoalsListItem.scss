@@ -120,15 +120,15 @@
   text-shadow: none;
   image-rendering: pixelated;
 
-  display: flex;
-  // justify-content: flex-end;
-  align-items: flex-end;
+  // display: flex;
+  // align-items: flex-end;
   margin: 0;
+  width: 50%;
 }
 
 .completed-goal::before { 
   position:absolute; 
   display:block; 
-  content: url('https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/f4288ab17cae33e.png');  
+  content: url('./img/complete-dark.png');  
   image-rendering: pixelated;
 } 
