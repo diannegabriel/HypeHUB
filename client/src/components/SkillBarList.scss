@@ -9,7 +9,7 @@
 }
 
 .skills-bar .bar {
-  margin: 0px 0px 27px 0px;
+  margin: 0px 0px 29px 0px;
 }
 
 .skills-bar .bar .info {
@@ -148,28 +148,31 @@
   border-radius: 3px;
 }
 
-.progress-line .strength::after {
-  content: "80%";
-}
-.progress-line .vitality::after {
-  content: "70%";
-}
-.progress-line .knowledge::after {
-  content: "82%";
-}
-.progress-line .social::after {
-  content: "62%";
-}
-.progress-line .willpower::after {
-  content: "90%";
-}
-
 .rpgui-content {
-
   .skill-attribute-name {
     font-size: 1em;
-  }
+    color: #fff;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 
+    .knowledge-icon {
+      width: 19px;
+      height: 19px;
+    }
+
+    .strength-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .willpower-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .user-progress-line {
