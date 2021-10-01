@@ -39,13 +39,10 @@ export default function GamifyModal(props) {
       <div className='Modal'>
         <div className='rpgui-content'>
           <div className='rpgui-container framed add-goal-modal'>
-            <div className='modal-header'>
-              <h1 className='modal-header-title'>Next Goal</h1>
-              <img
-                src='https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png'
-                className='close-button'
-                onClick={props.handleClose}
-              />
+
+            <div className="modal-header">
+              <h1 class='modal-header-title'>Next Goal</h1>
+              <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png" className="close-button" onClick={props.handleClose} alt=""/>
             </div>
             <hr />
             <label>Goal (Limit of 20 characters):</label>

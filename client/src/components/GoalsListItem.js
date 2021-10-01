@@ -3,6 +3,7 @@ import "./GoalsListItem.scss";
 import GoalUpdate from "./GoalUpdate";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
+import complete from './img/complete-brown.png'
 
 export default function GoalsListItem({
   goalId,
@@ -21,8 +22,12 @@ export default function GoalsListItem({
       status: status,
     });
     //Set points to attr and exp on update from "in progress" to "complete"
-    if (status === "in progress") {
-      updateUserStats({});
+
+    if(status === "in progress"){
+      updateUserStats({
+        goalType: goalType,
+        goalId: goalId,
+      })
     }
   };
 
@@ -41,10 +46,13 @@ export default function GoalsListItem({
         <button onClick={handleStatusClick} className='goals-status-name'>
           {statusIcon}
         </button>
-        <div className='goals-title-name tooltip'>
-          {title}
-          <div class='tooltiptext nes-balloon'>
-            <p className='tooltip-text-hover'>{goalDescription}</p>
+        <p className="goals-title-name tooltip">
+        {/* <img src={complete} className="complete-goal-stroke" /> */}
+          <p className="completed-goal">
+            {title}
+            </p>
+          <div class="tooltiptext nes-balloon">
+            <p className="tooltip-text-hover">{goalDescription}</p>
           </div>
         </div>
 

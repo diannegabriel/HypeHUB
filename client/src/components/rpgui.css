@@ -20,7 +20,8 @@ inside your html file.
   image-rendering: -webkit-crisp-edges;
   image-rendering: -moz-crisp-edges;
   image-rendering: -o-crisp-edges;
-  image-rendering: pixelated; }
+  image-rendering: pixelated; 
+}
 
 /* unselectable text */
 .rpgui-noselect {
@@ -274,7 +275,8 @@ inside your html file.
   background: url("img/background-image.png") repeat repeat;
   background-clip: padding-box;
   background-origin: padding-box;
-  background-position: center; }
+  background-position: center; 
+}
 
 /* game div with golden background image*/
 .rpgui-container.framed-golden {
@@ -355,7 +357,8 @@ label {
 /* this rule is for when you specifically request this cursor class */
 .rpgui-cursor-point,
 .rpgui-cursor-point * {
-  cursor: url("img/cursor/point.png") 10 0, auto !important; }
+  cursor: url("img/cursor/point.png") 10 0, auto !important; 
+}
 
 /* pointer / hand cursor, not important, for all elements that have pointer by-default */
 .rpgui-content a,
@@ -860,7 +863,8 @@ ul.rpgui-list-imp {
 .rpgui-content::-webkit-scrollbar-thumb {
   background-image: url("img/scrollbar-thumb.png");
   background-size: 100% 100%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat; 
+}
 
 /* buttons */
 .rpgui-content ::-webkit-scrollbar-button,
