@@ -132,7 +132,6 @@ router.get("/recs/knowledge", (req, res) => {
           max_valence: 0.45,
         })
         .then((data) => {
-          console.log("------------ -- LETS GO?!")
 
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => {
@@ -145,11 +144,6 @@ router.get("/recs/knowledge", (req, res) => {
           console.log(tracks);
           res.json(tracks);
         });
-        // .catch((err) => {
-        //   console.log("❌ ERROR?!!?!?", err)
-        // })
-
-      // console.log(seedTracks);
     })
     .catch((err) =>
       console.log("❌ Error getting (learn) reccomendations ❌", err)
