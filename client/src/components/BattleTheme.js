@@ -19,8 +19,24 @@ export default function BattleTheme(props) {
     getUri();
   }, [theme]);
   return (
-    <footer id='battle-theme'>
-      <SpotifyPlayer token={token} uris={uri} />
+    <footer id='battle-theme' className='rpgui-container framed'>
+      <SpotifyPlayer
+        autoPlay={true}
+        token={token}
+        uris={uri}
+        play={true}
+        name={"HypeHUB - Battletheme"}
+        showSaveIcon={true}
+        styles={{
+          bgColor: "#4e4a4e",
+          activeColor: "#d27d2c",
+          color: "#fff",
+          loaderColor: "#fff",
+          sliderColor: "#854c30",
+          trackArtistColor: "#ccc",
+          trackNameColor: "#fff",
+        }}
+      />
     </footer>
   );
 }
