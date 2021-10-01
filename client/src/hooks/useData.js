@@ -48,6 +48,7 @@ export default function useData() {
           missionGoals: all[3].data.goals,
           questGoals: all[4].data.goals,
           quote: all[5].data.quote,
+          theme: null,
         });
       });
     }
@@ -58,6 +59,12 @@ export default function useData() {
       setState({
         quote: res.data.quote,
       });
+    });
+  };
+
+  const setTheme = (attribute) => {
+    setState({
+      theme: attribute,
     });
   };
 
@@ -147,14 +154,14 @@ export default function useData() {
     });
   }
 
-  function updateUserStats(data){
+  function updateUserStats(data) {
     const updateData = {
       //data currently blank from goalStatus onClick
       //REMOVE?
       ...data,
       userId: state.userId,
       userExp: state.userExp,
-    }
+    };
     axios({
       method: "put",
       url: "http://localhost:5000/db/update-user-stats",
@@ -162,19 +169,20 @@ export default function useData() {
       data: JSON.stringify(updateData),
     }).then((res) => {
       //Update state here
-      const updatedExp = res.data.update.newData.exp
+      const updatedExp = res.data.update.newData.exp;
       setState({
         userExp: updatedExp,
-      })
-    })
+      });
+    });
   }
 
-  return { 
-    state, 
+  return {
+    state,
     shuffleQuote,
-    createGoal, 
-    updateGoalStatus, 
+    setTheme,
+    createGoal,
+    updateGoalStatus,
     updateGoal,
-    updateUserStats };
-
+    updateUserStats,
+  };
 }
