@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+const ObjectId = require("mongodb").ObjectID;
 
 //Boolen, cause State to be set on original load.
 let hasFetchedData = false;
@@ -43,6 +44,11 @@ export default function useData() {
         setState({
           userId: all[0].data.data.userId,
           userExp: all[0].data.data.userExp,
+          userStrength: all[0].data.data.userStrength,
+          userVitality: all[0].data.data.userVitality,
+          userKnowledge: all[0].data.data.userKnowledge,
+          userSocial: all[0].data.data.userSocial,
+          userWillpower: all[0].data.data.userWillpower,
           token: all[1].data.access_token,
           dailyGoals: all[2].data.goals,
           missionGoals: all[3].data.goals,
@@ -147,26 +153,57 @@ export default function useData() {
     });
   }
 
-  function updateUserStats(data) {
+
+  function updateUserStats(data){
+    //data = {goalId, goalType}
+    const goalKey = `${data.goalType.toLowerCase()}Goals`;
+
+    let attributesToIncrement = []
+    for (const goal of state[goalKey]){
+      if(goal.goalId === data.goalId){
+        attributesToIncrement = goal.goalAttribute
+      }
+    }
+   
+
     const updateData = {
-      //data currently blank from goalStatus onClick
-      //REMOVE?
-      ...data,
       userId: state.userId,
-      userExp: state.userExp,
-    };
+
+      Exp: state.userExp + 10,
+      Strength: state.userStrength,
+      Vitality: state.userVitality,
+      Knowledge: state.userKnowledge,
+      Social: state.userSocial,
+      Willpower: state.userWillpower,
+    }
+    console.log(`attrs to increment: ${attributesToIncrement}`)
+    //iterate through array and append value to obj w/ current val
+    for (const el  of attributesToIncrement){
+      //Format attr as updateData key (capitalize first letter ex. knowledge -> Knowledge)
+      const key = el.charAt(0).toUpperCase() + el.slice(1);
+      //increment only the attributes associated with the goal
+      updateData[key] += 5
+    }
+
     axios({
       method: "put",
       url: "http://localhost:5000/db/update-user-stats",
       headers: { "content-type": "application/json" },
       data: JSON.stringify(updateData),
     }).then((res) => {
-      //Update state here
-      const updatedExp = res.data.update.newData.exp;
+
+      // console.log(res);
+
+      //Update state to match db.
       setState({
-        userExp: updatedExp,
-      });
-    });
+        userExp: updateData.Exp,
+        userStrength: updateData.Strength,
+        userVitality: updateData.Vitality,
+        userKnowledge: updateData.Knowledge,
+        userSocial: updateData.Social,
+        userWillpower: updateData.Willpower,
+      })
+    })
   }
 
   return {
@@ -175,6 +212,5 @@ export default function useData() {
     createGoal,
     updateGoalStatus,
     updateGoal,
-    updateUserStats,
-  };
+    updateUserStats };
 }

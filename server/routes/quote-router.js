@@ -24,10 +24,10 @@ router.get("/", (req, res) => {
   let randomNum = Math.floor(Math.random() * 5);
 
   if (randomNum > 3) {
-    console.log(randomNum);
+    // console.log(randomNum);
     getTrollQuote();
   } else {
-    console.log(randomNum);
+    // console.log(randomNum);
     getRegQuote();
   }
 });
