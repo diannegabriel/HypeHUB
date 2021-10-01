@@ -3,7 +3,6 @@ import "./GoalsListItem.scss";
 import GoalUpdate from "./GoalUpdate";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
-import complete from './img/complete-brown.png'
 
 export default function GoalsListItem({
   goalId,
