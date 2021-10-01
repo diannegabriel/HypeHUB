@@ -22,11 +22,11 @@ export default function GoalsListItem({
     });
     //Set points to attr and exp on update from "in progress" to "complete"
 
-    if(status === "in progress"){
+    if (status === "in progress") {
       updateUserStats({
         goalType: goalType,
         goalId: goalId,
-      })
+      });
     }
   };
 
