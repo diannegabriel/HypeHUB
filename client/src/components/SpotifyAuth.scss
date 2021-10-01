@@ -1,20 +1,30 @@
-#spotify-auth {
-  bottom: 10px;
-  position: relative;
-  width: 500px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding: 5px;
-  // z-index: 50;
+// #spotify-auth {
+//   bottom: 10px;
+//   position: relative;
+//   width: 500px;
+//   left: 50%;
+//   transform: translate(-50%, 0);
+//   padding: 5px;
+//   // z-index: 50;
 
-  .spotify-auth-header {
-    color: #fff; 
-    text-align: center;
-    font-family: 'Tourney', cursive;
-    a > img {
-      margin: 0 5px;
-      height: 30px;
-    }
+//   .spotify-auth-header {
+//     color: #fff; 
+//     text-align: center;
+//     font-family: 'Tourney', cursive;
+//     a > img {
+//       margin: 0 5px;
+//       height: 30px;
+//     }
+//   }
+// }
+
+.spotify-auth-header {
+  color: #fff; 
+  text-align: center;
+  font-family: 'Tourney', cursive;
+  a > img {
+    margin: 0 5px;
+    height: 30px;
   }
 }
 
