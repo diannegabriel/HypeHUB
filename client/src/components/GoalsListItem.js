@@ -3,7 +3,6 @@ import "./GoalsListItem.scss";
 import GoalUpdate from "./GoalUpdate";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
-import complete from "./img/complete-brown.png";
 
 export default function GoalsListItem({
   goalId,
@@ -62,7 +61,11 @@ export default function GoalsListItem({
 
       <Collapse in={open}>
         <div>
-          <GoalUpdate goalId={goalId} reCollapse={setOpen} />
+          <GoalUpdate 
+          goalId={goalId}
+          goalType={goalType}
+          reCollapse={setOpen}
+          />
         </div>
       </Collapse>
     </>
