@@ -78,9 +78,22 @@ export default function useData() {
       (res) => {
         //Update state to match db
         const goalTypeKey = `${res.data.goal.goalType}Goals`;
-        setState({
-          [goalTypeKey]: [...state[goalTypeKey], res.data.goal],
-        });
+        
+        if (state[goalTypeKey].length > 0){
+
+          setState({
+            [goalTypeKey]: [...state[goalTypeKey], res.data.goal],
+          });
+
+          //If there are no existing goals of this tpye:
+        } else if(state[goalTypeKey].length === 0) {
+          setState({
+            [goalTypeKey]: [res.data.goal],
+          });
+
+        } 
+
+
       },
       (err) => {
         console.log(err);
@@ -153,30 +166,38 @@ export default function useData() {
     });
   }
 
-  
-  //////Need goal type for efficient removeal in state
-  function deleteGoal({ goalId }){
-    console.log(`delete called: ${goalId}`)
+  function deleteGoal({ goalId, goalType }) {
     axios({
       method: "delete",
       url: "http://localhost:5000/db/delete-goal",
       headers: { "content-type": "application/json" },
-      data: JSON.stringify({ goalId: goalId}),
+      data: JSON.stringify({ goalId: goalId }),
     })
 
+    const goalKey = `${goalType}Goals`;
+
+    //remove deleted goal from goal array in state and update state with new array.
+    const updatedGoalArr = [...state[goalKey]].filter(goal => goal.goalId !== goalId);
+    
+   console.log(`${JSON.stringify(updatedGoalArr[0])}`)
+    console.log(`=====\n${goalId}`)
+
+    setState({
+      [goalKey]: updatedGoalArr,
+    });
   }
 
-  function updateUserStats(data){
+  function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
 
-    let attributesToIncrement = []
-    for (const goal of state[goalKey]){
-      if(goal.goalId === data.goalId){
-        attributesToIncrement = goal.goalAttribute
+    let attributesToIncrement = [];
+    for (const goal of state[goalKey]) {
+      if (goal.goalId === data.goalId) {
+        attributesToIncrement = goal.goalAttribute;
       }
     }
-   
+
     const updateData = {
       userId: state.userId,
       Exp: state.userExp + 10,
@@ -185,14 +206,14 @@ export default function useData() {
       Knowledge: state.userKnowledge,
       Social: state.userSocial,
       Willpower: state.userWillpower,
-    }
-    console.log(`attrs to increment: ${attributesToIncrement}`)
+    };
+    console.log(`attrs to increment: ${attributesToIncrement}`);
     //iterate through array and append value to obj w/ current val
-    for (const el  of attributesToIncrement){
+    for (const el of attributesToIncrement) {
       //Format attr as updateData key (capitalize first letter ex. knowledge -> Knowledge)
       const key = el.charAt(0).toUpperCase() + el.slice(1);
       //increment only the attributes associated with the goal
-      updateData[key] += 5
+      updateData[key] += 5;
     }
 
     axios({
@@ -211,16 +232,17 @@ export default function useData() {
         userKnowledge: updateData.Knowledge,
         userSocial: updateData.Social,
         userWillpower: updateData.Willpower,
-      })
-    })
+      });
+    });
   }
 
-  return { 
-    state, 
+  return {
+    state,
     shuffleQuote,
-    createGoal, 
-    updateGoalStatus, 
+    createGoal,
+    updateGoalStatus,
     updateGoal,
     deleteGoal,
-    updateUserStats };
+    updateUserStats,
+  };
 }

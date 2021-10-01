@@ -3,7 +3,7 @@ import useData from "./../hooks/useData";
 import "./GoalsListItem.scss";
 
 
-export default function GoalUpdate({ goalId, reCollapse }) {
+export default function GoalUpdate({ goalId, goalType, reCollapse }) {
   //This is for updating the goal name
   const [goal, setGoal] = useState("");
 
@@ -22,7 +22,7 @@ export default function GoalUpdate({ goalId, reCollapse }) {
 
   const handleDeleteClick = (event) => {
     event.preventDefault();
-    deleteGoal({ goalId });
+    deleteGoal({ goalId, goalType });
     //See parent component - this closes "edit mode"
     reCollapse(false)
   };
