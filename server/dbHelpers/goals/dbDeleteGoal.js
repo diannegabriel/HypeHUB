@@ -27,11 +27,9 @@ module.exports = async ({ goalId }) => {
       _id: ObjectId(goalId)
     });
     
-    console.log(goalId)
-    console.log(document)
-    return {
-
-    }
+    // console.log(goalId)
+    // console.log(document)
+    return document;
 
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
