@@ -153,6 +153,7 @@ export default function useData() {
     });
   }
 
+
   function updateUserStats(data){
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
@@ -164,8 +165,10 @@ export default function useData() {
       }
     }
    
+
     const updateData = {
       userId: state.userId,
+
       Exp: state.userExp + 10,
       Strength: state.userStrength,
       Vitality: state.userVitality,
@@ -188,6 +191,7 @@ export default function useData() {
       headers: { "content-type": "application/json" },
       data: JSON.stringify(updateData),
     }).then((res) => {
+
       // console.log(res);
 
       //Update state to match db.
@@ -202,11 +206,11 @@ export default function useData() {
     })
   }
 
-  return { 
-    state, 
+  return {
+    state,
     shuffleQuote,
-    createGoal, 
-    updateGoalStatus, 
+    createGoal,
+    updateGoalStatus,
     updateGoal,
     updateUserStats };
 }
