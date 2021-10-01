@@ -5,7 +5,7 @@ import "./Quotes.scss";
 
 export default function Quotes(props) {
   const [open, setOpen] = useState(false);
-  console.log("quotes props", props);
+  // console.log("quotes props", props);
   let { quote, shuffleQuote } = props;
   return (
     <article id='quotes-bar'>

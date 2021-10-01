@@ -30,7 +30,7 @@ export default function GamifyLogin() {
           <p className="hub">HUB</p>
         </div>
         <div className="body-text">
-          <p className="text">Start your mission?</p>
+          <p className="text">Start your journey?</p>
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
