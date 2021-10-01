@@ -6,6 +6,7 @@ const SelectTheme = (props) => {
   const { token } = props;
   const [theme, setTheme] = useState();
   console.log("selectTheme props", props);
+  console.log("selectTheme theme", theme);
 
   return (
     <>
@@ -19,11 +20,8 @@ const SelectTheme = (props) => {
               <i className='fas fa-brain'></i>
               KNOWLEDGE
             </button>
-            <button className='rpgui-button'>
-              <i
-                className='fas fa-address-book'
-                onClick={() => setTheme("social")}
-              ></i>
+            <button className='rpgui-button' onClick={() => setTheme("social")}>
+              <i className='fas fa-address-book'></i>
               SOCIAL
             </button>
             <button
