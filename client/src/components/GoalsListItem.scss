@@ -129,6 +129,5 @@
 .completed-goal::before { 
   position:absolute; 
   display:block; 
-  content: url('./img/complete-dark.png');  
-  image-rendering: pixelated;
+  content: url('./img/complete-jagged.png');  
 } 
