@@ -15,63 +15,62 @@ export default function Login() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault(); 
+    event.preventDefault();
   }
 
   return (
     <>
-    <div className="demo">
-			<div className="logo">
-				<p className="hype">
-					Hype
-				</p>
-				<p className="hub">
-					HUB
-				</p>
-			</div>
-			<div className="body-text">
-				<p className="text">
-					Start your mission?
-				</p>
-				{/* <i class="icon-navi fas fa-angle-double-down"></i> */}
-        <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-        className="slide-down-arrow"
-      >
-        <i class="icon-navi fas fa-angle-double-down"></i>
-      </Button>
-      <div className="Login">
-        <Collapse in={open}>
-          <Form onSubmit={handleSubmit}>
-            <h3>Login</h3>
-            <Form.Group size="lg" controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                autoFocus
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group size="lg" controlId="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
-              Login
-            </Button>
-            <p>New user?</p>
-          </Form>
-        </Collapse>
+      <div className='demo'>
+        <div className='logo'>
+          <p className='hype'>Hype</p>
+          <p className='hub'>HUB</p>
         </div>
-			</div>
-		</div>
+        <div className='body-text'>
+          <p className='text'>Start your mission?</p>
+          {/* <i className="icon-navi fas fa-angle-double-down"></i> */}
+          <Button
+            onClick={() => setOpen(!open)}
+            aria-controls='example-collapse-text'
+            aria-expanded={open}
+            className='slide-down-arrow'
+          >
+            <i className='icon-navi fas fa-angle-double-down'></i>
+          </Button>
+          <div className='Login'>
+            <Collapse in={open}>
+              <Form onSubmit={handleSubmit}>
+                <h3>Login</h3>
+                <Form.Group size='lg' controlId='email'>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    autoFocus
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group size='lg' controlId='password'>
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
+                <Button
+                  block
+                  size='lg'
+                  type='submit'
+                  disabled={!validateForm()}
+                >
+                  Login
+                </Button>
+                <p>New user?</p>
+              </Form>
+            </Collapse>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
