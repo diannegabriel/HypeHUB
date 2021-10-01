@@ -135,6 +135,13 @@ button {
   height: 100vh;
 }
 
+.overall-body {
+  background-color: khaki;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 @-webkit-keyframes bg-scrolling-reverse {
   100% { background-position: $bg-width $bg-height; }
 }
