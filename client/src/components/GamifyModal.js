@@ -39,6 +39,7 @@ export default function GamifyModal(props) {
       <div className='Modal'>
         <div className='rpgui-content'>
           <div className='rpgui-container framed add-goal-modal'>
+
             <div className="modal-header">
               <h1 class='modal-header-title'>Next Goal</h1>
               <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png" className="close-button" onClick={props.handleClose} alt=""/>
@@ -51,7 +52,7 @@ export default function GamifyModal(props) {
               value={goal}
               autoComplete='off'
               onChange={(e) => setGoal(e.target.value)}
-              maxLength = "20"
+              maxLength='20'
             />
             <br />
             <br />
@@ -69,9 +70,7 @@ export default function GamifyModal(props) {
               name='goal-type'
               data-rpgui='dropdown'
             >
-              <option value='Daily'>
-                Daily Task
-              </option>
+              <option value='Daily'>Daily Task</option>
               <option value='Mission'>Mission</option>
               <option value='Quest'>Quest</option>
             </select>
@@ -118,7 +117,11 @@ export default function GamifyModal(props) {
             <br />
             <br />
             <div className='rpgui-center'>
-              <button className='rpgui-button' type='submit' onClick={props.handleClose}>
+              <button
+                className='rpgui-button'
+                type='submit'
+                onClick={props.handleClose}
+              >
                 <p className='button-text'>Enter</p>
               </button>
             </div>

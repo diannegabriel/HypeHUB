@@ -21,6 +21,7 @@ const generateRandomString = (length) => {
 
 const scopes = [
     "streaming",
+    "user-top-read",
     "user-read-email",
     "user-read-private",
     "user-read-currently-playing",
@@ -37,7 +38,6 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: client_secret,
 });
 const authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
-// console.log(authorizeURL);
 
 //authorize user with scopes
 router.get("/login", (req, res) => {
@@ -92,7 +92,7 @@ router.get("/transfer-playback", (req, res) => {
       console.log(device);
       spotifyApi.transferMyPlayback(device).then(() => {
         console.log("Transfering playback to HypeHubApp on device id:", device);
-        res.json({ device });
+        res.sendStatus(200);
       });
     })
     .catch((err) => res.json({ err }));
@@ -101,34 +101,265 @@ router.get("/genre-seeds", (req, res) => {
   spotifyApi.getAvailableGenreSeeds().then(
     function (data) {
       let genreSeeds = data.body;
-      console.log(genreSeeds);
       res.json(genreSeeds);
     },
     function (err) {
-      console.log("Something went wrong!", err);
+      console.log("Error getting genre-seeds", err);
     }
   );
 });
 
-router.get("/chill", (req, res) => {
-  //do a call to get user's top 50 tracks, - store that in an object/var
-  spotifyApi.getMyTopTracks;
+router.get("/recs/knowledge", (req, res) => {
+  // GENERATE RECOMMENDATIONS FOR KNOWLEDGE THEME
+  //do a call to get user's top 50 tracks, - store that in an object/var and sort that and pick 1-3 seed tracks to feed into recommendations? Lol i ended up doing this...
+  /* Audio features for knowledge:
+   * Energy: low-mid  * Acousticness: max 0.45   * Valence: max 0.45  * Instrumentalness: min 0.55  */
   spotifyApi
-    .getRecommendations({
-      min_energy: 0.4,
-      seed_genres: ["chill", "acoustic", "classical", "jazz"],
-      //seed_tracks:
-      min_popularity: 50,
-      min_valence: 0.3,
-    })
-    .then(
-      function (data) {
-        let recommendations = data.body;
-        res.json(recommendations);
-      },
-      function (err) {
-        console.log("Something went wrong!", err);
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 3 seed tracks randomly from topTracks...
+      const threeTracks = [];
+      for (let i = 0; i < 3; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        threeTracks.push(topTracksArr[randomNum]);
       }
+      return threeTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 15,
+          seed_tracks: seedTracks.join(","),
+          seed_genres: ["classical", "chill"],
+          max_energy: 0.45,
+          min_instrumentalness: 0.55,
+          max_acousticness: 0.45,
+          max_valence: 0.45,
+        })
+        .then((data) => {
+          let recommendations = data.body.tracks;
+          const tracks = recommendations.map((track) => track.uri);
+          // pick random track from recs...can implement adding tracks to playlist as stretch...
+          let randomNum = Math.floor(Math.random() * tracks.length - 1);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
+        });
+    })
+    .catch((err) =>
+      console.log("❌ Error getting (learn) reccomendations ❌", err)
+    );
+});
+
+router.get("/recs/vitality", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR VITALITY THEME
+   * Acousticness, valence(low-mid), Energy (mid), Danceability(mid), instrumentalness (low-mid)
+   * *NOTE*: I tried abstracting the getTopTracks function but it kept returning undefined for the seedTracks... Need to figure out a way to DRY Up this code...
+   * Potential stretch feature: Generate Playlist for user from recs?
+   */
+
+  spotifyApi
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 5 seed tracks randomly from topTracks...
+      const fiveTracks = [];
+      for (let i = 0; i < 5; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        fiveTracks.push(topTracksArr[randomNum]);
+      }
+      return fiveTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 15,
+          seed_tracks: seedTracks.join(","),
+          max_energy: 0.45,
+          max_danceability: 0.55,
+          min_acousticness: 0.35,
+          max_acousticness: 0.7,
+          max_valence: 0.65,
+        })
+        .then((data) => {
+          let recommendations = data.body.tracks;
+          const tracks = recommendations.map((track) => track.uri);
+          // do math.random to pick random track from recs...
+          let randomNum = Math.floor(Math.random() * tracks.length - 1);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
+        });
+    })
+    .catch((err) =>
+      console.log("❌ Error getting (heal) recomendations ❌", err)
+    );
+});
+router.get("/recs/strength", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR STRENGTH THEME
+   * Audio features to target:
+   * Loudness (mid-high), Energy (mid-high), valence(low-mid), Danceability (mid), loudness(mid-high)
+   */
+  spotifyApi
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 4 seed tracks randomly from topTracks...
+      const threeTracks = [];
+      for (let i = 0; i < 3; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        threeTracks.push(topTracksArr[randomNum]);
+      }
+      return threeTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 15,
+          seed_tracks: seedTracks.join(","),
+          seed_genres: ["rock", "hip-hop"],
+          min_energy: 0.75,
+          min_danceability: 0.7,
+          min_valence: 0.55,
+          min_popularity: 58,
+        })
+        .then((data) => {
+          let recommendations = data.body.tracks;
+          const tracks = recommendations.map((track) => track.uri);
+          // do math.random to pick random track from recs...
+          let randomNum = Math.floor(Math.random() * tracks.length - 1);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
+        });
+    })
+    .catch((err) =>
+      console.log("❌ Error getting (hype) recomendations ❌", err)
+    );
+});
+router.get("/recs/social", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR SOCIAL THEME
+   * Audio features to target:
+   * Valence (mid-high --feelgood), Danceability (high) //not sure how this works tho...Popularity (min 50 want known bops), Energy (mid-high)
+   */
+  spotifyApi
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 3 seed tracks randomly from topTracks...
+      const threeTracks = [];
+      for (let i = 0; i < 3; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        threeTracks.push(topTracksArr[randomNum]);
+      }
+      return threeTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 15,
+          seed_tracks: seedTracks.join(","),
+          seed_genres: ["pop", "rock"],
+          min_energy: 0.6,
+          min_danceability: 0.7,
+          min_valence: 0.55,
+          min_popularity: 70,
+        })
+        .then((data) => {
+          let recommendations = data.body.tracks;
+          const tracks = recommendations.map((track) => track.uri);
+          // do math.random to pick random track from recs...
+          let randomNum = Math.floor(Math.random() * tracks.length - 1);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
+        });
+    })
+    .catch((err) =>
+      console.log("❌ Error getting (party) recomendations ❌", err)
+    );
+});
+router.get("/recs/willpower", (req, res) => {
+  /*GENERATE RECOMMENDATIONS FOR WILLPOWER THEME
+   * Audio features to target:
+   * Valence (mid-high --positive), Energy (mid), Danceability (mid-high)
+   */
+  spotifyApi
+    .getMyTopTracks()
+    .then((data) => {
+      //store response object in topTracks...
+      let topTracks = data.body.items;
+      const topTracksArr = [];
+      // retrieve id for topTracks, store in topTracksArr
+      topTracks.map((track) => {
+        topTracksArr.push(track.id);
+      });
+      //get 4 seed tracks randomly from topTracks...
+      const threeTracks = [];
+      for (let i = 0; i < 3; i++) {
+        let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
+        threeTracks.push(topTracksArr[randomNum]);
+      }
+      return threeTracks;
+    })
+    .then((seedTracks) => {
+      // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
+      spotifyApi
+        .getRecommendations({
+          limit: 15,
+          seed_tracks: seedTracks.join(","),
+          seed_genres: ["pop", "funk"],
+          min_energy: 0.5,
+          min_danceability: 0.55,
+          min_valence: 0.67,
+          min_popularity: 60,
+        })
+        .then((data) => {
+          let recommendations = data.body.tracks;
+          const tracks = recommendations.map((track) => track.uri);
+          // do math.random to pick random track from recs...
+          let randomNum = Math.floor(Math.random() * tracks.length - 1);
+          let trackArr = [];
+          trackArr.push(tracks[randomNum]);
+          console.log(trackArr);
+          res.json(trackArr);
+        });
+    })
+    .catch((err) =>
+      console.log("❌ Error getting (letsgo) recomendations ❌", err)
     );
 });
 
