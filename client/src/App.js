@@ -14,7 +14,7 @@ function App() {
   const { state } = useData();
 
   return (
-    <>
+    <div className="overall-body">
     {/* <div className="rpgui-content full-page">
       <div className="rpgui-container framed full-page"> */}
 
@@ -37,7 +37,7 @@ function App() {
       {/* <SelectTheme /> */}
       {/* </div>
     </div> */}
-    </>
+    </div>
   );
 }
 
