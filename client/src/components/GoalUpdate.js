@@ -7,7 +7,7 @@ export default function GoalUpdate({ goalId, reCollapse }) {
   //This is for updating the goal name
   const [goal, setGoal] = useState("");
 
-  const { updateGoal } = useData();
+  const { updateGoal, deleteGoal } = useData();
 
 
   const formEl = useRef(null);
@@ -22,7 +22,7 @@ export default function GoalUpdate({ goalId, reCollapse }) {
 
   const handleDeleteClick = (event) => {
     event.preventDefault();
-    console.log(`delete called`);
+    deleteGoal({ goalId });
     //See parent component - this closes "edit mode"
     reCollapse(false)
   };
