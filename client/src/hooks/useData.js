@@ -141,9 +141,9 @@ export default function useData() {
       const name = res.data.update.goalName;
       const attr = res.data.update.goalAttribute;
       const goalKey = `${res.data.update.goalType.toLowerCase()}Goals`;
-    
+  
       let foundGoal = false;
-////////GOAL TYPE REMAINS THE SAME////////
+      ////////GOAL TYPE REMAINS THE SAME////////
       //Iterate goal type and update state
       for (let i = 0; i < state[goalKey].length; i++) {
         if (state[goalKey][i].goalId === id) {
@@ -158,47 +158,43 @@ export default function useData() {
           });
         }
       }
-////////GOAL TYPE DOES NOT REAMIN THE SAME///////////////
-      if(!foundGoal){
-        const goaltypes = ["dailyGoals", "missionGoals", "questGoals"]
+      ////////GOAL TYPE DOES NOT REAMIN THE SAME///////////////
+      if (!foundGoal) {
+        const goaltypes = ["dailyGoals", "missionGoals", "questGoals"];
         //determine two options that are not goaltype
-        const checkTypes = goaltypes.filter(goalName => goalName !== goalKey);
+        const checkTypes = goaltypes.filter((goalName) => goalName !== goalKey);
 
-
-
-        const findGoal  = (goalType) => {
+/////////////////////MOVE THIS helper
+        const findGoal = (goalType) => {
           for (let i = 0; i < state[goalType].length; i++) {
-            if (state[goalType][i].goalId === id) {       
+            if (state[goalType][i].goalId === id) {
               foundGoal = true;
-              console.log(`found goal: ${foundGoal}\n===\nthe goal to remove is el ${i}`)
-              //Update state REMOVE goal from old goalType list.
-
-              let newGoalArr = [...state[goalType]]
-              //Remove deleted el
-              newGoalArr.splice(i, 1)
-            
-              console.log(`new arr: ${JSON.stringify(newGoalArr)}`)
-
-
+              //REMOVE goal from old goalType list.
+              let oldGoalArr = [...state[goalType]];
+              const removedGoal = oldGoalArr.splice(i, 1)[0];
+           
+              //ADD goal to appropriate goalType list.
+              console.log(`====`, [...state[goalKey]])
+              let newGoalArr = [removedGoal, ...state[goalKey]]
+              console.log(`====`, newGoalArr)
               setState({
-                //Removes goal from old goal type list.
-                [goalType]: newGoalArr
+                //Set state of old goal type list.
+                [goalType]: oldGoalArr,
+                [goalKey]: newGoalArr
               });
-            }  
-          }  
-        }
-        //call helper function to update state pass in each goal type until foundGoal === true
-        ////////
+            }
+          }
+        };
+ 
+
+
+
         // stop iteration when foundGoal === true
-        for(const type of checkTypes){
+        for (const type of checkTypes) {
           findGoal(type);
         }
-
-
         //refactor above???
         //Set state w/ new type
-        
-       
       }
     });
   }
@@ -225,7 +221,7 @@ export default function useData() {
       [goalKey]: updatedGoalArr,
     });
   }
-  
+
   function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
