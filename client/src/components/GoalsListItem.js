@@ -3,7 +3,6 @@ import "./GoalsListItem.scss";
 import GoalUpdate from "./GoalUpdate";
 import useData from "./../hooks/useData";
 import Collapse from "react-bootstrap/Collapse";
-import complete from "./img/complete-brown.png";
 
 export default function GoalsListItem({
   goalId,
@@ -32,12 +31,37 @@ export default function GoalsListItem({
   };
 
   let statusIcon = "";
+  let completedGoal = "";
   if (status === "complete") {
-    statusIcon = <i className='nes-icon star'></i>;
+    statusIcon = <i className="nes-icon star"></i>;
+    completedGoal = 
+    <p className="goals-title-name tooltip" style={{
+      textDecoration: `line-through`, 
+      textDecorationThickness: `3px`, 
+      textDecorationColor: `#383838`}}>
+      {title}
+      <div class="tooltiptext nes-balloon">
+        <p className="tooltip-text-hover">{goalDescription}</p>
+      </div>
+    </p>
   } else if (status === "incomplete") {
     statusIcon = <i className='nes-icon star is-empty'></i>;
+    completedGoal = 
+    <p className="goals-title-name tooltip">
+      {title}
+      <div class="tooltiptext nes-balloon">
+        <p className="tooltip-text-hover">{goalDescription}</p>
+      </div>
+    </p>
   } else if (status === "in progress") {
     statusIcon = <i className='nes-icon star is-half'></i>;
+    completedGoal = 
+    <p className="goals-title-name tooltip">
+      {title}
+      <div class="tooltiptext nes-balloon">
+        <p className="tooltip-text-hover">{goalDescription}</p>
+      </div>
+    </p>
   }
 
   return (
@@ -46,14 +70,7 @@ export default function GoalsListItem({
         <button onClick={handleStatusClick} className='goals-status-name'>
           {statusIcon}
         </button>
-        <p className='goals-title-name tooltip'>
-          {/* <img src={complete} className="complete-goal-stroke" /> */}
-          <p className='completed-goal'>{title}</p>
-          <div class='tooltiptext nes-balloon'>
-            <p className='tooltip-text-hover'>{goalDescription}</p>
-          </div>
-        </p>
-
+          {completedGoal}
         <div
           className='rpgui-icon sword edit-button'
           onClick={() => setOpen(!open)}
@@ -62,7 +79,11 @@ export default function GoalsListItem({
 
       <Collapse in={open}>
         <div>
-          <GoalUpdate goalId={goalId} reCollapse={setOpen} />
+          <GoalUpdate 
+          goalId={goalId}
+          goalType={goalType}
+          reCollapse={setOpen}
+          />
         </div>
       </Collapse>
     </>
