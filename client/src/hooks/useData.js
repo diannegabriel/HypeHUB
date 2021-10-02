@@ -141,15 +141,13 @@ export default function useData() {
       const name = res.data.update.goalName;
       const attr = res.data.update.goalAttribute;
       const goalKey = `${res.data.update.goalType.toLowerCase()}Goals`;
-
-      ///////////////////////////////////////////////////////
-      //ISSUE: Will not be able to update goalType with out//
-      //removing goal from one list and adding to another////
-      ///////////////////////////////////////////////////////
-
-      //Iterate through array of goals based on type.
+    
+      let foundGoal = false;
+////////GOAL TYPE REMAINS THE SAME////////
+      //Iterate goal type and update state
       for (let i = 0; i < state[goalKey].length; i++) {
         if (state[goalKey][i].goalId === id) {
+          foundGoal = true;
           //Update existing state with info returned from db update.
           const updatedGoal = [...state[goalKey]];
           updatedGoal[i].goalName = name;
@@ -159,6 +157,48 @@ export default function useData() {
             goalKey: updatedGoal,
           });
         }
+      }
+////////GOAL TYPE DOES NOT REAMIN THE SAME///////////////
+      if(!foundGoal){
+        const goaltypes = ["dailyGoals", "missionGoals", "questGoals"]
+        //determine two options that are not goaltype
+        const checkTypes = goaltypes.filter(goalName => goalName !== goalKey);
+
+
+
+        const findGoal  = (goalType) => {
+          for (let i = 0; i < state[goalType].length; i++) {
+            if (state[goalType][i].goalId === id) {       
+              foundGoal = true;
+              console.log(`found goal: ${foundGoal}\n===\nthe goal to remove is el ${i}`)
+              //Update state REMOVE goal from old goalType list.
+
+              let newGoalArr = [...state[goalType]]
+              //Remove deleted el
+              newGoalArr.splice(i, 1)
+            
+              console.log(`new arr: ${JSON.stringify(newGoalArr)}`)
+
+
+              setState({
+                //Removes goal from old goal type list.
+                [goalType]: newGoalArr
+              });
+            }  
+          }  
+        }
+        //call helper function to update state pass in each goal type until foundGoal === true
+        ////////
+        // stop iteration when foundGoal === true
+        for(const type of checkTypes){
+          findGoal(type);
+        }
+
+
+        //refactor above???
+        //Set state w/ new type
+        
+       
       }
     });
   }
@@ -243,7 +283,6 @@ export default function useData() {
     updateGoalStatus,
     updateGoal,
     deleteGoal,
-
     updateUserStats,
   };
 }
