@@ -12,6 +12,7 @@ const dbReadGoals = require(".././dbHelpers/goals/dbReadGoals");
 const dbCreateGoal = require("../dbHelpers/goals/dbCreateGoal");
 const dbUpdateGoalStatus = require("../dbHelpers/goals/dbUpdateGoalStatus");
 const dbUpdateGoal = require("../dbHelpers/goals/dbUpdateGoal");
+const dbDeleteGoal = require("../dbHelpers/goals/dbDeleteGoal");
 
 
 router.get("/db-user", (req, res) => {
@@ -82,4 +83,10 @@ router.put("/update-user-stats", (req, res) => {
     res.json({ update });
   });
 });
+
+router.delete("/delete-goal", (req, res)=> {
+  const data = req.body;
+  //Pass goalId to delete func
+  dbDeleteGoal(data);
+})
 module.exports = router;
