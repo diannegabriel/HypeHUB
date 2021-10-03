@@ -42,7 +42,8 @@ export default function useData() {
         axios.get("http://localhost:5000/quote"),
       ]).then((all) => {
         setState({
-          userId: all[0].data.data.userId,
+          //See updateLogin below
+          // userId: all[0].data.data.userId,
           userExp: all[0].data.data.userExp,
           userStrength: all[0].data.data.userStrength,
           userVitality: all[0].data.data.userVitality,
@@ -159,8 +160,7 @@ export default function useData() {
       }
       ////////GOAL TYPE DOES NOT REAMIN THE SAME////////
       if (!foundGoal) {
-
-      //MOVE THIS helper
+        //MOVE THIS helper
         const findGoal = (goalType) => {
           for (let i = 0; i < state[goalType].length; i++) {
             if (state[goalType][i].goalId === id) {
@@ -256,6 +256,15 @@ export default function useData() {
     });
   }
 
+  function updateLogin() {
+    console.log(`hit updateLogin`);
+    const billyId = "614de5c4646237d2b991f65c";
+
+    setState({
+      userId: billyId,
+    });
+  }
+
   return {
     state,
     shuffleQuote,
@@ -264,5 +273,6 @@ export default function useData() {
     updateGoal,
     deleteGoal,
     updateUserStats,
+    updateLogin,
   };
 }
