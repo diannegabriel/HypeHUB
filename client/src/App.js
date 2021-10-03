@@ -20,13 +20,11 @@ function App() {
             <header id='header-container'>
              <Header />
             </header>
-            <main id="main-container" className="rpgui-content">
               <Goals
                 dailyGoals={state.dailyGoals}
                 missionGoals={state.missionGoals}
                 questGoals={state.questGoals}
                 />
-            </main>
             {state.token ? <SelectTheme token={state.token} /> : <SpotifyAuth />}
         </div>
       )}
