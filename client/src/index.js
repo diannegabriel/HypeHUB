@@ -10,8 +10,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path="/" component={GamifyLogin} />
-        <Route exact path="/dashboard" component={App} />
+        <Route exact path="/" component={App} />
+        <Route exact path="/login" component={GamifyLogin} />
       </Switch>
     </Router>
   </React.StrictMode>,
