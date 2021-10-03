@@ -27,7 +27,6 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
 
   const handleEditClick = (event) => {
     event.preventDefault();
-    console.log(`edit called`);
     let updateInformation = {
       goalId,
       goalName: event.target[0].value,
