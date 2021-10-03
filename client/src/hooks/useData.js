@@ -42,7 +42,8 @@ export default function useData() {
         axios.get("http://localhost:5000/quote"),
       ]).then((all) => {
         setState({
-          userId: all[0].data.data.userId,
+          //See updateLogin below
+          // userId: all[0].data.data.userId,
           userExp: all[0].data.data.userExp,
           userStrength: all[0].data.data.userStrength,
           userVitality: all[0].data.data.userVitality,
@@ -141,15 +142,12 @@ export default function useData() {
       const name = res.data.update.goalName;
       const attr = res.data.update.goalAttribute;
       const goalKey = `${res.data.update.goalType.toLowerCase()}Goals`;
+      let foundGoal = false;
 
-      ///////////////////////////////////////////////////////
-      //ISSUE: Will not be able to update goalType with out//
-      //removing goal from one list and adding to another////
-      ///////////////////////////////////////////////////////
-
-      //Iterate through array of goals based on type.
+      ////////GOAL TYPE REMAINS THE SAME////////
       for (let i = 0; i < state[goalKey].length; i++) {
         if (state[goalKey][i].goalId === id) {
+          foundGoal = true;
           //Update existing state with info returned from db update.
           const updatedGoal = [...state[goalKey]];
           updatedGoal[i].goalName = name;
@@ -158,6 +156,33 @@ export default function useData() {
           setState({
             goalKey: updatedGoal,
           });
+        }
+      }
+      ////////GOAL TYPE DOES NOT REAMIN THE SAME////////
+      if (!foundGoal) {
+        //MOVE THIS helper
+        const findGoal = (goalType) => {
+          for (let i = 0; i < state[goalType].length; i++) {
+            if (state[goalType][i].goalId === id) {
+              foundGoal = true;
+              //REMOVE goal from old goalType list.
+              let oldGoalArr = [...state[goalType]];
+              const removedGoal = oldGoalArr.splice(i, 1)[0];
+              //ADD goal to appropriate goalType list.
+              let newGoalArr = [removedGoal, ...state[goalKey]];
+              setState({
+                [goalType]: oldGoalArr,
+                [goalKey]: newGoalArr,
+              });
+            }
+          }
+        };
+
+        const goaltypes = ["dailyGoals", "missionGoals", "questGoals"];
+        //determine two options that are not goaltype
+        const checkTypes = goaltypes.filter((goalName) => goalName !== goalKey);
+        for (const type of checkTypes) {
+          findGoal(type);
         }
       }
     });
@@ -178,14 +203,11 @@ export default function useData() {
       (goal) => goal.goalId !== goalId
     );
 
-    console.log(`${JSON.stringify(updatedGoalArr[0])}`);
-    console.log(`=====\n${goalId}`);
-
     setState({
       [goalKey]: updatedGoalArr,
     });
   }
-  
+
   function updateUserStats(data) {
     //data = {goalId, goalType}
     const goalKey = `${data.goalType.toLowerCase()}Goals`;
@@ -199,7 +221,6 @@ export default function useData() {
 
     const updateData = {
       userId: state.userId,
-
       Exp: state.userExp + 10,
       Strength: state.userStrength,
       Vitality: state.userVitality,
@@ -207,7 +228,6 @@ export default function useData() {
       Social: state.userSocial,
       Willpower: state.userWillpower,
     };
-    console.log(`attrs to increment: ${attributesToIncrement}`);
     //iterate through array and append value to obj w/ current val
     for (const el of attributesToIncrement) {
       //Format attr as updateData key (capitalize first letter ex. knowledge -> Knowledge)
@@ -236,6 +256,15 @@ export default function useData() {
     });
   }
 
+  function updateLogin() {
+    console.log(`hit updateLogin`);
+    const billyId = "614de5c4646237d2b991f65c";
+
+    setState({
+      userId: billyId,
+    });
+  }
+
   return {
     state,
     shuffleQuote,
@@ -243,7 +272,7 @@ export default function useData() {
     updateGoalStatus,
     updateGoal,
     deleteGoal,
-
     updateUserStats,
+    updateLogin,
   };
 }
