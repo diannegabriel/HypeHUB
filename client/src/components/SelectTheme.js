@@ -48,7 +48,7 @@ const SelectTheme = (props) => {
           </div>
         </footer>
       ) : (
-        <BattleTheme theme={theme} token={token} />
+        <BattleTheme theme={theme} token={token} setTheme={setTheme} />
       )}
     </>
   );
