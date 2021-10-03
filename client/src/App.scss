@@ -90,17 +90,9 @@ button {
   /* align-items: center; */
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-#header-container {
-  // background-color: antiquewhite;
-  /* width: 100vw; */
-  /* height: 150px; */
-  flex-basis: 15%;
-  /* flex-grow: 2; */
-  // margin-bottom: 20px;
-  overflow: scroll;
-}
 
 @-webkit-keyframes bg-scrolling-reverse {
   100% { background-position: $bg-width $bg-height; }
