@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
+import useData from "./../hooks/useData";
+
 import "./Login.scss";
 import "./rpgui.css";
 
 export default function GamifyLogin() {
+  const { state, updateLogin } = useData();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
@@ -16,6 +20,7 @@ export default function GamifyLogin() {
       event.preventDefault();
       event.stopPropagation();
     }
+    updateLogin();
   };
 
   const validateForm = () => {
