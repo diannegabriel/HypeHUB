@@ -156,3 +156,9 @@
     width: 50vw;
   }
 }
+
+@media only screen and (max-width: 425px) {
+  #user-bar .user-bar {
+    display:inline-block;
+  }
+}
