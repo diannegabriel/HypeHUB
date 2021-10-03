@@ -119,7 +119,6 @@ router.get("/recs/knowledge", (req, res) => {
       return threeTracks;
     })
     .then((seedTracks) => {
-
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
       spotifyApi
         .getRecommendations({
@@ -132,7 +131,6 @@ router.get("/recs/knowledge", (req, res) => {
           max_valence: 0.45,
         })
         .then((data) => {
-
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => {
             if (!track) {
@@ -285,11 +283,11 @@ router.get("/recs/social", (req, res) => {
         .getRecommendations({
           limit: 15,
           seed_tracks: seedTracks.join(","),
-          seed_genres: ["pop", "rock"],
+          seed_genres: ["pop", "afrobeat"],
           min_energy: 0.6,
-          min_danceability: 0.7,
+          min_danceability: 0.75,
           min_valence: 0.55,
-          min_popularity: 70,
+          // min_popularity: 60,
         })
         .then((data) => {
           let recommendations = data.body.tracks;

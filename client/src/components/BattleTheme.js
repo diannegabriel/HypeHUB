@@ -25,7 +25,7 @@ export default function BattleTheme(props) {
         token={token}
         uris={uri}
         play={true}
-        name={"HypeHUB - Battletheme"}
+        name={"HypeHUB"}
         showSaveIcon={true}
         styles={{
           bgColor: "#4e4a4e",
