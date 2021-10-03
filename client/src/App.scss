@@ -99,6 +99,7 @@ button {
   flex-basis: 15%;
   /* flex-grow: 2; */
   // margin-bottom: 20px;
+  overflow: scroll;
 }
 
 @-webkit-keyframes bg-scrolling-reverse {

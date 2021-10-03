@@ -1,6 +1,7 @@
 #user-bar .user-bar {
   // background-color: rgb(160, 160, 160);
   // height: 135px;
+  flex-basis: 90%;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -152,6 +153,6 @@
 
 @media only screen and (min-width: 1024px) {
   #user-bar .user-bar {
-    width: 40vw;
+    width: 50vw;
   }
 }

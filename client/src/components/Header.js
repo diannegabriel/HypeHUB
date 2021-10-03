@@ -9,17 +9,19 @@ import useData from "../hooks/useData";
 export default function Header() {
   const { state, shuffleQuote } = useData();
   return (
-    // <header id='user-container'>
-    <>
-      <section className='master-header'>
-        <GamifyUser exp={state.userExp} />
-        <Nav />
-        <Quotes quote={state.quote} shuffleQuote={shuffleQuote} />
-      </section>
-
-      <section className='burger'>
+    <header>
+      <section id='header-container'>
+        <article className='master-header'>
+          <GamifyUser exp={state.userExp} />
+          <div className="master-header-buttons">
+            <Nav />
+            <Quotes quote={state.quote} shuffleQuote={shuffleQuote} />
+          </div>
+        </article>
+        <article className='burger'>
         <SidePanel />
+        </article>
       </section>
-   </>
+   </header>
   );
 }
