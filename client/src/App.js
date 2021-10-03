@@ -17,9 +17,7 @@ function App() {
         <GamifyLogin />
         ) : (
           <div id="overall-body">
-            <header id='header-container'>
              <Header />
-            </header>
               <Goals
                 dailyGoals={state.dailyGoals}
                 missionGoals={state.missionGoals}
