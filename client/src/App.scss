@@ -101,24 +101,6 @@ button {
   // margin-bottom: 20px;
 }
 
-#main-container {
-  // background-color: gray;
-  flex-basis: 70%;
-  // margin-bottom: 20px;
-
-  display: flex;
-  justify-content: center;
-}
-
-.goals {
-  /* height: 100%; */
-  // background-color: aqua;
-  padding: 50px;
-  margin: 0px 20px 0px 20px;
-  flex-basis: 30%;
-  /* width: 500px; */
-}
-
 @-webkit-keyframes bg-scrolling-reverse {
   100% { background-position: $bg-width $bg-height; }
 }
