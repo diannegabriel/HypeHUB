@@ -2,7 +2,7 @@
   // background-color: rgb(160, 160, 160);
   // height: 135px;
   flex-basis: 90%;
-  margin: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -154,6 +154,7 @@
 @media only screen and (min-width: 1024px) {
   #user-bar .user-bar {
     width: 50vw;
+    // margin-bottom: 10px;
   }
 }
 
