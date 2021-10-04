@@ -53,7 +53,7 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
           value={goal}
           autoComplete='off'
           onChange={(e) => setGoal(e.target.value)}
-          maxLength="30"
+          maxLength='30'
         />
         <br />
         <br />
@@ -109,21 +109,12 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
         <label>WIL</label>
         <br />
         <br />
-<<<<<<< HEAD
         <div className='rpgui-center'>
           <button className='rpgui-button' type='submit'>
-            <p className='button-text'>E</p>
+            <p className='button-text'>Update</p>
           </button>
           <button className='rpgui-button' onClick={handleDeleteClick}>
-            <p className='button-text'>D</p>
-=======
-        <div className="rpgui-center">
-          <button className="rpgui-button" type="submit">
-            <p className="button-text">Update</p>
-          </button>
-          <button className="rpgui-button" onClick={handleDeleteClick}>
-            <p className="button-text">Delete</p>
->>>>>>> 0d7dbea753f385ae6d07e0c634ca5e8c2de49960
+            <p className='button-text'>Delete</p>
           </button>
         </div>
       </div>
