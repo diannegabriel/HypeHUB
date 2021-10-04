@@ -3,12 +3,14 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
 import useData from "./../hooks/useData";
+import useId from "./../hooks/useId"
 
 import "./Login.scss";
 import "./rpgui.css";
 
 export default function GamifyLogin() {
   const { state, updateLogin } = useData();
+  const { setIdOnLogIn } = useId();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,12 +22,19 @@ export default function GamifyLogin() {
       event.preventDefault();
       event.stopPropagation();
     }
+    //Remove updateLogin after this works???
     updateLogin();
+    //call func to set cookie here
   };
-
+  
   const validateForm = () => {
     return email.length > 0 && password.length > 5;
   };
+  
+  const handleLogIn = () => {
+
+    setIdOnLogIn();
+  }
 
   return (
     <>
@@ -84,6 +93,7 @@ export default function GamifyLogin() {
                         className="rpgui-button"
                         type="submit"
                         disabled={!validateForm()}
+                        onClick={handleLogIn}
                       >
                         <p className="button-text">
                           Submit

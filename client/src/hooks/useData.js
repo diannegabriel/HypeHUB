@@ -257,7 +257,6 @@ export default function useData() {
   }
 
   function updateLogin() {
-    console.log(`hit updateLogin`);
     const billyId = "614de5c4646237d2b991f65c";
 
     setState({
