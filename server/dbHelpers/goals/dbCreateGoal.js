@@ -25,8 +25,9 @@ module.exports = async (dataObj) => {
 
   const dbKey = process.env.DB_KEY;
   const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+//
+  const uri = process.env.MONGO_URI
+  // `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
