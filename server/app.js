@@ -22,5 +22,5 @@ app.use("/db", dbRoutes);
 app.use("/quote", quoteRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Spotify-API app listening on port ${PORT}`);
+  console.log(`HypeHUB server listening on port ${PORT}`);
 });

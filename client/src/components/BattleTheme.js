@@ -4,7 +4,7 @@ import "./BattleTheme.scss";
 import SpotifyPlayer from "react-spotify-web-playback";
 export default function BattleTheme(props) {
   console.log("BattleTheme props", props);
-  const { theme, token } = props;
+  const { setTheme, theme, token } = props;
   const [uri, setUri] = useState([]);
 
   // let uri = extractSpotifyUri(theme);
@@ -27,6 +27,7 @@ export default function BattleTheme(props) {
         play={true}
         name={"HypeHUB - Battletheme"}
         showSaveIcon={true}
+        initialVolume={0.3}
         styles={{
           bgColor: "#4e4a4e",
           activeColor: "#d27d2c",
@@ -37,6 +38,9 @@ export default function BattleTheme(props) {
           trackNameColor: "#fff",
         }}
       />
+      <button className='btn' type='button' onClick={() => setTheme("")}>
+        Choose a different theme
+      </button>
     </footer>
   );
 }
