@@ -71,6 +71,7 @@ export default function GoalsListItem({
           {statusIcon}
         </button>
           {completedGoal}
+          
         <div
           className='rpgui-icon sword edit-button'
           onClick={() => setOpen(!open)}

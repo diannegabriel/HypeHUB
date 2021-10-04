@@ -12,9 +12,10 @@
 
 .new-goal-button {
   background: none;
-
+  
   .exclamation {
     width: 90px;
+    margin-left: -20px;
   }
   
   .new-goal-text {
@@ -30,6 +31,8 @@
     
     .exclamation {
       width: 50px;
+      margin-left: 0;
+
     }
   }
 }

@@ -113,10 +113,10 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
         <br />
         <div className="rpgui-center">
           <button className="rpgui-button" type="submit">
-            <p className="button-text">E</p>
+            <p className="button-text">Update</p>
           </button>
           <button className="rpgui-button" onClick={handleDeleteClick}>
-            <p className="button-text">D</p>
+            <p className="button-text">Delete</p>
           </button>
         </div>
       </div>
