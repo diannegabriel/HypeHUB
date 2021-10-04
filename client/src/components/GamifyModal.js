@@ -6,6 +6,7 @@ import "./Modal.scss";
 export default function GamifyModal(props) {
   const [goal, setGoal] = useState("");
   const formEl = useRef(null);
+  
   //Rename state === lot of changes. Group talk. (App.js, dbCreateGoal.js,useData.js)
   const { state, createGoal } = useData();
 

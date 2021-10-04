@@ -14,7 +14,7 @@ export default function Quotes(props) {
       <div style={{ minHeight: "150px" }}>
         <Collapse in={open} dimension='width'>
           <div id='example-collapse-text'>
-            <Card body style={{ width: "500px" }} className='card-body-quote'>
+            <Card body style={{ width: "450px" }} className='card-body-quote'>
               <div className='nes-balloon quote from-left'>
                 <blockquote>
                   <img
