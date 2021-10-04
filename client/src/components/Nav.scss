@@ -14,14 +14,22 @@
   background: none;
 
   .exclamation {
-    // background-color: transparent;
     width: 90px;
-    // background-color: hsl(0, 0%, 90%);
   }
   
   .new-goal-text {
     font-family: 'Tourney', cursive;
     color: #fff;
     font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .new-goal-button {
+    height: 100px;
+    
+    .exclamation {
+      width: 50px;
+    }
   }
 }

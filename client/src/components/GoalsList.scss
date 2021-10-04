@@ -15,10 +15,23 @@
 
 .goals {
   /* height: 100%; */
-  background-color: aqua;
   padding: 50px;
   margin: 0px 20px 0px 20px;
   flex-basis: 30%;
-  overflow-x: hidden;
-  /* width: 500px; */
+  width: 30%;
+  // width: 500px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .goals {
+    margin-bottom: 30px;
+    width: 90%;
+    // height: 500px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .goals {
+    width: 100%;
+  }
 }
