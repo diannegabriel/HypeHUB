@@ -2,10 +2,7 @@ require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 
 async function dbCreateUser(name, password, email) {
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -37,4 +34,3 @@ async function dbCreateUser(name, password, email) {
 }
 
 module.export = dbCreateUser;
-

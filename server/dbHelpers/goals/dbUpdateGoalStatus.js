@@ -12,11 +12,8 @@ async function updateStatus(prevStatus) {
 
 module.exports = async (data) => {
   //data = { goalId: sdsdf8759876, status: "complete"}
-  console.log(`data in update function: ${data}`);
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
 
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -37,10 +34,10 @@ module.exports = async (data) => {
         //Update status field to passed in value.
         { $set: { status: newStatus } }
       );
-      return {
-        goalId:data.goalId,
-        status: newStatus
-      }
+    return {
+      goalId: data.goalId,
+      status: newStatus,
+    };
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {

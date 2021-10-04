@@ -21,7 +21,7 @@ async function returnData(client, email, password) {
       userVitality = el.attributes.Vitality;
       userKnowledge = el.attributes.Knowledge;
       userSocial = el.attributes.Social;
-      userWillpower = el.attributes. Willpower;
+      userWillpower = el.attributes.Willpower;
     }
   });
   return {
@@ -32,14 +32,11 @@ async function returnData(client, email, password) {
     userKnowledge,
     userSocial,
     userWillpower,
-  }
+  };
 }
 
 module.exports = async (email, password) => {
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,

@@ -27,10 +27,7 @@ async function returnData(client, userId, goalType) {
 }
 
 module.exports = async (userId, goalType) => {
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -41,13 +38,11 @@ module.exports = async (userId, goalType) => {
   try {
     await client.connect();
     //Check password and return id if there is a match
-    goals =  await returnData(client, userId, goalType);
-    return goals
+    goals = await returnData(client, userId, goalType);
+    return goals;
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
     await client.close();
   }
-}
-
-
+};
