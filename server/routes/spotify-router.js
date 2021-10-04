@@ -119,7 +119,6 @@ router.get("/recs/knowledge", (req, res) => {
       return threeTracks;
     })
     .then((seedTracks) => {
-
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
       spotifyApi
         .getRecommendations({
@@ -132,7 +131,6 @@ router.get("/recs/knowledge", (req, res) => {
           max_valence: 0.45,
         })
         .then((data) => {
-
           let recommendations = data.body.tracks;
           const tracks = recommendations.map((track) => {
             if (!track) {
@@ -219,13 +217,13 @@ router.get("/recs/strength", (req, res) => {
       topTracks.map((track) => {
         topTracksArr.push(track.id);
       });
-      //get 4 seed tracks randomly from topTracks...
-      const threeTracks = [];
+      //get seed tracks randomly from topTracks...
+      const seeds = [];
       for (let i = 0; i < 3; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        threeTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return threeTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -234,10 +232,13 @@ router.get("/recs/strength", (req, res) => {
           limit: 15,
           seed_tracks: seedTracks.join(","),
           seed_genres: ["rock", "hip-hop"],
-          min_energy: 0.75,
-          min_danceability: 0.7,
-          min_valence: 0.55,
-          min_popularity: 58,
+          min_energy: 0.7,
+          min_speechiness: 0.2,
+          // target_energy: 0.88,
+          // min_danceability: 0.7,
+          // min_valence: 0.45,
+          // min_tempo: 140,
+          // min_popularity: 58,
         })
         .then((data) => {
           let recommendations = data.body.tracks;
@@ -250,7 +251,10 @@ router.get("/recs/strength", (req, res) => {
 
           console.log(tracks);
           res.json(tracks);
-        });
+        })
+        .catch((err) =>
+          console.log("❌ Error getting (strength) recomendations ❌", err)
+        );
     })
     .catch((err) =>
       console.log("❌ Error getting (strength) recomendations ❌", err)
