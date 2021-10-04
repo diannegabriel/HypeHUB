@@ -2,14 +2,10 @@ require("dotenv").config({ path: "../../.env" });
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectID;
 
-
 module.exports = async ({ goalId }) => {
-// console.log(`goalid from dbdeletegoal: ${goalId}`)
+  // console.log(`goalid from dbdeletegoal: ${goalId}`)
 
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -20,20 +16,18 @@ module.exports = async ({ goalId }) => {
 
   try {
     let document = await client
-    .db("hypeHub")
-    .collection("goals")
-    .deleteOne({
-   
-      _id: ObjectId(goalId)
-    });
-    
+      .db("hypeHub")
+      .collection("goals")
+      .deleteOne({
+        _id: ObjectId(goalId),
+      });
+
     // console.log(goalId)
     // console.log(document)
     return document;
-
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
   } finally {
     await client.close();
   }
-}
+};

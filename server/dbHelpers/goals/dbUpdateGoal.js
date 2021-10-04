@@ -15,10 +15,7 @@ async function filterAttributes(data) {
 module.exports = async (data) => {
   //data = {"goalId":"61545b3ecba9def7d9c11e75","goalName":"ergqer","goalType":"Daily","Strength":false,"Vitality":false,"Knowledge":false,"Social":false,"Willpower":true}
 
-  const dbKey = process.env.DB_KEY;
-  const dbPass = process.env.DB_PASS;
-
-  const uri = `mongodb+srv://${dbKey}:${dbPass}@cluster0.yr6aq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
 
   const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -29,12 +26,11 @@ module.exports = async (data) => {
 
   const newAttributes = await filterAttributes(data);
   try {
-
     const newData = {
       goalName: data.goalName,
       goalType: data.goalType.toLowerCase(),
       goalAttribute: newAttributes,
-    }
+    };
     let document = await client
       .db("hypeHub")
       .collection("goals")
@@ -48,8 +44,8 @@ module.exports = async (data) => {
       );
     return {
       ...newData,
-    goalId: data.goalId,
-    goalType: data.goalType
+      goalId: data.goalId,
+      goalType: data.goalType,
     };
   } catch (err) {
     console.log(`ERROR: \n ${err}`);
