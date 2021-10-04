@@ -1,7 +1,7 @@
 #user-bar .user-bar {
   // background-color: rgb(160, 160, 160);
-  width: 40vw;
   // height: 135px;
+  flex-basis: 90%;
   margin: 10px;
   display: flex;
   flex-direction: row;
@@ -149,4 +149,16 @@
 
 .experience-bar {
   width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  #user-bar .user-bar {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #user-bar .user-bar {
+    display:inline-block;
+  }
 }

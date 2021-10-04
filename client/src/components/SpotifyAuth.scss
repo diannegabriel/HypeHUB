@@ -23,8 +23,13 @@
 
 
 .rpgui-content .spotify-content {
-  
   a {
     color: inherit;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #spotify-auth {
+    width: 80%;
   }
 }
