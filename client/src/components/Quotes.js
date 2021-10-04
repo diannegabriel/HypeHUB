@@ -5,13 +5,11 @@ import "./Quotes.scss";
 
 export default function Quotes(props) {
   const [open, setOpen] = useState(false);
-  // console.log("quotes props", props);
   let { quote, shuffleQuote } = props;
   return (
     <article id='quotes-bar'>
       <button onClick={() => setOpen(!open)} className='new-goal-button'>
-        {/* <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/8be157fc744cf39.png" className="exclamation"/> */}
-        <i className='nes-octocat animate'></i>
+      <i className='nes-octocat familiar animate'></i>
       </button>
       <div style={{ minHeight: "150px" }}>
         <Collapse in={open} dimension='width'>

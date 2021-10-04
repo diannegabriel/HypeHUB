@@ -1,10 +1,25 @@
-// #header-container {
-//   background-color: antiquewhite;
-//   // height: 160px;
-//   // flex-basis: 50%;
-// }
+#header-container {
+  display: flex;
+  flex-direction: row;
+}
 
 .master-header {
   display: flex;
   justify-content: flex-start;
+
+  .master-header-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .master-header {
+    flex-direction: column;
+  }
+  .master-header-buttons {
+    display: flex;
+    height: 100px;
+    margin: 0;
+  }
 }

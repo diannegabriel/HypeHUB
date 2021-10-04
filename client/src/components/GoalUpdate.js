@@ -55,7 +55,7 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
           value={goal}
           autoComplete="off"
           onChange={(e) => setGoal(e.target.value)}
-          maxLength="20"
+          maxLength="30"
         />
         <br />
         <br />
