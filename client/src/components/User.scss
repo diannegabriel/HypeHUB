@@ -1,8 +1,8 @@
 #user-bar .user-bar {
   // background-color: rgb(160, 160, 160);
-  width: 40vw;
   // height: 135px;
-  margin: 10px;
+  flex-basis: 90%;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -149,4 +149,22 @@
 
 .experience-bar {
   width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  #user-bar .user-bar {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  #user-bar .user-bar {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #user-bar .user-bar {
+    display:inline-block;
+  }
 }

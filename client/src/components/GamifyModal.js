@@ -6,6 +6,7 @@ import "./Modal.scss";
 export default function GamifyModal(props) {
   const [goal, setGoal] = useState("");
   const formEl = useRef(null);
+  
   //Rename state === lot of changes. Group talk. (App.js, dbCreateGoal.js,useData.js)
   const { state, createGoal } = useData();
 
@@ -45,14 +46,14 @@ export default function GamifyModal(props) {
               <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/c528c0230281065.png" className="close-button" onClick={props.handleClose} alt=""/>
             </div>
             <hr />
-            <label>Goal (Limit of 20 characters):</label>
+            <label>Goal (Limit of 30 characters):</label>
             <input
               type='text'
               name='goal'
               value={goal}
               autoComplete='off'
               onChange={(e) => setGoal(e.target.value)}
-              maxLength='20'
+              maxLength='30'
             />
             <br />
             <br />
