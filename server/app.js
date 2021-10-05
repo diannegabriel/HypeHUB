@@ -2,11 +2,14 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 
+const bodyParser = require("body-parser");
+
 require("dotenv").config();
 const PORT = 5000;
 const app = express();
 app.use(cors());
 app.use(morgan("dev"));
+app.use(bodyParser.json());
 // app.use(express.json());
 
 //Import all routes from sub directories
@@ -19,5 +22,5 @@ app.use("/db", dbRoutes);
 app.use("/quote", quoteRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Spotify-API app listening on port ${PORT}`);
+  console.log(`HypeHUB server listening on port ${PORT}`);
 });
