@@ -111,12 +111,12 @@ router.get("/recs/knowledge", (req, res) => {
         topTracksArr.push(track.id);
       });
       //get 3 seed tracks randomly from topTracks...
-      const threeTracks = [];
+      const seeds = [];
       for (let i = 0; i < 3; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        threeTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return threeTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -138,13 +138,11 @@ router.get("/recs/knowledge", (req, res) => {
             }
             return track.uri;
           });
-
-          console.log(tracks);
           res.json(tracks);
         });
     })
     .catch((err) =>
-      console.log("❌ Error getting (learn) reccomendations ❌", err)
+      console.log("❌ Error getting (knowledge) reccomendations ❌", err)
     );
 });
 
@@ -166,12 +164,12 @@ router.get("/recs/vitality", (req, res) => {
         topTracksArr.push(track.id);
       });
       //get 5 seed tracks randomly from topTracks...
-      const fiveTracks = [];
+      const seeds = [];
       for (let i = 0; i < 5; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        fiveTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return fiveTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -199,7 +197,7 @@ router.get("/recs/vitality", (req, res) => {
         });
     })
     .catch((err) =>
-      console.log("❌ Error getting (heal) recomendations ❌", err)
+      console.log("❌ Error getting (vitality) recomendations ❌", err)
     );
 });
 router.get("/recs/strength", (req, res) => {
@@ -217,13 +215,13 @@ router.get("/recs/strength", (req, res) => {
       topTracks.map((track) => {
         topTracksArr.push(track.id);
       });
-      //get 4 seed tracks randomly from topTracks...
-      const threeTracks = [];
+      //get 3 seed tracks randomly from topTracks...
+      const seeds = [];
       for (let i = 0; i < 3; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        threeTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return threeTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -232,10 +230,13 @@ router.get("/recs/strength", (req, res) => {
           limit: 15,
           seed_tracks: seedTracks.join(","),
           seed_genres: ["rock", "hip-hop"],
-          min_energy: 0.75,
-          min_danceability: 0.7,
-          min_valence: 0.55,
-          min_popularity: 58,
+          min_energy: 0.7,
+          min_speechiness: 0.2,
+          // target_energy: 0.88,
+          // min_danceability: 0.7,
+          // min_valence: 0.45,
+          // min_tempo: 140,
+          // min_popularity: 58,
         })
         .then((data) => {
           let recommendations = data.body.tracks;
@@ -257,7 +258,7 @@ router.get("/recs/strength", (req, res) => {
 router.get("/recs/social", (req, res) => {
   /*GENERATE RECOMMENDATIONS FOR SOCIAL THEME
    * Audio features to target:
-   * Valence (mid-high --feelgood), Danceability (high) //not sure how this works tho...Popularity (min 50 want known bops), Energy (mid-high)
+   * Valence (mid-high --feelgood), Danceability (high)..Popularity (min 50 want known bops), Energy (mid-high)
    */
   spotifyApi
     .getMyTopTracks()
@@ -270,12 +271,12 @@ router.get("/recs/social", (req, res) => {
         topTracksArr.push(track.id);
       });
       //get 3 seed tracks randomly from topTracks...
-      const threeTracks = [];
+      const seeds = [];
       for (let i = 0; i < 3; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        threeTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return threeTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -283,11 +284,11 @@ router.get("/recs/social", (req, res) => {
         .getRecommendations({
           limit: 15,
           seed_tracks: seedTracks.join(","),
-          seed_genres: ["pop", "afrobeat"],
+          seed_genres: ["pop", "rock"],
           min_energy: 0.6,
-          min_danceability: 0.75,
+          min_danceability: 0.7,
           min_valence: 0.55,
-          // min_popularity: 60,
+          min_popularity: 70,
         })
         .then((data) => {
           let recommendations = data.body.tracks;
@@ -303,7 +304,7 @@ router.get("/recs/social", (req, res) => {
         });
     })
     .catch((err) =>
-      console.log("❌ Error getting (party) recomendations ❌", err)
+      console.log("❌ Error getting (social) recomendations ❌", err)
     );
 });
 router.get("/recs/willpower", (req, res) => {
@@ -321,13 +322,13 @@ router.get("/recs/willpower", (req, res) => {
       topTracks.map((track) => {
         topTracksArr.push(track.id);
       });
-      //get 4 seed tracks randomly from topTracks...
-      const threeTracks = [];
+      //get 3 seed tracks randomly from topTracks...
+      const seeds = [];
       for (let i = 0; i < 3; i++) {
         let randomNum = Math.floor(Math.random() * topTracksArr.length - 1);
-        threeTracks.push(topTracksArr[randomNum]);
+        seeds.push(topTracksArr[randomNum]);
       }
-      return threeTracks;
+      return seeds;
     })
     .then((seedTracks) => {
       // use users seedTracks as data for recommendations. Parameters can be tweaked to increase specificity for theme...
@@ -355,7 +356,7 @@ router.get("/recs/willpower", (req, res) => {
         });
     })
     .catch((err) =>
-      console.log("❌ Error getting (letsgo) recomendations ❌", err)
+      console.log("❌ Error getting (willpower) recomendations ❌", err)
     );
 });
 
