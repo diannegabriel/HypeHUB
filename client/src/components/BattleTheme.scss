@@ -10,13 +10,15 @@
   image-rendering: pixelated;
   z-index: 10;
   font-family: 'Tourney', cursive;
-  width: 500px;
-  // &:active, &:focus, &:hover {
-  //   background-color: transparent;
-  //   // border: none;
-  //   outline: none !important;
-  //   outline-offset: none !important;
-  //   box-shadow: none !important;
-  // }
+  width: 30vw;
+  text-align: center;
+  .btn {
+    font-size: 14px;
+    color: #fff;
+  }
+  .btn:hover {
+    background-color: #d27d2c;
+  }
+  
   
 }

@@ -2,13 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import useData from "./../hooks/useData";
 import "./GoalsListItem.scss";
 
-
 export default function GoalUpdate({ goalId, goalType, reCollapse }) {
   //This is for updating the goal name
   const [goal, setGoal] = useState("");
 
   const { updateGoal, deleteGoal } = useData();
-
 
   const formEl = useRef(null);
   useEffect(() => {
@@ -24,7 +22,7 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
     event.preventDefault();
     deleteGoal({ goalId, goalType });
     //See parent component - this closes "edit mode"
-    reCollapse(false)
+    reCollapse(false);
   };
 
   const handleEditClick = (event) => {
@@ -42,81 +40,81 @@ export default function GoalUpdate({ goalId, goalType, reCollapse }) {
 
     updateGoal(updateInformation);
     //See parent component - this closes "edit mode"
-    reCollapse(false)
+    reCollapse(false);
   };
-  
+
   return (
     <form onSubmit={handleEditClick} ref={formEl}>
-      <div className="rpgui-container framed-grey">
+      <div className='rpgui-container framed-grey'>
         <label>Update Goal:</label>
         <input
-          type="text"
-          name="goal"
+          type='text'
+          name='goal'
           value={goal}
-          autoComplete="off"
+          autoComplete='off'
           onChange={(e) => setGoal(e.target.value)}
-          maxLength="30"
+          maxLength='30'
         />
         <br />
         <br />
         <label>Update the type:</label>
         <select
-          className="rpgui-dropdown"
-          name="goal-type"
-          data-rpgui="dropdown"
+          className='rpgui-dropdown'
+          name='goal-type'
+          data-rpgui='dropdown'
         >
-          <option value="Daily">Daily Task</option>
-          <option value="Mission">Mission</option>
-          <option value="Quest">Quest</option>
+          <option value='Daily'>Daily Task</option>
+          <option value='Mission'>Mission</option>
+          <option value='Quest'>Quest</option>
         </select>
         <input
-          className="rpgui-checkbox golden"
-          type="checkbox"
-          value="1"
-          name="strength"
-          data-rpgui="checkbox"
+          className='rpgui-checkbox golden'
+          type='checkbox'
+          value='1'
+          name='strength'
+          data-rpgui='checkbox'
         />
         <label>STR&nbsp;</label>
         <input
-          className="rpgui-checkbox golden"
-          type="checkbox"
-          value="1"
-          name="vitality"
-          data-rpgui="checkbox"
+          className='rpgui-checkbox golden'
+          type='checkbox'
+          value='1'
+          name='vitality'
+          data-rpgui='checkbox'
         />
         <label>VIT&nbsp;</label>
         <input
-          className="rpgui-checkbox golden"
-          type="checkbox"
-          value="1"
-          name="knowledge"
-          data-rpgui="checkbox"
+          className='rpgui-checkbox golden'
+          type='checkbox'
+          value='1'
+          name='knowledge'
+          data-rpgui='checkbox'
         />
         <label>KNO&nbsp;</label>
         <input
-          className="rpgui-checkbox golden"
-          type="checkbox"
-          value="1"
-          name="social"
-          data-rpgui="checkbox"
+          className='rpgui-checkbox golden'
+          type='checkbox'
+          value='1'
+          name='social'
+          data-rpgui='checkbox'
         />
         <label>SOC&nbsp;</label>
         <input
-          className="rpgui-checkbox golden"
-          type="checkbox"
-          value="1"
-          name="willpower"
-          data-rpgui="checkbox"
+          className='rpgui-checkbox golden'
+          type='checkbox'
+          value='1'
+          name='willpower'
+          data-rpgui='checkbox'
         />
         <label>WIL</label>
         <br />
         <br />
-        <div className="rpgui-center">
-          <button className="rpgui-button" type="submit">
-            <p className="button-text">Update</p>
+        <div className='rpgui-center'>
+          <button className='rpgui-button' type='submit'>
+            <p className='button-text'>Update</p>
           </button>
-          <button className="rpgui-button" onClick={handleDeleteClick}>
-            <p className="button-text">Delete</p>
+          <button className='rpgui-button' onClick={handleDeleteClick}>
+            <p className='button-text'>Delete</p>
           </button>
         </div>
       </div>
