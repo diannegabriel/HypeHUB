@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/HypeHub/static/css/main.f1b3134a.chunk.css",
+    "main.js": "/HypeHub/static/js/main.42c49b37.chunk.js",
+    "main.js.map": "/HypeHub/static/js/main.42c49b37.chunk.js.map",
+    "runtime-main.js": "/HypeHub/static/js/runtime-main.57614262.js",
+    "runtime-main.js.map": "/HypeHub/static/js/runtime-main.57614262.js.map",
+    "static/css/2.f2512455.chunk.css": "/HypeHub/static/css/2.f2512455.chunk.css",
+    "static/js/2.b54103a2.chunk.js": "/HypeHub/static/js/2.b54103a2.chunk.js",
+    "static/js/2.b54103a2.chunk.js.map": "/HypeHub/static/js/2.b54103a2.chunk.js.map",
+    "static/js/3.3e03fb2d.chunk.js": "/HypeHub/static/js/3.3e03fb2d.chunk.js",
+    "static/js/3.3e03fb2d.chunk.js.map": "/HypeHub/static/js/3.3e03fb2d.chunk.js.map",
+    "index.html": "/HypeHub/index.html",
+    "static/css/2.f2512455.chunk.css.map": "/HypeHub/static/css/2.f2512455.chunk.css.map",
+    "static/css/main.f1b3134a.chunk.css.map": "/HypeHub/static/css/main.f1b3134a.chunk.css.map",
+    "static/js/2.b54103a2.chunk.js.LICENSE.txt": "/HypeHub/static/js/2.b54103a2.chunk.js.LICENSE.txt",
+    "static/media/rpgui.css": "/HypeHub/static/media/weapon-slot.74107149.png",
+    "static/media/SidePanel.scss": "/HypeHub/static/media/border-image-grey.2374b131.png",
+    "static/media/App.scss": "/HypeHub/static/media/default.ca598161.png",
+    "static/media/Modal.scss": "/HypeHub/static/media/hr.ee00b33c.png",
+    "static/media/Login.scss": "/HypeHub/static/media/point.da411450.png",
+    "static/media/SkillBarList.scss": "/HypeHub/static/media/progress.f1a68a64.png",
+    "static/media/User.scss": "/HypeHub/static/media/progress-red.e273309e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57614262.js",
+    "static/css/2.f2512455.chunk.css",
+    "static/js/2.b54103a2.chunk.js",
+    "static/css/main.f1b3134a.chunk.css",
+    "static/js/main.42c49b37.chunk.js"
+  ]
+}
