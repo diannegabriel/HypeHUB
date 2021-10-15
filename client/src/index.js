@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals';
 import GamifyLogin from './components/GamifyLogin';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={GamifyLogin} />
-      </Switch>
+    <Router basename="/">
+      <Route exact path="/" component={App} />
+      <Route exact path="/login" component={GamifyLogin} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
