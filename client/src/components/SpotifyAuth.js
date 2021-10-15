@@ -11,7 +11,7 @@ export default function SpotifyAuth() {
               href='http://localhost:5000/login'
               rel='noopener noreferrer'
             >
-              <img src='/spotify-icon-white.png' alt='Spotify Logo' />
+              <img src='/img/spotify-icon-white.png' alt='Spotify Logo' />
               Login with Spotify
             </a>
           </header>
