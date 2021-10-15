@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/HypeHUB/static/css/main.e328644e.chunk.css",
-    "main.js": "/HypeHUB/static/js/main.42c49b37.chunk.js",
-    "main.js.map": "/HypeHUB/static/js/main.42c49b37.chunk.js.map",
+    "main.js": "/HypeHUB/static/js/main.59995bcb.chunk.js",
+    "main.js.map": "/HypeHUB/static/js/main.59995bcb.chunk.js.map",
     "runtime-main.js": "/HypeHUB/static/js/runtime-main.7629e837.js",
     "runtime-main.js.map": "/HypeHUB/static/js/runtime-main.7629e837.js.map",
     "static/css/2.f2512455.chunk.css": "/HypeHUB/static/css/2.f2512455.chunk.css",
-    "static/js/2.b54103a2.chunk.js": "/HypeHUB/static/js/2.b54103a2.chunk.js",
-    "static/js/2.b54103a2.chunk.js.map": "/HypeHUB/static/js/2.b54103a2.chunk.js.map",
+    "static/js/2.63aad03e.chunk.js": "/HypeHUB/static/js/2.63aad03e.chunk.js",
+    "static/js/2.63aad03e.chunk.js.map": "/HypeHUB/static/js/2.63aad03e.chunk.js.map",
     "static/js/3.3e03fb2d.chunk.js": "/HypeHUB/static/js/3.3e03fb2d.chunk.js",
     "static/js/3.3e03fb2d.chunk.js.map": "/HypeHUB/static/js/3.3e03fb2d.chunk.js.map",
     "index.html": "/HypeHUB/index.html",
     "static/css/2.f2512455.chunk.css.map": "/HypeHUB/static/css/2.f2512455.chunk.css.map",
     "static/css/main.e328644e.chunk.css.map": "/HypeHUB/static/css/main.e328644e.chunk.css.map",
-    "static/js/2.b54103a2.chunk.js.LICENSE.txt": "/HypeHUB/static/js/2.b54103a2.chunk.js.LICENSE.txt",
+    "static/js/2.63aad03e.chunk.js.LICENSE.txt": "/HypeHUB/static/js/2.63aad03e.chunk.js.LICENSE.txt",
     "static/media/rpgui.css": "/HypeHUB/static/media/weapon-slot.74107149.png",
     "static/media/SidePanel.scss": "/HypeHUB/static/media/border-image-grey.2374b131.png",
     "static/media/App.scss": "/HypeHUB/static/media/default.ca598161.png",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.7629e837.js",
     "static/css/2.f2512455.chunk.css",
-    "static/js/2.b54103a2.chunk.js",
+    "static/js/2.63aad03e.chunk.js",
     "static/css/main.e328644e.chunk.css",
-    "static/js/main.42c49b37.chunk.js"
+    "static/js/main.59995bcb.chunk.js"
   ]
 }
