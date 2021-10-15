@@ -25,3 +25,9 @@ Users who are familiar with the gaming perspective, bored with the monotonous ta
 
 #### Dashboard
 !["Dashboard"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/02_user_page.png)
+
+This is the Dashboard / User Page. It's made up of three major components:
+
+##### Header
+##### Goals
+##### Battle Theme
