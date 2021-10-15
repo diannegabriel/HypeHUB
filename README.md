@@ -39,7 +39,7 @@ Dashboard is made up of three major components:
 !["Header"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/03_header.png)
 User information: avatar, username, level, experience\
 Plus button: modal to create a new goal\
-Familiar system: click the cat so it can motivate you or troll you
+Familiar system: click the cat so it can motivate you or troll you\
 Burger stack: skill attributes
 
 ##### Goals
@@ -47,7 +47,7 @@ Burger stack: skill attributes
 Daily: everyday habits\
 Mission: short-term goals or to-do's\
 Quest: long-term goals\
-Star progress: complete, in-progress, unfinished
+Star progress: complete, in-progress, unfinished\
 Sword icon: used for updating or deleting a specific goal
 
 
