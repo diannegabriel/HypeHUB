@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/HypeHUB/static/css/main.e328644e.chunk.css",
-    "main.js": "/HypeHUB/static/js/main.2e88e834.chunk.js",
-    "main.js.map": "/HypeHUB/static/js/main.2e88e834.chunk.js.map",
+    "main.js": "/HypeHUB/static/js/main.2ef15420.chunk.js",
+    "main.js.map": "/HypeHUB/static/js/main.2ef15420.chunk.js.map",
     "runtime-main.js": "/HypeHUB/static/js/runtime-main.7629e837.js",
     "runtime-main.js.map": "/HypeHUB/static/js/runtime-main.7629e837.js.map",
     "static/css/2.f2512455.chunk.css": "/HypeHUB/static/css/2.f2512455.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.f2512455.chunk.css",
     "static/js/2.63aad03e.chunk.js",
     "static/css/main.e328644e.chunk.css",
-    "static/js/main.2e88e834.chunk.js"
+    "static/js/main.2ef15420.chunk.js"
   ]
 }
