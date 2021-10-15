@@ -18,37 +18,37 @@ const SelectTheme = (props) => {
               onClick={() => setTheme("knowledge")}
             >
               <i className='fas fa-brain'></i>
-              KNOWLEDGE
+              Knowledge
             </button>
             <button className='rpgui-button' onClick={() => setTheme("social")}>
               <i className='fas fa-address-book'></i>
-              SOCIAL
+              Social
             </button>
             <button
               className='rpgui-button'
               onClick={() => setTheme("strength")}
             >
               <i className='fas fa-dumbbell'></i>
-              STRENGTH
+              Strength
             </button>
             <button
               className='rpgui-button'
               onClick={() => setTheme("vitality")}
             >
               <i className='fas fa-heartbeat'></i>
-              VITALITY
+              Vitality
             </button>
             <button
               className='rpgui-button'
               onClick={() => setTheme("willpower")}
             >
               <i className='fas fa-fist-raised'></i>
-              WILLPOWER
+              Willpower
             </button>
           </div>
         </footer>
       ) : (
-        <BattleTheme theme={theme} token={token} />
+        <BattleTheme theme={theme} token={token} setTheme={setTheme} />
       )}
     </>
   );
