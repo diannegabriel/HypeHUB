@@ -2,6 +2,13 @@
 
 This is a bootcamp final project turned passion project. Made by Dianne, Gloria, and Michael.
 
+## Tech Stack
+
+Front End: React.JS, Bootstrap, SASS, RPGUI, NES.CSS
+Back End: Node.JS, Express.JS
+Database: MongoDB
+APIs: Spotify, Zen Quotes
+
 ## What is HypeHUB?
 
 HypeHUB is a gamified task management SPA that focuses on self-improvement and goal orientation.
@@ -36,3 +43,4 @@ Dashboard is made up of three major components:
 
 ##### Battle Theme
 !["Battle Theme"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/05_battle_theme.png)
+
