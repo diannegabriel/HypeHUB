@@ -18,7 +18,10 @@ Users who are familiar with the gaming perspective, bored with the monotonous ta
 ### Features
 
 #### Landing Page
+!["Landing Page"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/00_landing_page.png)
 
 #### Login within Landing Page
+!["Login with Landing Page"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/01_landing_login.png)
 
 #### Dashboard
+!["Dashboard"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/02_user_page.png)
