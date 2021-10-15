@@ -4,9 +4,9 @@ This is a bootcamp final project turned passion project. Made by Dianne, Gloria,
 
 ## Tech Stack
 
-Front End: React.JS, Bootstrap, SASS, RPGUI, NES.CSS
-Back End: Node.JS, Express.JS
-Database: MongoDB
+Front End: React.JS, Bootstrap, SASS, RPGUI, NES.CSS\
+Back End: Node.JS, Express.JS\
+Database: MongoDB\
 APIs: Spotify, Zen Quotes
 
 ## What is HypeHUB?
