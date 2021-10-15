@@ -2,7 +2,7 @@
 
 This is a LHL bootcamp final project turned passion project. Made by Dianne, Gloria, and Michael. This app follows a RESTful behaviour.
 
-Live Demo: https://diannegabriel.github.io/HypeHUB/
+Sample Demo (under development): https://diannegabriel.github.io/HypeHUB/
 
 ## Tech Stack
 
