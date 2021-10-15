@@ -1,6 +1,6 @@
 # Welcome To HypeHUB!
 
-This is a bootcamp final project turned passion project. Made by Dianne, Gloria, and Michael.
+This is a LHL bootcamp final project turned passion project. Made by Dianne, Gloria, and Michael. This app follows a RESTful behaviour.
 
 ## Tech Stack
 
@@ -37,10 +37,21 @@ Dashboard is made up of three major components:
 
 ##### Header
 !["Header"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/03_header.png)
+User information: avatar, username, level, experience\
+Plus button: modal to create a new goal\
+Familiar system: click the cat so it can motivate you or troll you
+Burger stack: skill attributes
 
 ##### Goals
 !["Goals"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/04_goals.png)
+Daily: everyday habits\
+Mission: short-term goals or to-do's\
+Quest: long-term goals\
+Star progress: complete, in-progress, unfinished
+Sword icon: used for updating or deleting a specific goal
+
 
 ##### Battle Theme
 !["Battle Theme"](https://github.com/diannegabriel/HypeHUB/blob/master/docs/05_battle_theme.png)
+Battle theme: connect your spotify with our app and listen to songs that could motivate you!
 
