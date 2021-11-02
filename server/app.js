@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-// app.use(express.json());
 
 //Import all routes from sub directories
 const spotifyRoutes = require("./routes/spotify-router");
@@ -21,6 +20,6 @@ app.use("/", spotifyRoutes);
 app.use("/db", dbRoutes);
 app.use("/quote", quoteRoutes);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`HypeHUB server listening on port ${PORT}`);
 });
